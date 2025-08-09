@@ -1,5 +1,6 @@
 <img src="images/logo.jpg" alt="Logo" width="1000">
-
+# shhArc
+shhArc: a scripted agent engine
 <!--
 **shhArc/shhArc** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
