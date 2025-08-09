@@ -1,4 +1,4 @@
-## Hi there 👋
+<img src="images/logo.png" alt="Logo" width="200">
 
 <!--
 **shhArc/shhArc** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
