@@ -72,19 +72,19 @@ namespace shh {
 		template< typename C, typename F >
 		static inline void RegisterMemberFunction(const C* ownerExampe, const ::std::string& functionName, F *f, unsigned int firstReturnArg, const GCPtr<Module>& module);
 
-		static unsigned int CreateCollection(const GCPtr<Whole>& w, std::string& collectionName);
-		static void DestroyCollection(const GCPtr<Whole>& w, std::string& collectionName);
-		static void DestroyCollection(const GCPtr<Whole>& w, unsigned int& collectionId);
-		static void DestroyPart(const GCPtr<Whole>& w, std::string& collectionName, std::string& partName);
-		static void DestroyPart(const GCPtr<Whole>& w, std::string& collectionName, unsigned int& partId);
-		static void DestroyPart(const GCPtr<Whole>& w, unsigned int& collectionId, std::string& partName);
-		static void DestroyPart(const GCPtr<Whole>& w, unsigned int& collectionId, unsigned int& partId);
-		static unsigned int AddPart(const GCPtr<Whole>& w, std::string& collectionName, std::string name, GCPtr<GCObject> object);	
-		static unsigned int AddPart(const GCPtr<Whole>& w, unsigned int collectionId, std::string name, GCPtr<GCObject> object);
-		static bool GetPart(const GCPtr<Whole>& w, std::string& collectionName, unsigned int id, GCPtr<GCObject>& obj);
-		static bool GetPart(const GCPtr<Whole>& w, std::string& collectionName, std::string name, GCPtr<GCObject>& obj);
-		static bool GetPart(const GCPtr<Whole>& w, unsigned int collectionId, unsigned int id, GCPtr<GCObject>& obj);
-		static bool GetPart(const GCPtr<Whole>& w, unsigned int collectionId, std::string name, GCPtr<GCObject>& obj);
+		static inline unsigned int CreateCollection(const GCPtr<Whole>& w, std::string& collectionName);
+		static inline void DestroyCollection(const GCPtr<Whole>& w, std::string& collectionName);
+		static inline void DestroyCollection(const GCPtr<Whole>& w, unsigned int& collectionId);
+		static inline unsigned int AddPart(const GCPtr<Whole>& w, std::string& collectionName, std::string name, GCPtr<GCObject> object);
+		static inline unsigned int AddPart(const GCPtr<Whole>& w, unsigned int collectionId, std::string name, GCPtr<GCObject> object);
+		static inline bool GetPart(const GCPtr<Whole>& w, std::string& collectionName, unsigned int id, GCPtr<GCObject>& obj);
+		static inline bool GetPart(const GCPtr<Whole>& w, std::string& collectionName, std::string name, GCPtr<GCObject>& obj);
+		static inline bool GetPart(const GCPtr<Whole>& w, unsigned int collectionId, unsigned int id, GCPtr<GCObject>& obj);
+		static inline bool GetPart(const GCPtr<Whole>& w, unsigned int collectionId, std::string name, GCPtr<GCObject>& obj);
+		static inline void DestroyPart(const GCPtr<Whole>& w, std::string& collectionName, std::string& partName);
+		static inline void DestroyPart(const GCPtr<Whole>& w, std::string& collectionName, unsigned int& partId);
+		static inline void DestroyPart(const GCPtr<Whole>& w, unsigned int& collectionId, std::string& partName);
+		static inline void DestroyPart(const GCPtr<Whole>& w, unsigned int& collectionId, unsigned int& partId);
 
 		static inline void LuaRegisterFunction(const std::string& name, LuaCFunction fn, void* data = NULL, LuaTypeId dataType = 0);
 		static void LuaThrowScriptError(const char* format, ...);
@@ -129,6 +129,164 @@ namespace shh {
 	{ 
 		God::GetGod()->Update(until);	
 	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	CreateCollection
+	// Description:	Creates a new collection to store parts in.
+	// Arguments:	whole (e.g Agent) , collection_name
+	// Returns:		id
+	// --------------------------------------------------------------------------
+	unsigned int Api::CreateCollection(const GCPtr<Whole>& w, std::string& collectionName)
+	{
+		GCPtr<Collection> c;
+		return w->CreateCollection(collectionName, c);
+	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	DestroyCollection
+	// Description:	Destroys a collection and all its parts.
+	// Arguments:	whole (e.g Agent) , collection_name
+	// Returns:		none
+	// --------------------------------------------------------------------------
+	void Api::DestroyCollection(const GCPtr<Whole>& w, std::string& collectionName)
+	{
+		w->DestroyCollection(collectionName);
+	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	DestroyCollection
+	// Description:	Destroys a collection and all its parts.
+	// Arguments:	whole (e.g Agent) , collection_id
+	// Returns:		none
+	// --------------------------------------------------------------------------
+	void Api::DestroyCollection(const GCPtr<Whole>& w, unsigned int& collectionId)
+	{
+		w->DestroyCollection(collectionId);
+	}
+	// --------------------------------------------------------------------------						
+	// Function:	AddPart
+	// Description:	add part
+	// Arguments:	whole (e.g Agent) ,collection name, part name, part
+	// Returns:		id or -1 if collection doesnt exist
+	// --------------------------------------------------------------------------
+	unsigned int Api::AddPart(const GCPtr<Whole>& w, std::string& collectionName, std::string name, GCPtr<GCObject> object)
+	{
+		return w->AddPart(collectionName, name, object);
+	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	AddPart
+	// Description:	add part
+	// Arguments:	whole (e.g Agent) ,collection id, part name, part
+	// Returns:		id or -1 if collection doesnt exist
+	// --------------------------------------------------------------------------
+	unsigned int Api::AddPart(const GCPtr<Whole>& w, unsigned int collectionId, std::string name, GCPtr<GCObject> object)
+	{
+		return w->AddPart(collectionId, name, object);
+	}
+
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	GetPart
+	// Description:	get part
+	// Arguments:	whole (e.g Agent) ,collection name, part id, part
+	// Returns:		if got
+	// --------------------------------------------------------------------------
+	bool Api::GetPart(const GCPtr<Whole>& w, std::string& collectionName, unsigned int id, GCPtr<GCObject>& obj)
+	{
+		return w->GetPart(collectionName, id, obj);
+
+	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	GetPart
+	// Description:	get part
+	// Arguments:	whole (e.g Agent) ,collection name, part name, part
+	// Returns:		if got
+	// --------------------------------------------------------------------------
+	bool Api::GetPart(const GCPtr<Whole>& w, std::string& collectionName, std::string name, GCPtr<GCObject>& obj)
+	{
+		return w->GetPart(collectionName, name, obj);
+	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	GetPart
+	// Description:	get part
+	// Arguments:	whole (e.g Agent) ,collection id, part id, part
+	// Returns:		if got
+	// --------------------------------------------------------------------------
+	bool Api::GetPart(const GCPtr<Whole>& w, unsigned int collectionId, unsigned int id, GCPtr<GCObject>& obj)
+	{
+		return w->GetPart(collectionId, id, obj);
+	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	GetPart
+	// Description:	get part
+	// Arguments:	collection id, part name, part
+	// Returns:		if got
+	// --------------------------------------------------------------------------
+	bool Api::GetPart(const GCPtr<Whole>& w, unsigned int collectionId, std::string name, GCPtr<GCObject>& obj)
+	{
+		return w->GetPart(collectionId, name, obj);
+	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	DestoryPart
+	// Description:	Destroys a part.
+	// Arguments:	whole (e.g Agent) , collection name, part name
+	// Returns:		none
+	// --------------------------------------------------------------------------
+	inline void Api::DestroyPart(const GCPtr<Whole>& w, std::string& collectionName, std::string& partName)
+	{
+		w->DestroyPart(collectionName, partName);
+	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	DestoryPart
+	// Description:	Destroys a part.
+	// Arguments:	whole (e.g Agent) , collection name, part Id
+	// Returns:		none
+	// --------------------------------------------------------------------------
+	inline void Api::DestroyPart(const GCPtr<Whole>& w, std::string& collectionName, unsigned int& partId)
+	{
+		w->DestroyPart(collectionName, partId);
+	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	DestoryPart
+	// Description:	Destroys a part.
+	// Arguments:	whole (e.g Agent) , collection id, part name
+	// Returns:		none
+	// --------------------------------------------------------------------------
+	inline void Api::DestroyPart(const GCPtr<Whole>& w, unsigned int& collectionId, std::string& partName)
+	{
+		w->DestroyPart(collectionId, partName);
+	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	DestoryPart
+	// Description:	Destroys a part.
+	// Arguments:	whole (e.g Agent) , collection name, part id
+	// Returns:		none
+	// --------------------------------------------------------------------------
+	inline void Api::DestroyPart(const GCPtr<Whole>& w, unsigned int& collectionId, unsigned int& partId)
+	{
+		w->DestroyPart(collectionId, partId);
+	}
+
 
 
 	// --------------------------------------------------------------------------						

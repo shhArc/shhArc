@@ -120,10 +120,7 @@ namespace shh {
 		Whole* w = Whole::GetActiveWhole();
 		if (!w)
 			return ExecutionFailed;
-		GCPtr<Collection> c;
-		w->GetCollection(collectionName, c);
-		if(c.IsValid())
-			c->Destroy(partName);
+		w->DestroyPart(collectionName, partName);
 
 		return ExecutionOk;
 	}
@@ -133,10 +130,7 @@ namespace shh {
 		Whole* w = Whole::GetActiveWhole();
 		if (!w)
 			return ExecutionFailed;
-		GCPtr<Collection> c;
-		w->GetCollection(collectionName, c);
-		if (c.IsValid())
-			c->Destroy(partId);
+		w->DestroyPart(collectionName,partId);
 		return ExecutionOk;
 	}
 
@@ -145,10 +139,7 @@ namespace shh {
 		Whole* w = Whole::GetActiveWhole();
 		if (!w)
 			return ExecutionFailed;
-		GCPtr<Collection> c;
-		w->GetCollection(collectionId, c);
-		if (c.IsValid())
-			c->Destroy(partName);
+		w->DestroyPart(collectionId, partName);
 		return ExecutionOk;
 	}
 
@@ -157,10 +148,7 @@ namespace shh {
 		Whole* w = Whole::GetActiveWhole();
 		if (!w)
 			return ExecutionFailed;
-		GCPtr<Collection> c;
-		w->GetCollection(collectionId, c);
-		if (c.IsValid())
-			c->Destroy(partId);
+		w->DestroyPart(collectionId, partId);
 
 		return ExecutionOk;
 	}

@@ -93,6 +93,32 @@ namespace shh {
 
 
 
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	DestroyCollection
+	// Description:	destroys collection and all parts
+	// Arguments:	collection name
+	// Returns:		none
+	// --------------------------------------------------------------------------
+	void Whole::DestroyCollection(const std::string& collectionName)
+	{
+		myCollections.Destroy(collectionName);
+	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	DestroyCollection
+	// Description:	destroys collection and all parts
+	// Arguments:	collection di
+	// Returns:		none
+	// --------------------------------------------------------------------------
+	void Whole::DestroyCollection(unsigned int collectionId)
+	{
+		myCollections.Destroy(collectionId);
+	}
+
+
 	// --------------------------------------------------------------------------						
 	// Function:	AddPart
 	// Description:	add part
@@ -213,28 +239,59 @@ namespace shh {
 
 
 	// --------------------------------------------------------------------------						
-	// Function:	DestroyCollection
-	// Description:	destroys collection and all parts
-	// Arguments:	collection name
+	// Function:	DestoryPart
+	// Description:	Destroys a part.
+	// Arguments:	collection name, part name
 	// Returns:		none
 	// --------------------------------------------------------------------------
-	void Whole::DestroyCollection(const std::string& collectionName)
+	void Whole::DestroyPart(std::string& collectionName, std::string& partName)
 	{
-		myCollections.Destroy(collectionName);
+		GCPtr<Collection> c;
+		if (GetCollection(collectionName, c))
+			c->Destroy(partName);
 	}
 
 
 	// --------------------------------------------------------------------------						
-	// Function:	DestroyCollection
-	// Description:	destroys collection and all parts
-	// Arguments:	collection di
+	// Function:	DestoryPart
+	// Description:	Destroys a part.
+	// Arguments:	collection name, part Id
 	// Returns:		none
 	// --------------------------------------------------------------------------
-	void Whole::DestroyCollection(unsigned int collectionId)
+	void Whole::DestroyPart(std::string& collectionName, unsigned int& partId)
 	{
-		myCollections.Destroy(collectionId);
+		GCPtr<Collection> c;
+		if (GetCollection(collectionName, c))
+			c->Destroy(partId);
 	}
 
+
+	// --------------------------------------------------------------------------						
+	// Function:	DestoryPart
+	// Description:	Destroys a part.
+	// Arguments:	collection id, part name
+	// Returns:		none
+	// --------------------------------------------------------------------------
+	void Whole::DestroyPart(unsigned int& collectionId, std::string& partName)
+	{
+		GCPtr<Collection> c;
+		if (GetCollection(collectionId, c))
+			c->Destroy(partName);
+	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	DestoryPart
+	// Description:	Destroys a part.
+	// Arguments:	collection name, part id
+	// Returns:		none
+	// --------------------------------------------------------------------------
+	void Whole::DestroyPart(unsigned int& collectionId, unsigned int& partId)
+	{
+		GCPtr<Collection> c;
+		if (GetCollection(collectionId, c))
+			c->Destroy(partId);
+	}
 
 	// --------------------------------------------------------------------------						
 	// Function:	GetActiveWhole
