@@ -1,0 +1,1 @@
+-- DummyNode Specializes Node Abstract

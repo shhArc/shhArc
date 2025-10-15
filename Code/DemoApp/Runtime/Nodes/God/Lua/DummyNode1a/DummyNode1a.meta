@@ -1,0 +1,22 @@
+{
+	"schemas":
+	{
+		"Node":
+		{
+			"DummyNode1b":
+			{
+				"min": 0,
+				"max": 10
+			}
+		}
+	},
+	"parameters":
+	{
+		"p1":
+		{
+			"type": "float",
+			"min": -1000.0,
+			"max": 1000.0
+		}
+	}
+}

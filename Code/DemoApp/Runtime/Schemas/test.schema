@@ -1,0 +1,72 @@
+{
+
+	"schemas": [ 
+	{
+		"type": "Node",
+		"class": "DummyNode1a",
+		"name":  "0",
+		"configuration":
+		{
+			"inputs": 
+			{
+				"dave": 10,
+				"phil": 20
+			}
+		},
+		"parameters":
+		{
+			"p1": -100.0
+		},
+		"schemas" : [
+			{
+				"type": "Node",
+				"class": "DummyNode1b",
+				"name": "1",
+				"configuration": {
+					"inputs": {
+						"dave": 10,
+						"phil": 20
+					},
+					"outputs": {
+						"dave": 10,
+						"phil": 20
+					},
+					"edges": [
+						{
+							"source": "2",
+							"input": "dave",
+							"output": "dave"
+						}
+					]
+				},
+				"parameters": {
+					"p1": -200.0
+				}
+			},
+			{
+				"type": "Node",
+				"class": "DummyNode1b",
+				"name": "2",
+				"configuration": {
+					"inputs": {
+						"dave": 10,
+						"phil": 20
+					},
+					"outputs": {
+						"dave": 10,
+						"phil": 20
+					},
+					"edges": [
+						{
+							"source": "1",
+							"input": "dave",
+							"output": "dave"
+						}
+					]
+				},
+				"parameters": {
+					"p1": -300.0
+				}
+			}]		
+	}]
+}

@@ -1,0 +1,13 @@
+{
+	"schemas":
+	{
+		"Node":
+		{
+			"DummyNode1a":
+			{
+				"min": 0,
+				"max": 10
+			}
+		}
+	}
+}
