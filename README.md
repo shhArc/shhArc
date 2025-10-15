@@ -10,7 +10,7 @@ SHH_ENGINE = YOURPATH\shhArc\Code<br>
 SHH_GCPTR = YOURPATH\shhArc\Code\GCPtr\<br>
 SHH_MEMORYMANAGEMENT = YOURPATH\shhArc\Code\MemoryManagement\<br>
 SHH_THIRDPARY = YOURPATH\shhThirdParty\<br>
-<br><br><br>
+<br><br>
 Load the demo Visual Studion project: YOURPATH\shhArc\Code\DemoApp\Win64\DemoApp.sln<br><br>
 Set the runtime directory to: YOURPATH\shhArc\Code\DemoApp\Runtime<br><br>
 Build, run & enjoy.
