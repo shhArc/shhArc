@@ -359,6 +359,22 @@ namespace shh {
 	}
 
 
+	// --------------------------------------------------------------------------						
+	// Function:	GetUID
+	// Description:	returns runtime UID of classifer string
+	// Arguments:	none
+	// Returns:		UID or 0 if not found
+	// --------------------------------------------------------------------------
+	Classifier::Id Classifier::GetUID(const std::string& cls)
+	{
+		Registry::iterator it = ourRegistry.find(cls);
+		if (it == ourRegistry.end())
+			return 0;
+		else
+			return it->second;
+	}
+
+
 } // namespace shh
 
 

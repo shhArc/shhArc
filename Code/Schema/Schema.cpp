@@ -34,6 +34,7 @@
 namespace shh
 {
 	const std::string Schema::ourSchemaFileExtension = "schema";
+	Classifier Schema::ourTypeCodes;;
 
 
 
@@ -511,12 +512,16 @@ namespace shh
 	Schema::Schemas Schema::GetSubSchemas(const std::string &type) const
 	{
 		Schema::Schemas schemas;
+		unsigned int uid = GetTypeCode(type);
+		if (uid == 0)
+			return schemas;
+
 		for (Schema::Schemas::const_iterator it = mySchemas.begin(); it != mySchemas.end(); it++)
 		{
-			if ((*it)->GetType() == type)
+			if ((*it)->GetTypeCode() == uid)
 			{
 				schemas.push_back(*it);
-				Schema::Schemas children = (*it)->GetSchemas();
+				Schema::Schemas children = (*it)->GetSubSchemas(type);
 				schemas.insert(schemas.end(), children.begin(), children.end());
 			}
 		}
@@ -591,6 +596,29 @@ namespace shh
 		return myType;
 	}
 
+
+	// --------------------------------------------------------------------------						
+	// Function:	GetTypeCode
+	// Description:	returns schema type code
+	// Arguments:	none
+	// Returns:		type code
+	// --------------------------------------------------------------------------
+	unsigned int Schema::GetTypeCode() const
+	{
+		return myTypeCode;
+	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	GetTypeCode
+	// Description:	returns schema type code
+	// Arguments:	type
+	// Returns:		type code
+	// --------------------------------------------------------------------------
+	unsigned int Schema::GetTypeCode(const std::string &type)
+	{
+		return ourTypeCodes.GetUID(type);
+	}
 
 	// --------------------------------------------------------------------------						
 	// Function:	IsExpressed

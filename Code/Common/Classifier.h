@@ -77,6 +77,7 @@ namespace shh {
 		bool Match(const Classifier& other, const MatchType type) const;
 
 		std::string DumpString() const;
+		static Id GetUID(const std::string& cls);
 
 		Classifier& operator <<(const char cls[]);
 

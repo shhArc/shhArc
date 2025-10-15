@@ -267,8 +267,13 @@ namespace shh {
 			}
 			if (cm->GetPrivileges() && SchemaPrivilege)
 			{
-				GCPtr<Object> object = Api::GetCurrentProcess()->GetObject();
+
+				unsigned int uid = Schema::GetTypeCode(type);
+				if(uid == 0)
+					return ExecutionOk;
+
 				GCPtr<Schema> schema;
+				GCPtr<Object> object = Api::GetCurrentProcess()->GetObject();
 				schema.DynamicCast(object);
 				if (schema.IsValid())
 				{
@@ -276,12 +281,25 @@ namespace shh {
 					Schema::Schemas toProcess = schema->GetSchemas();
 					for (Schema::Schemas::iterator it = toProcess.begin(); it != toProcess.end(); it++)
 					{
-						if ((*it)->GetType() == type)
+						if ((*it)->GetTypeCode() == uid)
 						{
 							schemas.push_back(*it);
-							Schema::Schemas children = (*it)->GetSchemas();
+							Schema::Schemas children = (*it)->GetSubSchemas("type");
 							schemas.insert(schemas.end(), children.begin(), children.end());
 						}
+					}
+					Schema::Schemas::iterator it = schemas.begin();
+					int i = 1;
+					GCPtr<Object> rv;
+					while (it != schemas.end())
+					{
+						rv.DynamicCast(*it);
+						if (rv.IsValid())
+						{
+							dict.Set(NonVariant<int>(i), rv);
+							i++;
+						}
+						it++;
 					}
 				}
 

@@ -28,6 +28,7 @@
 
 #include "../Common/SecureStl.h"
 #include "../Common/Dictionary.h"
+#include "../Common/Classifier.h"
 #include "../Config/GCPtr.h"
 #include "../Arc/Environment.h"
 #include "../VM/Object.h"
@@ -60,6 +61,8 @@ namespace shh
 
 		const std::string &GetName() const;
 		const std::string& GetType() const;
+		unsigned int GetTypeCode() const;
+		static unsigned int GetTypeCode(const std::string& type);
 		bool IsExpressed() const;
 
 		static const std::string ourSchemaFileExtension;
@@ -69,9 +72,12 @@ namespace shh
 
 		std::string myType;
 		std::string myName;
+		unsigned int myTypeCode;
 		GCPtr<Schema> myParent;
 		Schemas mySchemas;
 		bool myExpressed;
+
+		static Classifier ourTypeCodes;
 
 		Schema();
 		virtual ~Schema();
