@@ -10,7 +10,7 @@ It also has a virtual machine used for booting the engine, creating the worlds a
 Each world has its own agent system and virtual machine. Agents in different worlds do not know about each other unless informed by God vm/agents.
 An agent can have sub processes and these can either be used to execute scripts or as Nodes belonging to the agent.
 Agents can communicate with each other via a sandboxed messageing system<br><br>
-Nodes are process within and agent and like agents have their own script. The can also comunicate with each other via the sandboxed messaging system 
+Nodes are processes within and agent and like agents have their own script. The can also comunicate with each other via the sandboxed messaging system 
 but only with other nodes within the same agent and to thier owning agent. Nodes also have input and output iterfaces which can be connected to those in 
 other nodes via edges to facilitate fast transfer of information.<br<br>
 <br><br><br><center><img src="images/intro.jpg"/></center>
