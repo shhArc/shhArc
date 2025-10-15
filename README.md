@@ -4,15 +4,15 @@ scripted agent engine
 <br><br>
 <h2>Installation Nodes</h2>
 Clone this shhArc repo and the shhThirdParty repo found <a href="https://github.com/shhArc/shhThirdParty">here</a>.
-<br><br>
+<br><br><br>
 Set the following environment variables:<br><br>
 SHH_ENGINE = YOURPATH\shhArc\Code<br>
 SHH_GCPTR = YOURPATH\shhArc\Code\GCPtr\<br>
 SHH_MEMORYMANAGEMENT = YOURPATH\shhArc\Code\MemoryManagement\<br>
 SHH_THIRDPARY = YOURPATH\shhThirdParty\<br>
-<br><br>
-Load the demo Visual Studion project: YOURPATH\shhArc\Code\DemoApp\Win64\DemoApp.sln
-Set the runtime directory to: YOURPATH\shhArc\Code\DemoApp\Runtime
+<br><br><br>
+Load the demo Visual Studion project: YOURPATH\shhArc\Code\DemoApp\Win64\DemoApp.sln<br><br>
+Set the runtime directory to: YOURPATH\shhArc\Code\DemoApp\Runtime<br><br>
 Build, run & enjoy.
 <!--
 **shhArc/shhArc** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
