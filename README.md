@@ -22,7 +22,7 @@ shhArc is available under the MIT License with a No Modification clause. Except 
 Current version is Alpha 0.001.<br><br>
 Outstanding Features:<br>
 Multi Threading<br>
-Prersistance<br>
+Persistance<br>
 <!--
 **shhArc/shhArc** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
