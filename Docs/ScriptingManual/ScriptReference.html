@@ -57,6 +57,7 @@ Agent scripts start with the agent class definition on the first line:
 --< agent_name > specializes (< base_class_agent_name > |  Agent) [abstract | final] 
 <br><br>
 <li><b>agent_name</b> - must be the same as the agent script file name (obviously excluding the suffix)</li><br> 
+<li><b>base_class_agent_name</b> - the name of the agent inherited from</li><br> 
 <li><b>abstract</b> - specifies that the agent can not be instantiated and therefore is only used for specialization</li><br>
 <li><b>final</b>  -specifies that the agent can not be specialized and therefore is only instantiated</li>
 <br><br>
@@ -76,9 +77,10 @@ Node scripts start with the node class definition on the first line:
 <br><br>
 --< node_name > specializes (< base_class_node_name > |  Node) [abstract | final] 
 <br><br>
-<li><b>node_name</b> - must be the same as the agent script file name (obviously excluding the suffix)</li><br> 
-<li><b>abstract</b> - specifies that the agent can not be instantiated and therefore is only used for specialization</li><br>
-<li><b>final</b> - specifies that the agent can not be specialized and therefore is only instantiated</li>
+<li><b>node_name</b> - must be the same as the node script file name (obviously excluding the suffix)</li><br> 
+<li><b>base_class_node_name</b> - the name of the node inherited from</li><br> 
+<li><b>abstract</b> - specifies that the node can not be instantiated and therefore is only used for specialization</li><br>
+<li><b>final</b> - specifies that the node can not be specialized and therefore is only instantiated</li>
 
 <br><br>
 <hr width="90%" align="center"><p>
