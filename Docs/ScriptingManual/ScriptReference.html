@@ -56,9 +56,9 @@ Agent scripts start with the agent class definition on the first line:
 <br><br>
 --< agent_name > specializes (< base_class_agent_name > |  Agent) [abstract | final] 
 <br><br>
-<li><b>agent_name</li></b> must be the same as the agent script file name (obviously excluding the suffix)<br> 
-<li><b>abstract</li></b> specifies that the agent can not be instantiated and therefore is only used for specialization<br>
-<li><b>final</li></b> specifies that the agent can not be specialized and therefore is only instantiated
+<li><b>agent_name</b> - must be the same as the agent script file name (obviously excluding the suffix)</li><br> 
+<li><b>abstract</b> - specifies that the agent can not be instantiated and therefore is only used for specialization</li><br>
+<li><b>final</b>  -specifies that the agent can not be specialized and therefore is only instantiated</li>
 <br><br>
 
 <hr width="90%" align="center"><p>
@@ -76,9 +76,9 @@ Node scripts start with the node class definition on the first line:
 <br><br>
 --< node_name > specializes (< base_class_node_name > |  Node) [abstract | final] 
 <br><br>
-<li><b>agent_name</li></b> must be the same as the agent script file name (obviously excluding the suffix)<br> 
-<li><b>abstract</li></b> specifies that the agent can not be instantiated and therefore is only used for specialization<br>
-<li><b>final</li></b> specifies that the agent can not be specialized and therefore is only instantiated
+<li><b>node_name</b> - must be the same as the agent script file name (obviously excluding the suffix)</li><br> 
+<li><b>abstract</b> - specifies that the agent can not be instantiated and therefore is only used for specialization</li><br>
+<li><b>final</b> - specifies that the agent can not be specialized and therefore is only instantiated</li>
 
 <br><br>
 <hr width="90%" align="center"><p>
@@ -88,14 +88,14 @@ Agents/Nodes can optionally have a function called <b>shhInitialize</b> which wi
 Functions that start with the <b>shhMessage</b> prefix are public. Functions that start with the <b>shhTimer</b> prefix are called regularly at a given interval. All other functions are protected:
 <br><br>
 
-<li><b>shhMessage</li></b> messages are accessable by other agents/nodes and virtual machines using shh.SendMsg. Agents can send messages to each other and return values. Nodes can send messages to each other and return values. Messages can not be sent to nodes from outside of thier agent.
-<br>
-<li><b>shhTimer</li></b> messages which are regularlty called at a time interval. This is set using shh.SetTimer<br><br>
+<li><b>shhMessage</b> - messages are accessable by other agents/nodes and virtual machines using shh.SendMsg. Agents can send messages to each other and return values. Nodes can send messages to each other and return values. Messages can not be sent to nodes from outside of thier agent.
+</li><br>
+<li><b>shhTimer</b> - messages which are regularlty called at a time interval. This is set using shh.SetTimer</li><br><br>
 The functions with the following engine prefixes can only be called by the engine:
 <br><br> 
-<li><b>shhUpdate</li></b> messages which are regularlty called by the engine.<br>
-<li><b>ShhSystem</li></b> messages are called by the engine for special purposes. For example, collision callbacks.<br>
-<li><b>ShhStatic</li></b> messages are for the entire agent/node class not each agent/node instanciation. For example, the shhStaticInject function is used by the engine debugger for agent/node injection.
+<li><b>shhUpdate</b> - messages which are regularlty called by the engine.</li><br>
+<li><b>ShhSystem</b> - messages are called by the engine for special purposes. For example, collision callbacks.</li><br>
+<li><b>ShhStatic</b> - messages are for the entire agent/node class not each agent/node instanciation. For example, the shhStaticInject function is used by the engine debugger for agent/node injection.</li>
 <br>
 <h3>Agent/Node Specialization</h3>
 Agent and Node specializations implements protected inheritance and virtual functions. All base agent class functions that are overridden by 
