@@ -2,7 +2,7 @@
 SCRIPTED AGENT ENGINE
 <img src="images/logo.jpg" alt="Logo" width="1000">
 <br><br>
-<br>Overview</h2>
+<h2>Overview</h2>
 The shhArc engine supports multiple  simulated worlds. 
 In order to do this it has a God object that manages the worlds. 
 The God object has its own agent system that can be used for user interface agents and world managing agents. 
