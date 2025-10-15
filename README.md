@@ -20,7 +20,7 @@ shhArc is available under the MIT License with a No Modification clause. Except 
 <br><br><br>
 <h2>Release Note</h2>
 Current version is Alpha 0.001.<br><br>
-Outstanding Features:<br>
+Outstanding Features to comr:<br>
 Multi Threading<br>
 Persistance<br>
 <!--
