@@ -27,6 +27,7 @@
 #include "../Arc/God.h"
 #include "../Common/Exception.h"
 #include "../File/IOVariant.h"
+#include "../Schema/Schema.h"
 #include "EnvironmentModule.h"
 #include "../Arc/Api.h"
 
@@ -78,7 +79,8 @@ namespace shh {
 		Api::RegisterFunction("GetGlobal", GetGlobalNum, 3, me);
 		Api::RegisterFunction("SetLocal", SetLocalStr, 3, me);
 		Api::RegisterFunction("SetLocal", SetLocalNum, 3, me);
-			
+		Api::RegisterFunction("GetObjects", GetObjects, 2, me);
+
 		Api::CloseNamespace();
 
 		return Module::Register(alias, sd, privileges);
@@ -236,5 +238,55 @@ namespace shh {
 	{
 		value = Environment::GetGlobal(key, value);
 		return ExecutionOk;
+	}
+
+
+	//! /namespace Environment
+	//! /function GetObjects
+	//! /privilege All
+	//! /param string object_type
+	//! /returns table objects
+	//! Gets all object of a particular type from the environment/agent
+	ExecutionState EnvironmentModule::GetObjects(std::string& type, VariantKeyDictionary& dict)
+	{
+		GCPtr<ClassManager> cm;
+		if (Api::GetCurrentEnvironment()->GetClassManager(type, cm))
+		{
+			if (cm->GetPrivileges() && AgentPrivilege)
+			{
+				Class::Objects objects;
+				cm->GetAllObjects(objects);
+				Class::Objects::iterator it = objects.begin();
+				int i = 1;
+				while (it != objects.end())
+				{
+					dict.Set(NonVariant<int>(i), *it);
+					i++;
+					it++;
+				}
+			}
+			if (cm->GetPrivileges() && SchemaPrivilege)
+			{
+				GCPtr<Object> object = Api::GetCurrentProcess()->GetObject();
+				GCPtr<Schema> schema;
+				schema.DynamicCast(object);
+				if (schema.IsValid())
+				{
+					Schema::Schemas schemas;
+					Schema::Schemas toProcess = schema->GetSchemas();
+					for (Schema::Schemas::iterator it = toProcess.begin(); it != toProcess.end(); it++)
+					{
+						if ((*it)->GetType() == type)
+						{
+							schemas.push_back(*it);
+							Schema::Schemas children = (*it)->GetSchemas();
+							schemas.insert(schemas.end(), children.begin(), children.end());
+						}
+					}
+				}
+
+			}
+			return ExecutionOk;
+		}
 	}
 }

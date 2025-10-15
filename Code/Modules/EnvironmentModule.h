@@ -56,6 +56,8 @@ namespace shh {
 		static ExecutionState SetGlobalStr(std::string& key, std::string& value);
 		static ExecutionState SetGlobalNum(std::string& key, double& value);
 
+		static ExecutionState GetObjects(std::string& type, VariantKeyDictionary& dict);
+
 		virtual std::string GetName() const { return GetNameStatic(); }
 		static std::string GetNameStatic() { return StripName(std::string(typeid(EnvironmentModule).name())); }
 

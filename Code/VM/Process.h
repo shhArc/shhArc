@@ -65,6 +65,7 @@ namespace shh {
 		virtual const GCPtr<Scheduler>& GetScheduler() const;
 
 		const GCPtr<Environment>& GetCurrentEnvironment() const;
+		const GCPtr<Environment>& GetHomeEnvironment() const;
 		void SetCurrentEnvironment(const GCPtr<Environment>& env);
 		void SetHomeEnvironment(const GCPtr<Environment>& env);
 

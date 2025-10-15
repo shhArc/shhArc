@@ -129,6 +129,18 @@ namespace shh {
 
 
 	// --------------------------------------------------------------------------						
+	// Function:	GetHomeEnvironment
+	// Description:	gets home environment the process
+	// Arguments:	none
+	// Returns:		environment
+	// --------------------------------------------------------------------------
+	const GCPtr<Environment>& Process::GetHomeEnvironment() const
+	{
+		return myHomeEnvironment;
+	}
+
+
+	// --------------------------------------------------------------------------						
 	// Function:	SetCurrentEnvironment
 	// Description:	gets environment the process is currently in
 	// Arguments:	environment

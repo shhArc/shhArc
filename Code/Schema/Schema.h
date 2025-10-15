@@ -53,11 +53,13 @@ namespace shh
 		virtual bool Configure(const StringKeyDictionary& conf);
 		const GCPtr<Schema>& GetParent() const;
 		const Schemas& GetSchemas() const;
+		Schemas GetSubSchemas(const std::string& type) const;
 		void AddSchema(const GCPtr<Schema>& s);
 		void RemoveSchema(const GCPtr<Schema>& s);
 		void DestorySchemas();
 
 		const std::string &GetName() const;
+		const std::string& GetType() const;
 		bool IsExpressed() const;
 
 		static const std::string ourSchemaFileExtension;
@@ -65,6 +67,7 @@ namespace shh
 
 	protected:
 
+		std::string myType;
 		std::string myName;
 		GCPtr<Schema> myParent;
 		Schemas mySchemas;

@@ -345,6 +345,7 @@ namespace shh
 					}
 					
 					schema->myName = spec.Get("name", "__NONAME");
+					schema->myType = spec.Get("type", "__NOTYPE");
 
 					// configure schema interfaces and edges
 					StringKeyDictionary config;
@@ -502,6 +503,28 @@ namespace shh
 
 
 	// --------------------------------------------------------------------------						
+	// Function:	GetSubSchemas
+	// Description:	returns sub schemas owned by this schema
+	// Arguments:	type of schema
+	// Returns:		schemas
+	// --------------------------------------------------------------------------
+	Schema::Schemas Schema::GetSubSchemas(const std::string &type) const
+	{
+		Schema::Schemas schemas;
+		for (Schema::Schemas::const_iterator it = mySchemas.begin(); it != mySchemas.end(); it++)
+		{
+			if ((*it)->GetType() == type)
+			{
+				schemas.push_back(*it);
+				Schema::Schemas children = (*it)->GetSchemas();
+				schemas.insert(schemas.end(), children.begin(), children.end());
+			}
+		}
+		return schemas;
+	}
+
+
+	// --------------------------------------------------------------------------						
 	// Function:	AddSchema
 	// Description:	adds a schema as sub schema owned by this schema
 	// Arguments:	schema
@@ -554,6 +577,18 @@ namespace shh
 	const std::string& Schema::GetName() const
 	{
 		return myName;
+	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	GetType
+	// Description:	returns schema tpye
+	// Arguments:	none
+	// Returns:		type
+	// --------------------------------------------------------------------------
+	const std::string& Schema::GetType() const
+	{
+		return myType;
 	}
 
 

@@ -64,7 +64,11 @@ namespace shh {
 		template<typename T> static inline void AddMsgArg(Message* msg, T* arg);
 		template<typename T> static inline T* GetMsgReturnVal(Message* msg, unsigned int retrunValNum, T* dummy = NULL);
 		static inline bool SendMsg(Message* msg, double delay);
+		static inline const GCPtr<Process> GetCurrentProcess();
 		static inline Implementation GetImplementation();
+		static inline Privileges GetPrivileges();
+		static inline const GCPtr<Environment>& GetHomeEnvironment();
+		static inline const GCPtr<Environment>& GetCurrentEnvironment();
 		static inline void OpenNamespace(const std::string& name);
 		static inline void CloseNamespace();
 		template<typename F>
@@ -288,6 +292,17 @@ namespace shh {
 	}
 
 
+	// --------------------------------------------------------------------------						
+	// Function:	GetCurrentProcess
+	// Description:	Gets the currently active Process 
+	// Arguments:	none
+	// Returns:		LuaProcess
+	// --------------------------------------------------------------------------
+	inline const GCPtr<Process> Api::GetCurrentProcess()
+	{
+		return Scheduler::GetCurrentProcess();
+	}
+
 
 	// --------------------------------------------------------------------------						
 	// Function:	GetImplementation
@@ -298,6 +313,42 @@ namespace shh {
 	inline Implementation Api::GetImplementation() 
 	{ 
 		return Scheduler::GetCurrentProcess()->GetImplementation(); 
+	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	GetPrivileges
+	// Description:	get the privileges of the active process
+	// Arguments:	none
+	// Returns:		privileges
+	// --------------------------------------------------------------------------
+	inline Privileges Api::GetPrivileges()
+	{
+		Scheduler::GetCurrentProcess()->GetPrivileges();
+	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	GetHomeEnvironment
+	// Description:	get the home Environment of the active process
+	// Arguments:	none
+	// Returns:		Environment
+	// --------------------------------------------------------------------------
+	inline const GCPtr<Environment> &Api::GetHomeEnvironment()
+	{
+		return Scheduler::GetCurrentProcess()->GetHomeEnvironment();
+	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	GetCurrentEnvironment
+	// Description:	get the home Environment of the active process
+	// Arguments:	none
+	// Returns:		Environment
+	// --------------------------------------------------------------------------
+	inline const GCPtr<Environment>& Api::GetCurrentEnvironment()
+	{
+		return Scheduler::GetCurrentProcess()->GetCurrentEnvironment();
 	}
 
 
