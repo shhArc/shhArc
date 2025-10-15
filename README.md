@@ -3,7 +3,7 @@ SCRIPTED AGENT ENGINE
 <img src="images/logo.jpg" alt="Logo" width="1000">
 <br><br>
 <h2>Overview</h2>
-The shhArc scripting language and agent system is based upon the Lua scripting language. The Lua reference manual is available 
+The shhArc agent system is based upon the Lua scripting language. The Lua reference manual is available 
 <a href="http://www.lua.org/manual/5.4/">here</a>.<br><br>
 The shhArc engine supports multiple simulated worlds. 
 In order to do this it has a God object that manages the worlds. 
