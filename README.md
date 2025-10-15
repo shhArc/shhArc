@@ -12,7 +12,7 @@ It also has a virtual machine used for booting the engine, creating the worlds a
 Each world has its own agent system and virtual machine. Agents in different worlds do not know about each other unless informed by God vm/agents.
 An agent can have sub processes and these can either be used to execute scripts or as Nodes belonging to the agent.
 Agents can communicate with each other via a sandboxed messageing system.<br><br>
-Nodes are processes within an agent and like agents have their own script. They can also comunicate with each other via the sandboxed messaging system but only with other nodes within the same agent and to thier owning agent. Nodes also have input and output interfaces which can be connected to those in other nodes via edges to facilitate fast transfer of information The engine uses schema files which are in the JSON format and
+Nodes are processes within an agent and like agents have their own script. They can also comunicate with each other via the sandboxed messaging system but only with other nodes within the same agent and to their owning agent. Nodes also have input and output interfaces which can be connected to those in other nodes via edges to facilitate fast transfer of information The engine uses schema files which are in the JSON format and
 are used to quickly construct networks of different types of nodes with an agent.<br><br>
 >
 <br><br><br><center><img src="images/intro.jpg"/></center>
