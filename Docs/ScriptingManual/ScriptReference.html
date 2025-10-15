@@ -320,11 +320,11 @@ Any thing that does not specify a privledge is accessable by all.
 </td></tr><tr><td class="description">Description: Sets a global variable of a given name.
 </td></tr></table>
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="EnvironmentGetObjects">
-<span class="vartype">table objects</span>
-<span class="command">Environment.GetObjects</span>(<span class="vartype">string</span> <span class="varname">object_type</span>)
+<tr><td class="command"><a name="EnvironmentGetAgents">
+<span class="vartype">table agents</span>
+<span class="command">Environment.GetAgents</span>()
 </td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: Gets all object of a particular type from the environment/agent
+</td></tr><tr><td class="description">Description: Gets all agent from the environment
 </td></tr></table>
  <p><hr width="90%" align="center"><div align="center"><h2><a name="Node--type">Node type</a></h2></div>
 <p><center>Schema Node functions 
@@ -353,6 +353,13 @@ Any thing that does not specify a privledge is accessable by all.
 </td></tr><tr><td class="description">Member: Node (replace token Node with variable name)</td></tr>
 </td></tr><tr><td class="description">Privilege: Agent, Node</td></tr>
 </td></tr><tr><td class="description">Description: Returns a table of all child nodes.
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="NodeGetNodes">
+<span class="vartype">table nodes</span>
+<span class="command">shh.GetNodes</span>()
+</td></tr><tr><td class="description">Privilege: Agent, Node</td></tr>
+</td></tr><tr><td class="description">Description: Gets all nodes of of agent
 </td></tr></table>
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
 <tr><td class="command"><a name="NodeCreateInputInterface">

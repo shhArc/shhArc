@@ -28,6 +28,7 @@
 #include "../Common/Exception.h"
 #include "../File/IOVariant.h"
 #include "../Schema/Schema.h"
+#include "../Schema/Agent.h"
 #include "EnvironmentModule.h"
 #include "../Arc/Api.h"
 
@@ -79,7 +80,7 @@ namespace shh {
 		Api::RegisterFunction("GetGlobal", GetGlobalNum, 3, me);
 		Api::RegisterFunction("SetLocal", SetLocalStr, 3, me);
 		Api::RegisterFunction("SetLocal", SetLocalNum, 3, me);
-		Api::RegisterFunction("GetObjects", GetObjects, 2, me);
+		Api::RegisterFunction("GetAgents", GetAgents, 1, me);
 
 		Api::CloseNamespace();
 
@@ -242,67 +243,26 @@ namespace shh {
 
 
 	//! /namespace Environment
-	//! /function GetObjects
+	//! /function GetAgents
 	//! /privilege All
-	//! /param string object_type
-	//! /returns table objects
-	//! Gets all object of a particular type from the environment/agent
-	ExecutionState EnvironmentModule::GetObjects(std::string& type, VariantKeyDictionary& dict)
+	//! /returns table agents
+	//! Gets all agent from the environment
+	ExecutionState EnvironmentModule::GetAgents(VariantKeyDictionary& dict)
 	{
 		GCPtr<ClassManager> cm;
-		if (Api::GetCurrentEnvironment()->GetClassManager(type, cm))
+		if (Api::GetCurrentEnvironment()->GetClassManager("Agent", cm))
 		{
-			if (cm->GetPrivileges() && AgentPrivilege)
+			Class::Objects objects;
+			cm->GetAllObjects(objects);
+			Class::Objects::iterator it = objects.begin();
+			int i = 1;
+			GCPtr<Agent> agent;
+			while (it != objects.end())
 			{
-				Class::Objects objects;
-				cm->GetAllObjects(objects);
-				Class::Objects::iterator it = objects.begin();
-				int i = 1;
-				while (it != objects.end())
-				{
-					dict.Set(NonVariant<int>(i), *it);
-					i++;
-					it++;
-				}
-			}
-			if (cm->GetPrivileges() && SchemaPrivilege)
-			{
-
-				unsigned int uid = Schema::GetTypeCode(type);
-				if(uid == 0)
-					return ExecutionOk;
-
-				GCPtr<Schema> schema;
-				GCPtr<Object> object = Api::GetCurrentProcess()->GetObject();
-				schema.DynamicCast(object);
-				if (schema.IsValid())
-				{
-					Schema::Schemas schemas;
-					Schema::Schemas toProcess = schema->GetSchemas();
-					for (Schema::Schemas::iterator it = toProcess.begin(); it != toProcess.end(); it++)
-					{
-						if ((*it)->GetTypeCode() == uid)
-						{
-							schemas.push_back(*it);
-							Schema::Schemas children = (*it)->GetSubSchemas("type");
-							schemas.insert(schemas.end(), children.begin(), children.end());
-						}
-					}
-					Schema::Schemas::iterator it = schemas.begin();
-					int i = 1;
-					GCPtr<Object> rv;
-					while (it != schemas.end())
-					{
-						rv.DynamicCast(*it);
-						if (rv.IsValid())
-						{
-							dict.Set(NonVariant<int>(i), rv);
-							i++;
-						}
-						it++;
-					}
-				}
-
+				agent.DynamicCast(*it);
+				dict.Set(NonVariant<int>(i), agent);
+				i++;
+				it++;
 			}
 			return ExecutionOk;
 		}

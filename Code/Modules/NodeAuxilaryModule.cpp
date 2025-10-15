@@ -48,10 +48,11 @@ namespace shh {
 
 		GCPtr<Node>* example = NULL;
 
-		Api::OpenNamespace("shh");
+		Api::OpenNamespace(alias);
 		Api::RegisterFunction("DestroyNode", Destroy, 2, me);
 		Api::RegisterFunction("DestroyChildNodes", DestroyChildNodes, 2, me);
 		Api::RegisterFunction("GetChildNodes", GetChildNodes, 2, me);
+		Api::RegisterFunction("GetNodes", GetNodes, 1, me);
 		Api::CloseNamespace();
 
 		Api::RegisterMemberFunction(example, "Destroy", Destroy, 2, me);
@@ -134,7 +135,7 @@ namespace shh {
 		{
 			if (caller == node || caller == node->GetParent())
 			{
-				unsigned int index = 1;
+				int index = 1;
 				const Schema::Schemas& schemas = node->GetSchemas();
 				for (Schema::Schemas::const_iterator it = schemas.begin(); it != schemas.end(); it++)
 				{
@@ -142,7 +143,7 @@ namespace shh {
 					node.DynamicCast(*it);
 					if (node.IsValid())
 					{
-						NonVariant<double> key((double)index);
+						NonVariant<int> key((int)index);
 						result.Set(key, node);
 						index++;
 					}
@@ -150,6 +151,52 @@ namespace shh {
 			}
 		}
 
+		return ExecutionOk;
+	}
+
+
+
+	//! /namespace shh
+	//! /function GetNodes
+	//! /privilege Agent, Node
+	//! /returns table nodes
+	//! Gets all nodes of of agent
+	ExecutionState NodeAuxilaryModule::GetNodes(VariantKeyDictionary& dict)
+	{
+		unsigned int uid = Schema::GetTypeCode("Node");
+		if (uid == 0)
+			return ExecutionOk;
+
+		GCPtr<Schema> schema;
+		GCPtr<Object> object = Api::GetCurrentProcess()->GetVM()->GetProcess(1)->GetObject();
+		schema.DynamicCast(object);
+		if (schema.IsValid())
+		{
+			Schema::Schemas schemas;
+			Schema::Schemas toProcess = schema->GetSchemas();
+			for (Schema::Schemas::iterator it = toProcess.begin(); it != toProcess.end(); it++)
+			{
+				if ((*it)->GetTypeCode() == uid)
+				{
+					schemas.push_back(*it);
+					Schema::Schemas children = (*it)->GetSubSchemas("Node");
+					schemas.insert(schemas.end(), children.begin(), children.end());
+				}
+			}
+			Schema::Schemas::iterator it = schemas.begin();
+			int i = 1;
+			GCPtr<Node> node;
+			while (it != schemas.end())
+			{
+				node.DynamicCast(*it);
+				if (node.IsValid())
+				{
+					dict.Set(NonVariant<int>(i), node);
+					i++;
+				}
+				it++;
+			}
+		}
 		return ExecutionOk;
 	}
 

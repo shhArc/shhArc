@@ -45,6 +45,7 @@ namespace shh {
 		static ExecutionState Destroy(GCPtr<Node>& node, bool& result);
 		static ExecutionState DestroyChildNodes(GCPtr<Node>& node);
 		static ExecutionState GetChildNodes(GCPtr<Node>& node, VariantKeyDictionary& result);
+		static ExecutionState GetNodes(VariantKeyDictionary& dict);
 		static ExecutionState CreateInputInterface(GCPtr<Node>& node, std::string& id, unsigned int &size, bool& result);
 		static ExecutionState CreateOutputInterface(GCPtr<Node>& node, std::string& id, unsigned int &size, bool& result);
 		static ExecutionState CreateEdge(GCPtr<Node>& node, std::string &sourceId, std::string& inputId, std::string& outputId, bool& result);
