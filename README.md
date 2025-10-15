@@ -4,7 +4,7 @@ scripted agent engine
 <br><br>
 Installation Nodes
 <br>
-Clone this shhArc repo and the shhThirdParty repo found <a href="[url](https://github.com/shhArc/shhThirdParty)">here</a>.
+Clone this shhArc repo and the shhThirdParty repo found <a href="https://github.com/shhArc/shhThirdParty">here</a>.
 <br><br>
 Set the following environment variables:<br><br>
 SHH_ENGINE = YOURPATH\shhArc\Code
