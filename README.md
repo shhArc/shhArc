@@ -21,7 +21,7 @@ The scripting documentation and be found  <a href="https://github.com/shhArc/shh
 <br><br><br><center><img src="images/intro.jpg"/></center>
 
 <br><br>
-<h2>Installation Nodes</h2>
+<h2>Installation Notes</h2>
 Clone this shhArc repo and the shhThirdParty repo found <a href="https://github.com/shhArc/shhThirdParty">here</a>.
 <br><br><br>
 Set the following environment variables:<br><br>
