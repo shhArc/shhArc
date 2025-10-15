@@ -5,7 +5,7 @@ Edit the comments in the source code, not this file. -->
 
 <link rel="StyleSheet" href="shhArc.css">
 <center><img src="shhArc_logo_light.jpg"/></center>
-<title>Scripting Documentation - shhArc Engine (0.001)</title></head><body><h1><center>Scripting Documentation - shhArc Engine (0.001)</center></h1>
+<title>Scripting Documentation - shhArc Engine (unknown version)</title></head><body><h1><center>Scripting Documentation - shhArc Engine (unknown version)</center></h1>
 
 <hr width="90%" align="center">
 <center>
@@ -110,10 +110,11 @@ Module Reference</h2>
 shhArc modules are available to processes, agents, and nodes with the correct privileges as defined in the config file.
 The privileges are:
 <br><br>
-<li><b>God</li></b> - not available to agents in a world
-<li><b>World</li></b> - only available to agents in a world 
-<li><b>Agent</li></b> - only available to agents
-<li><b>Node</li></b> - only available to nodes
+<li><b>God</b> - not available to agents in a world</li>
+<li><b>World</b> - only available to agents in a world </li>
+<li><b>Agent</b> - only available to agents</li>
+<li><b>Node</b> - only available to nodes</li>
+<li><b>Updater</b> - only available to update scripts</li>
 <br>
 <br>
 Any thing that does not specify a privledge is accessable by all.
@@ -127,7 +128,6 @@ Any thing that does not specify a privledge is accessable by all.
 <br><a href="#Object--type">Object (type)</a> - Generic object functions.
 <br><a href="#System--library">System (library)</a> - Operating system level functions.
 <br><a href="#shh--library">shh (library)</a> - Messaging and process functions aswell as variable copying, testing, debug tracing.
-<br><a href="#shh--library">shh (library)</a> - Variable copying, testing, debug tracing, messaging and process functions.
 <br><p><hr width="90%" align="center"><div align="center"><h2><a name="Config-vars">Global variables</h2>
 <p><center>Read these with shh.GetGlobal and alter them with shh.SetGlobal</center>
 

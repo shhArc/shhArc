@@ -39,7 +39,7 @@
 #include "ProcessModule.h"
 
 //! /library shh
-//! Variable copying, testing, debug tracing, messaging and process functions.
+//! Messaging and process functions aswell as variable copying, testing, debug tracing. 
 
 namespace shh {
 
