@@ -28,11 +28,14 @@
     <ClInclude Include="..\VectorModule.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\shhThirdParty\json\Win64\json.vcxproj">
+    <ProjectReference Include="..\..\..\..\shhThirdParty\json\Win64\json.vcxproj">
       <Project>{27bd8d57-10b3-4b04-ac7f-523000b0a095}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\shhThirdParty\Lua\WIn64\Lua.vcxproj">
+    <ProjectReference Include="..\..\..\..\shhThirdParty\Lua\WIn64\Lua.vcxproj">
       <Project>{b751a706-c11a-45ff-acc6-d2256b0bf937}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\shhThirdParty\json\Win64\json.vcxproj">
+      <Project>{27bd8d57-10b3-4b04-ac7f-523000b0a095}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\Arc\Win64\Arc.vcxproj">
       <Project>{b4e730a3-e943-4d1d-a793-aa6fb1e09b3e}</Project>

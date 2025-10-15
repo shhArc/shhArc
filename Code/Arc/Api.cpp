@@ -111,18 +111,17 @@ namespace shh {
 	// --------------------------------------------------------------------------						
 	// Function:	CreateGod
 	// Description:	create god
-	// Arguments:	name of god, realm to use as template, boot script name,
-	//				update script name
+	// Arguments:	name of god, realm to use as template
 	// Returns:		none
 	// --------------------------------------------------------------------------
-	void Api::CreateGod(const std::string& name, const std::string& realmTemplate, const std::string& bootScript, const std::string& updateScript)
+	void Api::CreateGod(const std::string& name, const std::string& realmTemplate)
 	{
 		God::ourGodRealm = realmTemplate;
 		GCPtr<God> god = God::GetGod();
 
 		StringKeyDictionary sd;
-		sd.Set("boot_script", bootScript.c_str());
-		sd.Set("update_script", updateScript.c_str());
+		sd.Set("boot_script", God::ourBootFileName.c_str());
+		sd.Set("update_script", God::ourUpdateFileName.c_str());
 		god->Initialize(god, name, sd);
 	}
 

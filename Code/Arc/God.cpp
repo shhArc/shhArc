@@ -51,6 +51,7 @@ namespace shh {
 	std::string God::ourCommandLineArgs;
 	std::string God::ourBootFileName;
 	std::string God::ourConfigFileName;
+	std::string God::ourUpdateFileName;
 	std::string God::ourGodRealm;
 	StringKeyDictionary God::ourConfigFileDict;
 	GCPtr<God> God::ourGod;
@@ -174,6 +175,19 @@ namespace shh {
 		{
 			ourBootFileName = "default.lua";
 		}	
+
+		std::string updateFilename;
+		switchPos = (int)ourCommandLineArgs.find("-update");
+		if (switchPos < ourCommandLineArgs.size())
+		{
+			int startPos = (int)ourCommandLineArgs.find_first_of(" ", switchPos) + 1;
+			int endPos = (int)ourCommandLineArgs.find_first_of(" ", startPos);
+			ourUpdateFileName = ourCommandLineArgs.substr(startPos, endPos - startPos);
+		}
+		else
+		{
+			ourUpdateFileName = "update.lua";
+		}
 
 
 		// get and set root directory

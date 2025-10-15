@@ -64,7 +64,7 @@ public:
 };
 
 
-int TestAgent(const std::string & bootFilename, const std::string& updateFilename);
+int TestAgent();
 
 
 REGISTER_MODULE(VectorModule)
@@ -88,40 +88,17 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	wcstombs(buffer, lpCmdLine, 500);
 	std::string ourCommandLineArgs(buffer);
 
-	std::string bootFilename;
-	int switchPos = (int)ourCommandLineArgs.find("-boot");
-	if (switchPos < ourCommandLineArgs.size())
-	{
-		int startPos = (int)ourCommandLineArgs.find_first_of(" ", switchPos) + 1;
-		int endPos = (int)ourCommandLineArgs.find_first_of(" ", startPos);
-		bootFilename = ourCommandLineArgs.substr(startPos, endPos - startPos);
-	}
-	else
-	{
-		bootFilename = "default.lua";
-	}
-
-	std::string updateFilename;
-	switchPos = (int)ourCommandLineArgs.find("-update");
-	if (switchPos < ourCommandLineArgs.size())
-	{
-		int startPos = (int)ourCommandLineArgs.find_first_of(" ", switchPos) + 1;
-		int endPos = (int)ourCommandLineArgs.find_first_of(" ", startPos);
-		updateFilename = ourCommandLineArgs.substr(startPos, endPos - startPos);
-	}
-	else
-	{
-		updateFilename = "update.lua";
-	}
 
 
-	TestAgent(bootFilename, updateFilename);
+
+
+	TestAgent();
 
 	CoUninitialize();
 	return 0;
 }
 
-int TestAgent(const std::string& bootFilename, const std::string& updateFilename)
+int TestAgent()
 {
 
 	try
@@ -130,7 +107,7 @@ int TestAgent(const std::string& bootFilename, const std::string& updateFilename
 		GCPtr<Class> cls = Api::CreateClass("DemoHardNode", "Node", demoProcess, GENERICPROCESSCREATE, NODECREATE);
 		Registry::GetRegistry().RegisterHardClass(cls);
 
-		Api::CreateGod("test", "god", bootFilename, updateFilename);
+		Api::CreateGod("test", "god");
 		GCPtr<God> god = Api::GetGod();
 
 		for (double time = 0; time < 100000; time += 10000)

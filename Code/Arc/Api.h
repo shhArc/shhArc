@@ -55,7 +55,7 @@ namespace shh {
 		static bool CreateWorld(const ::std::string& name, const StringKeyDictionary& config, const std::string& templateRealm);
 		static void DestroyWorld(const std::string& name);
 		static void DestroyWorlds();
-		static void CreateGod(const std::string& name, const std::string& realmTemplate, const std::string& bootScript, const std::string& updateScript);
+		static void CreateGod(const std::string& name, const std::string& realmTemplate);
 		static void DestroyGod();
 		static inline const GCPtr<God>& GetGod();
 		static inline void UpdateGod(double until);

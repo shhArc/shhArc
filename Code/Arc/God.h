@@ -44,9 +44,9 @@ namespace shh {
 	public:
 
 		static std::string ourCommandLineArgs;
-		static std::string ourBootFileKame;
 		static std::string ourConfigFileName;
 		static std::string ourBootFileName;
+		static std::string ourUpdateFileName;
 		static std::string ourGodRealm;
 		static StringKeyDictionary ourConfigFileDict;
 		static unsigned int ourVersion;
