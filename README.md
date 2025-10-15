@@ -17,6 +17,12 @@ Build, run & enjoy.
 <br><br><br>
 <h2>Licence</h2>
 shhArc is available under the MIT License with a No Modification clause. Except for the files in Code/Config which do not have the No Modification Clause, as you need to edit these to configure shhArc as you want it.
+<br><br><br>
+<h2>Release Note</h2>
+Current version is Alpha 0.001.<br><br>
+Outstanding Features:<br>
+Multithreading<br>
+Prersistance<br>
 <!--
 **shhArc/shhArc** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
