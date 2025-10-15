@@ -3,7 +3,6 @@ scripted agent engine
 <img src="images/logo.jpg" alt="Logo" width="1000">
 <br><br>
 <h2>Installation Nodes</h2>
-<br><br>
 Clone this shhArc repo and the shhThirdParty repo found <a href="https://github.com/shhArc/shhThirdParty">here</a>.
 <br><br>
 Set the following environment variables:<br><br>
