@@ -35,7 +35,7 @@
 #include "../Arc/God.h"
 #include "../File/IOVariant.h"
 #include "../VM/Scheduler.h"
-
+#include "../Schema/Whole.h"
 
 #define GENERICPROCESSCREATE shh::Process::Create
 #define LUAPROCESSCREATE shh::LuaProcess::Create
@@ -72,6 +72,19 @@ namespace shh {
 		template< typename C, typename F >
 		static inline void RegisterMemberFunction(const C* ownerExampe, const ::std::string& functionName, F *f, unsigned int firstReturnArg, const GCPtr<Module>& module);
 
+		static unsigned int CreateCollection(const GCPtr<Whole>& w, std::string& collectionName);
+		static void DestroyCollection(const GCPtr<Whole>& w, std::string& collectionName);
+		static void DestroyCollection(const GCPtr<Whole>& w, unsigned int& collectionId);
+		static void DestroyPart(const GCPtr<Whole>& w, std::string& collectionName, std::string& partName);
+		static void DestroyPart(const GCPtr<Whole>& w, std::string& collectionName, unsigned int& partId);
+		static void DestroyPart(const GCPtr<Whole>& w, unsigned int& collectionId, std::string& partName);
+		static void DestroyPart(const GCPtr<Whole>& w, unsigned int& collectionId, unsigned int& partId);
+		static unsigned int AddPart(const GCPtr<Whole>& w, std::string& collectionName, std::string name, GCPtr<GCObject> object);	
+		static unsigned int AddPart(const GCPtr<Whole>& w, unsigned int collectionId, std::string name, GCPtr<GCObject> object);
+		static bool GetPart(const GCPtr<Whole>& w, std::string& collectionName, unsigned int id, GCPtr<GCObject>& obj);
+		static bool GetPart(const GCPtr<Whole>& w, std::string& collectionName, std::string name, GCPtr<GCObject>& obj);
+		static bool GetPart(const GCPtr<Whole>& w, unsigned int collectionId, unsigned int id, GCPtr<GCObject>& obj);
+		static bool GetPart(const GCPtr<Whole>& w, unsigned int collectionId, std::string name, GCPtr<GCObject>& obj);
 
 		static inline void LuaRegisterFunction(const std::string& name, LuaCFunction fn, void* data = NULL, LuaTypeId dataType = 0);
 		static void LuaThrowScriptError(const char* format, ...);

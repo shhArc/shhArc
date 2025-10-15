@@ -36,17 +36,16 @@ namespace shh {
 	{
 
 	public:
-
 	
-		unsigned int CreateCollection(std::string collectionName, GCPtr<Collection> &collection);
+		unsigned int CreateCollection(const std::string collectionName, GCPtr<Collection> &collection);
 		bool GetCollection(const std::string& collectionName, GCPtr<Collection> &collection);
 		bool GetCollection(unsigned int id, GCPtr<Collection>& collection);
-		unsigned int AddPart(const std::string& collectionName, std::string partName, GCPtr<GCObject>& obj);
-		unsigned int AddPart(unsigned int collectionId, std::string partName, GCPtr<GCObject>& obj);
+		unsigned int AddPart(const std::string& collectionName, const std::string& name, GCPtr<GCObject> object);
+		unsigned int AddPart(unsigned int collectionId, const std::string &partName, GCPtr<GCObject>& obj);
 		bool GetPart(const std::string& collectionName, unsigned int id, GCPtr<GCObject>& obj);
-		bool GetPart(const std::string& collectionName, std::string partName, GCPtr<GCObject>& obj);
+		bool GetPart(const std::string& collectionName, const std::string partName, GCPtr<GCObject>& obj);
 		bool GetPart(unsigned int collectionId, unsigned int id, GCPtr<GCObject>& obj);
-		bool GetPart(unsigned int collectionId, std::string partName, GCPtr<GCObject>& obj);
+		bool GetPart(unsigned int collectionId, const std::string partName, GCPtr<GCObject>& obj);
 		void DestroyCollection(const std::string& collectionName);
 		void DestroyCollection(unsigned int collectionId);
 

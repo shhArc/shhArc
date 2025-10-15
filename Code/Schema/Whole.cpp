@@ -40,7 +40,7 @@ namespace shh {
 	// Arguments:	name, collection created 
 	// Returns:		collection id
 	// --------------------------------------------------------------------------
-	unsigned int Whole::CreateCollection(std::string collectionName, GCPtr<Collection> &collection)
+	unsigned int Whole::CreateCollection(const std::string collectionName, GCPtr<Collection> &collection)
 	{ 
 		GCPtr<Collection> c(new Collection);
 		unsigned int id = myCollections.AddPart(collectionName, c);
@@ -92,19 +92,20 @@ namespace shh {
 	}
 
 
+
 	// --------------------------------------------------------------------------						
 	// Function:	AddPart
-	// Description:	adds a part to a collection
+	// Description:	add part
 	// Arguments:	collection name, part name, part
-	// Returns:		part id
+	// Returns:		id or -1 if collection doesnt exist
 	// --------------------------------------------------------------------------
-	unsigned int Whole::AddPart(const std::string& collectionName, std::string partName, GCPtr<GCObject> &obj)
+	unsigned int Whole::AddPart(const std::string& collectionName, const std::string &name, GCPtr<GCObject> object)
 	{
-		GCPtr<Collection> c;
-		if (!GetCollection(collectionName, c))
-			return 0;
+		GCPtr<Collection> collection;
+		if (GetCollection(collectionName, collection))
+			return -1;
 
-		return c->AddPart(partName, obj);
+		return collection->AddPart(name, object);
 	}
 
 
@@ -114,7 +115,7 @@ namespace shh {
 	// Arguments:	collection id, part name, part
 	// Returns:		part id
 	// --------------------------------------------------------------------------
-	unsigned int  Whole::AddPart(unsigned int collectionId, std::string partName, GCPtr<GCObject>& obj)
+	unsigned int  Whole::AddPart(unsigned int collectionId, const std::string &partName, GCPtr<GCObject>& obj)
 	{
 		GCPtr<Collection> c;
 		if (!GetCollection(collectionId, c))
@@ -195,7 +196,7 @@ namespace shh {
 	// Arguments:	collection id, part name, part got
 	// Returns:		if got
 	// --------------------------------------------------------------------------
-	bool Whole::GetPart(unsigned int collectionId, std::string partName, GCPtr<GCObject>& obj)
+	bool Whole::GetPart(unsigned int collectionId, const std::string partName, GCPtr<GCObject>& obj)
 	{
 		GCPtr<Collection> c;
 		if (GetCollection(collectionId, c))
