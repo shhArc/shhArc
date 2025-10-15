@@ -347,6 +347,8 @@ namespace shh
 					
 					schema->myName = spec.Get("name", "__NONAME");
 					schema->myType = spec.Get("type", "__NOTYPE");
+					ourTypeCodes.Add(schema->myType);
+					schema->myTypeCode = GetTypeCode(schema->myType);
 
 					// configure schema interfaces and edges
 					StringKeyDictionary config;
