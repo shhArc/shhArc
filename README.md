@@ -14,6 +14,9 @@ SHH_THIRDPARY = YOURPATH\shhThirdParty\<br>
 Load the demo Visual Studion project: YOURPATH\shhArc\Code\DemoApp\Win64\DemoApp.sln<br><br>
 Set the runtime directory to: YOURPATH\shhArc\Code\DemoApp\Runtime<br><br>
 Build, run & enjoy.
+<br><br><br>
+<h2>Licence</h2>
+shhArc is available under the MIT License with a No Modification clause. Except for the files in Code/Config which do nit have the No Modification Clause, as you need to edit these to configure shhArc as you want it.
 <!--
 **shhArc/shhArc** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
