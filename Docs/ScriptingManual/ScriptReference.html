@@ -94,8 +94,8 @@ Functions that start with the <b>shhMessage</b> prefix are public. Functions tha
 The functions with the following engine prefixes can only be called by the engine:
 <br><br> 
 <li><b>shhUpdate</b> - messages which are regularlty called by the engine.</li><br>
-<li><b>ShhSystem</b> - messages are called by the engine for special purposes. For example, collision callbacks.</li><br>
-<li><b>ShhStatic</b> - messages are for the entire agent/node class not each agent/node instanciation. For example, the shhStaticInject function is used by the engine debugger for agent/node injection.</li>
+<li><b>shhSystem</b> - messages are called by the engine for special purposes. For example, collision callbacks.</li><br>
+<li><b>shhStatic</b> - messages are for the entire agent/node class not each agent/node instanciation. For example, the shhStaticInject function is used by the engine debugger for agent/node injection.</li>
 <br>
 <h3>Agent/Node Specialization</h3>
 Agent and Node specializations implements protected inheritance and virtual functions. All base agent class functions that are overridden by 
