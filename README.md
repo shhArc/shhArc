@@ -14,6 +14,9 @@ Nodes are processes within an agent and like agents have their own script. They 
 <br><br><br><center><img src="intro.jpg"/></center>
 <br><br><br><center><img src="images/intro.jpg"/></center>
 The scripting documentation and be found  <a href="https://github.com/shhArc/shhArc/blob/main/Docs/ScriptingManual/">here</a>.
+<br><br>
+The engine is written is C++ and is designed to be extensible so you can add your own data types to be used in scripts and also
+your own c++ function that can be called from script.
 <br><br><br>
 <h2>Installation Nodes</h2>
 Clone this shhArc repo and the shhThirdParty repo found <a href="https://github.com/shhArc/shhThirdParty">here</a>.
