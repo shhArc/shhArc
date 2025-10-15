@@ -87,6 +87,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	char buffer[500];
 	wcstombs(buffer, lpCmdLine, 500);
 	std::string ourCommandLineArgs(buffer);
+	God::ourCommandLineArgs = ourCommandLineArgs;
 
 
 
