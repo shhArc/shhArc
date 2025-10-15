@@ -269,42 +269,25 @@ namespace shh {
 		return ExecutionOk;
 	}
 
-	 //! /namespace Vector
-	//! /function GetX
-	//! /returns x
-	//! Gets x member
 	ExecutionState VectorModule::GetX(Vector& v, float& result)
 	{
 		result = v.myX;
 		return ExecutionOk;
 	}
 
-	 //! /namespace Vector
-	//! /function GetY
-	//! /returns y
-	//! Gets y member
 	ExecutionState VectorModule::GetY(Vector& v, float& result)
 	{
 		result = v.myY;
 		return ExecutionOk;
 	}
 
-	 //! /namespace Vector
-	//! /function GetZ
-	//! /returns z
-	//! Gets z member
 	ExecutionState VectorModule::GetZ(Vector& v, float& result)
 	{
 		result = v.myZ;
 		return ExecutionOk;
 	}
 
-	 //! /namespace Vector
-	//! /function GetXYZ
-	//! /returns x
-	//! /returns y
-	//! /returns z
-	//! Gets x, y and z member s
+
 	ExecutionState VectorModule::GetXYZ(Vector& v, float& x, float& y, float& z)
 	{
 		x = v.myX;
