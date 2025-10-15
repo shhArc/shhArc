@@ -8,8 +8,9 @@ In order to do this it has a God object that manages the worlds.
 The God object has its own agent system that can be used for user interface agents and world managing agents. 
 It also has a virtual machine used for booting the engine, creating the worlds and manipulating them. 
 Each world has its own agent system and virtual machine. Agents in different worlds do not know about each other unless informed by God vm/agents.
-An agent can have sub processes and these can either be used to execute scripts or as Nodes belonging to the agent.
+An agent can have sub processes and these can either be used to execute scripts or as Nodes belonging to the agent.<br><vr></vr>
 <br><br><br><center><img src="images/intro.jpg"/></center>
+The scripting documentation and be found  <a href="https://github.com/shhArc/shhThirdParty">here</a>.
 <br><br><br>
 <h2>Installation Nodes</h2>
 Clone this shhArc repo and the shhThirdParty repo found <a href="https://github.com/shhArc/shhThirdParty">here</a>.
