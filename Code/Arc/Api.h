@@ -175,8 +175,11 @@ namespace shh {
 	// --------------------------------------------------------------------------
 	inline void Api::OpenNamespace(const std::string& name)
 	{
-		if (Api::GetImplementation() == Lua)
-			LuaApi::OpenNamespace(name);
+		if (!name.empty())
+		{
+			if (Api::GetImplementation() == Lua)
+				LuaApi::OpenNamespace(name);
+		}
 	}
 
 

@@ -46,6 +46,11 @@
 #include "../File/IOVariant.h"
 #include <algorithm>
 
+//! /library shh
+//! Messaging and process functions aswell as variable copying, testing, debug tracing. 
+
+
+
 namespace shh
 {
 	REGISTER_MODULE(LuaModule)
@@ -630,7 +635,7 @@ namespace shh
 				GCPtr<Module> me(this);
 				if (Scheduler::GetCurrentProcess()->GetImplementation() == Lua)
 				{
-					LuaApi::OpenNamespace("Updater");
+					LuaApi::OpenNamespace("shh");
 					RegisterLuaFunction("InitializeModule", InitializeModule, 3, me);
 					RegisterLuaFunction("FinalizeModule", FinalizeModule, 2, me);
 					RegisterLuaFunction("UpdateModule", UpdateModule, 4, me);
@@ -923,13 +928,13 @@ namespace shh
 	}
 
 
-	// --------------------------------------------------------------------------						
-	// Function:	InitializeModule
-	// Description:	script called function to initialize module of id
-	// Arguments:	module id, dictionary of config vars, result to return to
-	//				script
-	// Returns:		execution state for process
-	// -------------------------------------------------------------------------
+	//! /namespace shh
+	//! /function InitializeModule
+	//! /privilege Updater
+	//! /param string module_id
+	//! /param table config_dictionary
+	//! /return bool
+	//! Used by updater scripts to make a initialize a module.
 	ExecutionState Realm::InitializeModule(std::string& id, VariantKeyDictionary &vd, bool& result)
 	{
 		StringKeyDictionary sd;
@@ -946,13 +951,12 @@ namespace shh
 	}
 
 
-	// --------------------------------------------------------------------------						
-	// Function:	FinalizeModule
-	// Description:	script called function to finalize module of id
-	// Arguments:	module id, result to return to
-	//				script
-	// Returns:		execution state for process
-	// -------------------------------------------------------------------------
+	//! /namespace shh
+	//! /function FinalizeModule
+	//! /privilege Updater
+	//! /param string module_id
+	//! /return bool 
+	//! Used by updater scripts finalize a module.
 	ExecutionState Realm::FinalizeModule(std::string& id, bool& result)
 	{
 		GCPtr<Environment> env = Scheduler::GetCurrentProcess()->GetCurrentEnvironment();
@@ -961,13 +965,14 @@ namespace shh
 	}
 
 
-	// --------------------------------------------------------------------------						
-	// Function:	UpdateModule
-	// Description:	script called function to update module of id
-	// Arguments:	module id, rtime to update to, phase of update, result to 
-	//				return to script
-	// Returns:		execution state for process
-	// -------------------------------------------------------------------------
+	//! /namespace shh
+	//! /function UpdateModule
+	//! /privilege Updater
+	//! /param string module_id
+	//! /param double time_to_update_until
+	//! /param integer phase_of_update
+	//! /return bool 
+	//! Used by updater scripts update a module.
 	ExecutionState Realm::UpdateModule(std::string &id, double &until, unsigned int &phase, bool &result)
 	{
 		GCPtr<Environment> env = Scheduler::GetCurrentProcess()->GetCurrentEnvironment();
@@ -976,13 +981,13 @@ namespace shh
 	}
 
 
-	// --------------------------------------------------------------------------						
-	// Function:	UpdateScheduler
-	// Description:	script called function to update scheduler
-	// Arguments:	time to update to, phase of update, result to 
-	//				return to script
-	// Returns:		execution state for process
-	// -------------------------------------------------------------------------
+	//! /namespace shh
+	//! /function UpdateScheduler
+	//! /privilege Updater
+	//! /param double time_to_update_until
+	//! /param integer phase_of_update
+	//! /return bool
+	//! Used by updater scripts update a scheduler.
 	ExecutionState Realm::UpdateScheduler(double& until, unsigned int& phase, bool& result)
 	{
 		GCPtr<Process> process = Scheduler::GetCurrentProcess();

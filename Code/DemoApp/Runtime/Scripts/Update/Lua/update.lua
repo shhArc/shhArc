@@ -1,12 +1,12 @@
 function shhInitialize(sd)
-	Updater.InitializeModule("bob", {})
+	shh.InitializeModule("bob", {})
 end
 
 function shhUpdate(u)
-	Updater.UpdateModule("bob", u, 1)
-	Updater.UpdateScheduler(u, 1)
+	shh.UpdateModule("bob", u, 1)
+	shh.UpdateScheduler(u, 1)
 end
 
 function shhFinalize()
-	Updater.FinalizeModule("bob")
+	shh.FinalizeModule("bob")
 end
