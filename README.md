@@ -1,5 +1,5 @@
 # shhArc
-scripted agent engine
+SCRIPTED AGENT ENGINE
 <img src="images/logo.jpg" alt="Logo" width="1000">
 <br><br>
 <h2>Installation Nodes</h2>
