@@ -158,7 +158,8 @@ namespace shh {
 			
 			Api::OpenNamespace("shh");
 			Api::RegisterFunction(std::string("This") + alias, This, 1, me);
-			Api::RegisterFunction("ExpressSchema", ExpressSchema, 3, me);
+			if ((privileges & AgentPrivilege) || (privileges & SchemaPrivilege))
+				Api::RegisterFunction("ExpressSchema", ExpressSchema, 3, me);
 			Api::CloseNamespace();
 		
 		}
