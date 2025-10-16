@@ -49,9 +49,8 @@ The engine may be run with <br><br> -boot script_file_name <br><br>to boot from 
 
 Agents scripts are placed in a directory along with all of their assets.
 Agent directories are placed in the runtime sub directory with path label AGENT defined in the path config file.  God agents are placed in the further sub directory God. 
-World agents are placed in the sub directory World. Further sub directories exist for each language implementation. It is in the latter that the specific agent directories are placed.
+World agents are placed in the sub directory World. Further sub directories exist for each language implementation (currently only Lua is implemented). It is in the latter that the specific agent directories are placed.
 <br><br>
-<h3>Agent Class Definition</h3>
 Agent scripts start with the agent class definition on the first line:
 <br><br>
 --< agent_name > specializes (< base_class_agent_name > |  Agent) [abstract | final] 
@@ -61,6 +60,19 @@ Agent scripts start with the agent class definition on the first line:
 <li><b>abstract</b> - specifies that the agent can not be instantiated and therefore is only used for specialization</li><br>
 <li><b>final</b>  -specifies that the agent can not be specialized and therefore is only instantiated</li>
 <br><br>
+The agent public interface imposes sandboxed messaging. This means that variables passed either way are copied so that the agent own internal variable values can not be tampered with outside of itself. 
+Agents can optionally have a function called <b>shhInitialize</b> which will be called when the agent is created. Agents can also optionally have a function called <b>shhFinalize</b> which will be called when the agent is destroyed. Finalize functions can take no arguments.
+Functions that start with the <b>shhMessage</b> prefix are public. Functions that start with the <b>shhTimer</b> prefix are called regularly at a given interval. All other functions are protected:
+<br><br>
+<li><b>shhMessage</b> - messages are accessable by other agents and virtual machines using shh.SendMsg. Agents can send messages to each other and their child nodes and these can return values. 
+</li><br>
+<li><b>shhTimer</b> - messages which are regularlty called at a time interval. This is set using shh.SetTimer</li><br><br>
+The functions with the following engine prefixes can only be called by the engine:
+<br><br> 
+<li><b>shhUpdate</b> - messages which are regularlty called by the engine.</li><br>
+<li><b>shhSystem</b> - messages are called by the engine for special purposes. For example, collision callbacks.</li><br>
+<li><b>shhStatic</b> - messages are for the entire agent/node class not each agent/node instanciation. For example, the shhStaticInject function is used by the engine debugger for agent/node injection.</li>
+<br>
 
 <hr width="90%" align="center"><p>
 <h2><a name="nodes">Nodes</h2>
@@ -68,11 +80,8 @@ Agent scripts start with the agent class definition on the first line:
 
 Nodes scripts are placed in a directory along with all of their assets.
 Nodes are placed in the runtime sub directory with path label NODE defined in the path config file.  God nodes are placed in the further sub directory God. 
-World nodes are placed in the sub directory World. Further sub sirectories exist for each language implementation. It is in the latter that the specific node directories are placed.
-
-
+World nodes are placed in the sub directory World. Further sub sirectories exist for each language implementation (currently only Lua is implemented). It is in the latter that the specific node directories are placed.
 <br><br>
-<h3>Node Class Definition</h3>
 Node scripts start with the node class definition on the first line:
 <br><br>
 --< node_name > specializes (< base_class_node_name > |  Node) [abstract | final] 
@@ -83,14 +92,12 @@ Node scripts start with the node class definition on the first line:
 <li><b>final</b> - specifies that the node can not be specialized and therefore is only instantiated</li>
 
 <br><br>
-<hr width="90%" align="center"><p>
-<h3>Agent/Node Member Functions</h3>
-The agent/node public interface imposes sandboxed messaging. This means that variables passed either way are copied so that the agent/node own internal variable values can not be tampered with outside of itself. 
-Agents/Nodes can optionally have a function called <b>shhInitialize</b> which will be called when the agent is created. Agents/Nodes can also optionally have a function called <b>shhFinalize</b> which will be called when the agent is destroyed. Finalize functions can take no arguments.
+The node public interface imposes sandboxed messaging. This means that variables passed either way are copied so that the node own internal variable values can not be tampered with outside of itself. 
+Nodes have a function called <b>shhInitialize</b> which will be called when the node is created. This function takes one argumet which is a table of configuration parameters. Nodes can also optionally have a function called <b>shhFinalize</b> which will be called when the node is destroyed. Finalize functions can take no arguments.
 Functions that start with the <b>shhMessage</b> prefix are public. Functions that start with the <b>shhTimer</b> prefix are called regularly at a given interval. All other functions are protected:
 <br><br>
 
-<li><b>shhMessage</b> - messages are accessable by other agents/nodes and virtual machines using shh.SendMsg. Agents can send messages to each other and return values. Nodes can send messages to each other and return values. Messages can not be sent to nodes from outside of thier agent.
+<li><b>shhMessage</b> - messages are accessable by other nodes and virtual machines using shh.SendMsg. Nodes can only send messages to each other and thier owning agent and these can return values. Messages can not be sent to nodes from outside of thier agent.
 </li><br>
 <li><b>shhTimer</b> - messages which are regularlty called at a time interval. This is set using shh.SetTimer</li><br><br>
 The functions with the following engine prefixes can only be called by the engine:
