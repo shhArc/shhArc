@@ -36,6 +36,8 @@
 #include "../File/IOVariant.h"
 #include "../VM/Scheduler.h"
 #include "../Schema/Whole.h"
+#include "../Schema/Agent.h"
+#include "../Schema/Node.h"
 
 #define GENERICPROCESSCREATE shh::Process::Create
 #define LUAPROCESSCREATE shh::LuaProcess::Create
@@ -64,6 +66,9 @@ namespace shh {
 		template<typename T> static inline void AddMsgArg(Message* msg, T* arg);
 		template<typename T> static inline T* GetMsgReturnVal(Message* msg, unsigned int retrunValNum, T* dummy = NULL);
 		static inline bool SendMsg(Message* msg, double delay);
+		static inline const GCPtr<Agent> GetAgent();
+		static inline const GCPtr<Node> GetNode();
+
 		static inline const GCPtr<Process> GetCurrentProcess();
 		static inline Implementation GetImplementation();
 		static inline Privileges GetPrivileges();
@@ -289,6 +294,34 @@ namespace shh {
 	inline void Api::DestroyPart(const GCPtr<Whole>& w, unsigned int& collectionId, unsigned int& partId)
 	{
 		w->DestroyPart(collectionId, partId);
+	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	GetAgent
+	// Description:	Gets the currently active Agent 
+	// Arguments:	none
+	// Returns:		agent
+	// --------------------------------------------------------------------------
+	inline const GCPtr<Agent> Api::GetAgent()
+	{
+		GCPtr<Agent> agent;
+		agent.DynamicCast(Scheduler::GetCurrentProcess()->GetVM());
+		return agent;
+	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	GetNode
+	// Description:	Gets the currently active node 
+	// Arguments:	none
+	// Returns:		node
+	// --------------------------------------------------------------------------
+	inline const GCPtr<Node> Api::GetNode()
+	{
+		GCPtr<Node> node;
+		node.DynamicCast(Scheduler::GetCurrentProcess()->GetObject());
+		return node;
 	}
 
 
