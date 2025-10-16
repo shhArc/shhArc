@@ -24,10 +24,7 @@ The scripting refererence and be found  <a href="https://github.com/shhArc/shhAr
 <h2>Installation Notes</h2>
 Clone this shhArc repo and the shhThirdParty repo found <a href="https://github.com/shhArc/shhThirdParty">here</a>.
 <br><br><br>
-Set the following environment variables:<br><br>
-SHH_ENGINE = YOURPATH\shhArc\Code<br>
-SHH_GCPTR = YOURPATH\shhArc\Code\GCPtr\<br>
-SHH_MEMORYMANAGEMENT = YOURPATH\shhArc\Code\MemoryManagement\<br>
+Set the following environment variable:<br><br>
 SHH_THIRDPARY = YOURPATH\shhThirdParty\<br>
 <br><br>
 Load the demo Visual Studion project: YOURPATH\shhArc\Code\DemoApp\Win64\DemoApp.sln<br><br>
