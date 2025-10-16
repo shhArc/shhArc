@@ -29,6 +29,7 @@
 #include "../Common/SecureStl.h"
 #include "../Common/Debug.h"
 #include "../Common/Enums.h"
+#include "../Common/Classifier.h"
 #include "../Config/GCPtr.h"
 #include "../Arc/Module.h"
 #include "Message.h"
@@ -75,6 +76,10 @@ namespace shh {
 
 		static void PushMessenger(Implementation i, const GCPtr<Messenger>& m);
 
+		inline const Classifier& GetProperties() const;
+		inline void AddProperty(const std::string& p);
+		inline void RemoveProperty(const std::string& p);
+
 	protected:
 
 		static std::string ourTypeName;
@@ -83,12 +88,50 @@ namespace shh {
 		GCPtr<Process> myProcess;
 		Message myUpdateMessage;
 		bool myFinalized;
+		Classifier myProperties;
 
 		Object(const GCPtr<ClassManager>& manager, const GCPtr<Class>& objectClass, const GCPtr<Process> &process);
 		virtual bool Finalize(GCObject*gc);
 	
 		
 	};
+
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	GetProperties
+	// Description:	returns object properties
+	// Arguments:	none
+	// Returns:		properties
+	// --------------------------------------------------------------------------
+	inline const Classifier& Object::GetProperties() const
+	{
+		return myProperties;
+	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	AddProperty
+	// Description:	adds a property to the object properties
+	// Arguments:	property string
+	// Returns:		none
+	// --------------------------------------------------------------------------
+	inline void Object::AddProperty(const std::string& p)
+	{
+		myProperties.Add(p.c_str());
+	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	RemoveProperty
+	// Description:	removes a property from the object properties
+	// Arguments:	property string
+	// Returns:		none
+	// --------------------------------------------------------------------------
+	inline void Object::RemoveProperty(const std::string& p)
+	{
+		myProperties.Remove(p.c_str());
+	}
 
 }
 

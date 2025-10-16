@@ -158,7 +158,8 @@ namespace shh {
 
 	//! /namespace shh
 	//! /function GetNodes
-	//! /privilege Agent, Node
+	//! /privilege Agent
+	//! /privilege Node
 	//! /returns table nodes
 	//! Gets all nodes of of agent
 	ExecutionState NodeAuxilaryModule::GetNodes(VariantKeyDictionary& dict)

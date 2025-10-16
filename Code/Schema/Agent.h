@@ -62,9 +62,6 @@ namespace shh {
 		virtual ~Agent();
 	
 		inline void SetNeedsComponentIntegrityCheck();
-		inline const Classifier& GetProperties() const;
-		inline void AddProperty(const std::string& p);
-		inline void RemoveProperty(const std::string& p);
 		inline const Classifier& GetTraceClassifier() const;
 
 		virtual bool AddSlaveProcess(const GCPtr<Process>& slave);
@@ -86,7 +83,6 @@ namespace shh {
 
 	private:
 
-		Classifier myProperties;
 		bool myNeedsComponentIntegrityCheck;
 		Classifier myTraceClassifier;
 
@@ -102,42 +98,6 @@ namespace shh {
 	inline void Agent::SetNeedsComponentIntegrityCheck() 
 	{ 
 		myNeedsComponentIntegrityCheck = true; 
-	}
-
-
-	// --------------------------------------------------------------------------						
-	// Function:	GetProperties
-	// Description:	returns agents properties
-	// Arguments:	none
-	// Returns:		properties
-	// --------------------------------------------------------------------------
-	inline const Classifier& Agent::GetProperties() const 
-	{ 
-		return myProperties; 
-	}
-
-
-	// --------------------------------------------------------------------------						
-	// Function:	AddProperty
-	// Description:	adds a property to the agents properties
-	// Arguments:	property string
-	// Returns:		none
-	// --------------------------------------------------------------------------
-	inline void Agent::AddProperty(const std::string& p) 
-	{ 
-		myProperties.Add(p.c_str()); 
-	}
-
-
-	// --------------------------------------------------------------------------						
-	// Function:	RemoveProperty
-	// Description:	removes a property from the agents properties
-	// Arguments:	property string
-	// Returns:		none
-	// --------------------------------------------------------------------------
-	inline void Agent::RemoveProperty(const std::string& p)
-	{ 
-		myProperties.Remove(p.c_str()); 
 	}
 
 

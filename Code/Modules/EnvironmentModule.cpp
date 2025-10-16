@@ -83,6 +83,7 @@ namespace shh {
 		Api::RegisterFunction("GetAgents", GetAgents, 1, me);
 		Api::RegisterFunction("GetAgentsOfClass", GetAgentsOfClass, 2, me);
 		Api::RegisterFunction("GetAgentsClassified", GetAgentsClassified, 2, me);
+		Api::RegisterFunction("GetAgentsPropertied", GetAgentsPropertied, 2, me);
 
 		Api::CloseNamespace();
 
@@ -322,6 +323,38 @@ namespace shh {
 			{
 				agent.DynamicCast(*it);
 				if (agent->GetClassifiers().Match(cls, Classifier::MATCH_ALL))
+				{
+					dict.Set(NonVariant<int>(i), agent);
+					i++;
+				}
+				it++;
+			}
+
+		}
+		return ExecutionOk;
+	}
+
+
+	//! /namespace Environment
+	//! /function GetAgentsPropertied
+	//! /privilege All
+	//! /param Classifier properties
+	//! /returns table agents
+	//! Gets from the environment all agent whose properties matches that given 
+	ExecutionState EnvironmentModule::GetAgentsPropertied(Classifier& cls, VariantKeyDictionary& dict)
+	{
+		GCPtr<ClassManager> cm;
+		if (Api::GetCurrentEnvironment()->GetClassManager("Agent", cm))
+		{
+			Class::Objects objects;
+			cm->GetAllObjects(objects);
+			Class::Objects::iterator it = objects.begin();
+			int i = 1;
+			GCPtr<Agent> agent;
+			while (it != objects.end())
+			{
+				agent.DynamicCast(*it);
+				if (agent->GetProperties().Match(cls, Classifier::MATCH_ALL))
 				{
 					dict.Set(NonVariant<int>(i), agent);
 					i++;

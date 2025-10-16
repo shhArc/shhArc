@@ -59,6 +59,7 @@ namespace shh {
 		static ExecutionState GetAgents(VariantKeyDictionary& dict);
 		static ExecutionState GetAgentsOfClass(std::string& cls, VariantKeyDictionary& dict);
 		static ExecutionState GetAgentsClassified(Classifier& cls, VariantKeyDictionary& dict);
+		static ExecutionState GetAgentsPropertied(Classifier& cls, VariantKeyDictionary& dict);
 
 		virtual std::string GetName() const { return GetNameStatic(); }
 		static std::string GetNameStatic() { return StripName(std::string(typeid(EnvironmentModule).name())); }

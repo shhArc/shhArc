@@ -79,6 +79,10 @@ namespace shh {
 		static ExecutionState Destroy(GCPtr<O>& object, bool &destroyed);
 		static ExecutionState IsValid(GCPtr<O>& object, bool& result);
 		static ExecutionState This(GCPtr<O>& me);
+		static ExecutionState AddProperty(std::string &p);
+		static ExecutionState RemoveProperty(std::string& p);
+		static ExecutionState GetProperties(Classifier& c);
+		static ExecutionState GetClassifiers(Classifier& c);
 		static ExecutionState ExpressSchema(std::string& file, std::string& metaFile, bool& result);
 
 
@@ -155,11 +159,17 @@ namespace shh {
 
 			Api::RegisterMemberFunction(example, "Destroy", Destroy, 2, me);
 			Api::RegisterMemberFunction(example, "IsValid", IsValid, 2, me);
-			
+			Api::RegisterMemberFunction(example, "GetProperties", GetProperties, 2, me);
+			Api::RegisterMemberFunction(example, "GetClassifiers", GetClassifiers, 2, me);
+
 			Api::OpenNamespace("shh");
 			Api::RegisterFunction(std::string("This") + alias, This, 1, me);
 			if ((privileges & AgentPrivilege) || (privileges & SchemaPrivilege))
+			{
+				Api::RegisterFunction("AddProperty", AddProperty, 2, me);
+				Api::RegisterFunction("RemoveProperty", RemoveProperty, 2, me);
 				Api::RegisterFunction("ExpressSchema", ExpressSchema, 3, me);
+			}
 			Api::CloseNamespace();
 		
 		}
@@ -437,7 +447,8 @@ namespace shh {
 
 	//! /member Object
 	//! /function IsValid
-	//! 
+	//! /privilege Agent
+	//! /privilege Node
 	//! /param Object object
 	//! /returns boolean
 	//! Returns true if an object is valid.
@@ -449,7 +460,7 @@ namespace shh {
 
 
 
-	//! /member Object
+	//! /namespace shh
 	//! /function This
 	//! /privilege Agent
 	//! /privilege Node
@@ -463,8 +474,64 @@ namespace shh {
 		return ExecutionOk;
 	}
 
+	//! /namespace shh
+	//! /function AddProperty
+	//! /privilege Agent
+	//! /privilege Node
+	//! /param string property
+	//! Adds a property to the object 
+	template<class O, class OM> ExecutionState  ObjectModule<O, OM>::AddProperty(std::string& p)
+	{
+		GCPtr<Process> cp = Scheduler::GetCurrentProcess();
+		GCPtr<Object> object = cp->GetObject();
+		object->AddProperty(p);
+		return ExecutionOk;
+	}
+
+	//! /namespace shh
+	//! /function RemoveProperty
+	//! /privilege Agent
+	//! /privilege Node
+	//! /param string property
+	//! Removes a property from the object 
+	template<class O, class OM> ExecutionState  ObjectModule<O, OM>::RemoveProperty(std::string& p)
+	{
+		GCPtr<Process> cp = Scheduler::GetCurrentProcess();
+		GCPtr<Object> object = cp->GetObject();
+		object->RemoveProperty(p);
+		return ExecutionOk;
+	}
 
 	//! /member Object
+	//! /function GetProperties
+	//! /privilege Agent
+	//! /privilege Node
+	//! /returns Classifier
+	//! Get properties from the object 
+	template<class O, class OM> ExecutionState ObjectModule<O, OM>::GetProperties(Classifier& c)
+	{
+		GCPtr<Process> cp = Scheduler::GetCurrentProcess();
+		GCPtr<Object> object = cp->GetObject();
+		c= object->GetProperties();
+		return ExecutionOk;
+	}
+
+	//! /member Object
+	//! /function GetClassifiers
+	//! /privilege Agent
+	//! /privilege Node
+	//! /returns Classifeier
+	//! Get classifiers from the object 
+	template<class O, class OM> ExecutionState ObjectModule<O, OM>::GetClassifiers(Classifier& c)
+	{
+		GCPtr<Process> cp = Scheduler::GetCurrentProcess();
+		GCPtr<Object> object = cp->GetObject();
+		c = object->GetClassifiers();
+		return ExecutionOk;
+	}
+
+
+	//! /namespace shh
 	//! /function ExpressSchema
 	//! /privilege Agent
 	//! /privilege Node

@@ -347,6 +347,13 @@ Any thing that does not specify a privledge is accessable by all.
 </td></tr><tr><td class="description">Privilege: All</td></tr>
 </td></tr><tr><td class="description">Description: Gets from the environment all agent whose classifer matches that given 
 </td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="EnvironmentGetAgentsPropertied">
+<span class="vartype">table agents</span>
+<span class="command">Environment.GetAgentsPropertied</span>(<span class="vartype">Classifier</span> <span class="varname">properties</span>)
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: Gets from the environment all agent whose properties matches that given 
+</td></tr></table>
  <p><hr width="90%" align="center"><div align="center"><h2><a name="Node--type">Node type</a></h2></div>
 <p><center>Schema Node functions 
 </center>
@@ -458,23 +465,50 @@ Agent or Node instead of tolen token Object, e.g: TypeCheck.Node(variable_name)
 <span class="vartype">boolean</span>
 <span class="command">Object:IsValid</span>(<span class="vartype">Object</span> <span class="varname">object</span>)
 </td></tr><tr><td class="description">Member: Object (replace token Object with variable name)</td></tr>
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: 
-Returns true if an object is valid.
+</td></tr><tr><td class="description">Privilege: Agent, Node</td></tr>
+</td></tr><tr><td class="description">Description: Returns true if an object is valid.
 </td></tr></table>
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
 <tr><td class="command"><a name="ObjectThis">
 <span class="vartype">object</span>
-<span class="command">Object:This</span>()
-</td></tr><tr><td class="description">Member: Object (replace token Object with variable name)</td></tr>
+<span class="command">shh.This</span>()
 </td></tr><tr><td class="description">Privilege: Agent, Node</td></tr>
 </td></tr><tr><td class="description">Description: Returns object that this process belongs to.
 </td></tr></table>
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="ObjectAddProperty">
+<span class="vartype"></span>
+<span class="command">shh.AddProperty</span>(<span class="vartype">string</span> <span class="varname">property</span>)
+</td></tr><tr><td class="description">Privilege: Agent, Node</td></tr>
+</td></tr><tr><td class="description">Description: Adds a property to the object 
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="ObjectRemoveProperty">
+<span class="vartype"></span>
+<span class="command">shh.RemoveProperty</span>(<span class="vartype">string</span> <span class="varname">property</span>)
+</td></tr><tr><td class="description">Privilege: Agent, Node</td></tr>
+</td></tr><tr><td class="description">Description: Removes a property from the object 
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="ObjectGetProperties">
+<span class="vartype">Classifier</span>
+<span class="command">Object:GetProperties</span>()
+</td></tr><tr><td class="description">Member: Object (replace token Object with variable name)</td></tr>
+</td></tr><tr><td class="description">Privilege: Agent, Node</td></tr>
+</td></tr><tr><td class="description">Description: Get properties from the object 
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="ObjectGetClassifiers">
+<span class="vartype">Classifeier</span>
+<span class="command">Object:GetClassifiers</span>()
+</td></tr><tr><td class="description">Member: Object (replace token Object with variable name)</td></tr>
+</td></tr><tr><td class="description">Privilege: Agent, Node</td></tr>
+</td></tr><tr><td class="description">Description: Get classifiers from the object 
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
 <tr><td class="command"><a name="ObjectExpressSchema">
 <span class="vartype">boolean</span>
-<span class="command">Object:ExpressSchema</span>(<span class="vartype">string</span> <span class="varname">schema_filename</span>, <span class="vartype">string</span> <span class="varname">meta_schema_filename</span>)
-</td></tr><tr><td class="description">Member: Object (replace token Object with variable name)</td></tr>
+<span class="command">shh.ExpressSchema</span>(<span class="vartype">string</span> <span class="varname">schema_filename</span>, <span class="vartype">string</span> <span class="varname">meta_schema_filename</span>)
 </td></tr><tr><td class="description">Privilege: Agent, Node</td></tr>
 </td></tr><tr><td class="description">Description: Expresses a schema file, returns if successfull.
 </td></tr></table>
