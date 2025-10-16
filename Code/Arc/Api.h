@@ -80,6 +80,7 @@ namespace shh {
 		static inline void RegisterFunction(const ::std::string& functionName, F *f, unsigned int firstReturnArg, const GCPtr<Module>& module);
 		template< typename C, typename F >
 		static inline void RegisterMemberFunction(const C* ownerExampe, const ::std::string& functionName, F *f, unsigned int firstReturnArg, const GCPtr<Module>& module);
+		static inline void RegisterHardClass(const GCPtr<Class>& cls);
 
 		static inline unsigned int CreateCollection(const GCPtr<Whole>& w, std::string& collectionName);
 		static inline void DestroyCollection(const GCPtr<Whole>& w, std::string& collectionName);
@@ -500,6 +501,18 @@ namespace shh {
 			RegisterLuaMemberFunction(ownerExampe, functionName, f, firstReturnArg, module);
 	}
 
+
+	// --------------------------------------------------------------------------						
+	// Function:	RegisterHardClass
+	// Description:	Registers a C++ class so Objects of that class can be created
+	//				in script
+	// Arguments:	class
+	// Returns:		none
+	// --------------------------------------------------------------------------
+	inline void Api::RegisterHardClass(const GCPtr<Class>& cls)
+	{
+		Registry::GetRegistry().RegisterHardClass(cls);
+	}
 
 	// --------------------------------------------------------------------------						
 	// Function:	LuaRegisterFunction

@@ -106,7 +106,7 @@ int TestAgent()
 	{
 		GCPtr<DemoHardProcess> demoProcess(new DemoHardProcess(BasicPrivilege, GCPtr<DemoHardProcess>()));
 		GCPtr<Class> cls = Api::CreateClass("DemoHardNode", "Node", demoProcess, GENERICPROCESSCREATE, NODECREATE);
-		Registry::GetRegistry().RegisterHardClass(cls);
+		Api::RegisterHardClass(cls);
 
 		Api::CreateGod("test", "god");
 		GCPtr<God> god = Api::GetGod();
