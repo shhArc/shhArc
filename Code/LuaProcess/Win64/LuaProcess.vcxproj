@@ -132,7 +132,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SHH_GCPTR)/;$(SHH_MEMORYMANAGEMENT)/;$(SHH_THIRDPARTY)/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SHH_THIRDPARTY)/</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
     </ClCompile>
     <Link>
@@ -151,7 +151,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SHH_GCPTR)/;$(SHH_MEMORYMANAGEMENT)/;$(SHH_THIRDPARTY)/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SHH_THIRDPARTY)/</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
     </ClCompile>
     <Link>

@@ -148,7 +148,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SHH_ENGINE)/;$(SHH_MEMORYMANAGEMENT)/;$(SHH_THIRDPARTY)/;$(SHH_GCPTR)/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SHH_THIRDPARTY)/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -163,7 +163,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SHH_ENGINE)/;$(SHH_MEMORYMANAGEMENT)/;$(SHH_THIRDPARTY)/;$(SHH_GCPTR)/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SHH_THIRDPARTY)/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
