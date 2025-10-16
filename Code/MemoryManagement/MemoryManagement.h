@@ -26,9 +26,9 @@
 #define MEMORYMANAGEMENT_H
 
 #include "SecureStl.h"
-#include <MemoryManager.h>
-#include <MemoryStack.h>
-#include <MemoryFrame.h>
+#include "MemoryManager.h"
+#include "MemoryStack.h"
+#include "MemoryFrame.h"
 
 
 namespace shh {

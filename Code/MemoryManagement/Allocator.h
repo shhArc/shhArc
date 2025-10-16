@@ -26,7 +26,7 @@
 #define ALLOCATOR_H
 
 #include "SecureStl.h"
-#include "MemoryLocator.h"
+#include "../GCPtr/MemoryLocator.h"
 
 
 

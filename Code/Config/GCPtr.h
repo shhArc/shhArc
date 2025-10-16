@@ -25,7 +25,7 @@
 
 #include "../Common/GCPtrInterface.h"
 #include "../Common/GCObjectInterface.h"
-#include <GCPtrBase.h>
+#include "../GCPtr/GCPtrBase.h"
 
 #define GCOBJECTBASE GCObjectBase
 #define GCPTRBASE GCPtrBase

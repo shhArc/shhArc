@@ -264,7 +264,8 @@ namespace shh {
 				i++;
 				it++;
 			}
-			return ExecutionOk;
+			
 		}
+		return ExecutionOk;
 	}
 }

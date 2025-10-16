@@ -23,9 +23,9 @@
 #ifndef MEMORYDEFINES_H
 #define MEMORYDEFINES_H
 
-#include "SecureStl.h"
-#include "Config.h"
-#include <MemoryManagement.h>
+#include "../Common/SecureStl.h"
+#include "../Config/Config.h"
+#include "../MemoryManagement/MemoryManagement.h"
 #include "../Common/Dictionary.h"
 
 

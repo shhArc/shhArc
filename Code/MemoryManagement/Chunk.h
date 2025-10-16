@@ -26,7 +26,7 @@
 #define CHUNK_H
 
 #include "SecureStl.h"
-#include "MemoryLocator.h"
+#include "../GCPtr/MemoryLocator.h"
 
 
 

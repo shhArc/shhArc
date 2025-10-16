@@ -27,8 +27,8 @@
 
 #include "../Config/GCPtr.h"
 #include "SecureStl.h"
-#include "MemoryLocator.h"
-#include "MemoryPtr.h"
+#include "../GCPtr/MemoryLocator.h"
+#include "../GCPtr/MemoryPtr.h"
 #include "Allocator.h"
 #include <map>
 #include <string.h>

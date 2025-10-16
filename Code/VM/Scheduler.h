@@ -34,7 +34,7 @@
 #include "../Arc/Module.h"
 #include "../Arc/Module.h"
 #include "Message.h"
-#include <MemoryManager.h>
+#include "../Config/MemoryDefines.h"
 #include <vector>
 #include <map>
 #include <queue>

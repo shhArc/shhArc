@@ -26,7 +26,7 @@
 #define MEMORY_MANAGER_H
 
 #include "SecureStl.h"
-#include "MemoryLocator.h"
+#include "../GCPtr/MemoryLocator.h"
 #include "Allocator.h"
 #include "Chunk.h"
 #include <vector>
