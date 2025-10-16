@@ -423,9 +423,9 @@ namespace shh
 		script = config.Get("script", script);
 
 		std::vector<std::string> scriptPathVector;
-		StringKeyDictionary scriptPaths;
+		ArrayKeyDictionary scriptPaths;
 		scriptPaths = script.Get("paths", scriptPaths);
-		for (StringKeyDictionary::VariablesConstIterator sit = scriptPaths.Begin(); sit != scriptPaths.End(); sit++)
+		for (ArrayKeyDictionary::VariablesConstIterator sit = scriptPaths.Begin(); sit != scriptPaths.End(); sit++)
 		{
 			std::string subdir;
 			if (sit->second->Get(subdir))
