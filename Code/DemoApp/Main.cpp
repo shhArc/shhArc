@@ -26,18 +26,9 @@
 #define NOMINMAX
 #include <windows.h>
 #undef GetObject
-#include "../Common/Dictionary.h"
-#include "../Common/PreciseTime.h"
-#include "../Config/GCPtr.h"
-#include "../Arc/Registry.h"
-#include "../VM/Scheduler.h"
-#include "../VM/Process.h"
-#include "../VM/ClassManager.h"
+
 #include "../Arc/Api.h"
-#include "../Schema/Node.h"
-#include "../Schema/Agent.h"
-#include "../LuaProcess/LuaProcess.h"
-#include "../Arc/God.h"
+#include "../Common/PreciseTime.h"
 #include "VectorModule.h"
 #include "Vector.h"
 #include <windows.h>
