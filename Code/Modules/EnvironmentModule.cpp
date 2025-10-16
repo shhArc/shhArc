@@ -81,6 +81,8 @@ namespace shh {
 		Api::RegisterFunction("SetLocal", SetLocalStr, 3, me);
 		Api::RegisterFunction("SetLocal", SetLocalNum, 3, me);
 		Api::RegisterFunction("GetAgents", GetAgents, 1, me);
+		Api::RegisterFunction("GetAgentsOfClass", GetAgentsOfClass, 2, me);
+		Api::RegisterFunction("GetAgentsClassified", GetAgentsClassified, 2, me);
 
 		Api::CloseNamespace();
 
@@ -265,6 +267,68 @@ namespace shh {
 				it++;
 			}
 			
+		}
+		return ExecutionOk;
+	}
+
+
+
+	//! /namespace Environment
+	//! /function GetAgentsOfClass
+	//! /privilege All
+	//! /param string class_name
+	//! /returns table agents
+	//! Gets all agent of a particular class from the environment
+	ExecutionState EnvironmentModule::GetAgentsOfClass(std::string &cls, VariantKeyDictionary& dict)
+	{
+		GCPtr<ClassManager> cm;
+		if (Api::GetCurrentEnvironment()->GetClassManager("Agent", cm))
+		{
+			Class::Objects objects;
+			cm->GetObjectsOfClass(cls, objects);
+			Class::Objects::iterator it = objects.begin();
+			int i = 1;
+			GCPtr<Agent> agent;
+			while (it != objects.end())
+			{
+				agent.DynamicCast(*it);
+				dict.Set(NonVariant<int>(i), agent);
+				i++;
+				it++;
+			}
+
+		}
+		return ExecutionOk;
+	}
+
+
+	//! /namespace Environment
+	//! /function GetAgentsClassified
+	//! /privilege All
+	//! /param Classifier classifier
+	//! /returns table agents
+	//! Gets from the environment all agent whose classifer matches that given 
+	ExecutionState EnvironmentModule::GetAgentsClassified(Classifier& cls, VariantKeyDictionary& dict)
+	{
+		GCPtr<ClassManager> cm;
+		if (Api::GetCurrentEnvironment()->GetClassManager("Agent", cm))
+		{
+			Class::Objects objects;
+			cm->GetAllObjects(objects);
+			Class::Objects::iterator it = objects.begin();
+			int i = 1;
+			GCPtr<Agent> agent;
+			while (it != objects.end())
+			{
+				agent.DynamicCast(*it);
+				if (agent->GetClassifiers().Match(cls, Classifier::MATCH_ALL))
+				{
+					dict.Set(NonVariant<int>(i), agent);
+					i++;
+				}
+				it++;
+			}
+
 		}
 		return ExecutionOk;
 	}
