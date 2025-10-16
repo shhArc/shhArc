@@ -32,7 +32,7 @@
 #include "EnvironmentModule.h"
 #include "../Arc/Api.h"
 
-//! /type Environment
+//! /library Environment
 //! Controls manipulation of worlds and related variables.
 
 namespace shh {
