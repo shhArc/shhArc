@@ -17,7 +17,7 @@ your own C functions that can be called from script. So you can implement functi
 <br><br>
 Nodes are processes within an agent and like agents have their own script. They can also comunicate with each other via the sandboxed messaging system but only with other nodes within the same agent and to their owning agent. Nodes also have input and output interfaces which can be connected to those in other nodes via edges to facilitate fast transfer of information The engine uses schema files which are in the JSON format and
 are used to specify and quickly construct networks of different types of nodes with an agent.<br><br>
-The scripting documentation and be found  <a href="https://github.com/shhArc/shhArc/blob/main/Docs/ScriptingManual/">here</a>.
+The scripting refererence and be found  <a href="https://github.com/shhArc/shhArc/blob/main/Docs/ScriptingReference/">here</a>.
 <br><br><br><center><img src="images/intro.jpg"/></center>
 
 <br><br>
