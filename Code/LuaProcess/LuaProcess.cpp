@@ -1174,14 +1174,6 @@ namespace shh {
 			}
 		}
 
-
-		// clone the TValue
-		TValue valueCloned;
-		if (typeId == LUA_TTABLE)
-			valueCloned = *valueToClone;
-		else
-			Clone(valueToClone, &valueCloned);
-		
 		
 		// clone the actual data
 		Message::Argument argCloned;
@@ -1192,37 +1184,37 @@ namespace shh {
 		int i;
 		if (typeId < 0)
 		{
-			data = LuaGetUserData(myLuaState, &valueCloned);
+			data = LuaGetUserData(myLuaState, valueToClone);
 		}
 		else if (typeId == LUA_TTABLE)
 		{
 			VariantKeyDictionary* dict = new VariantKeyDictionary;
-			LuaHelperFunctions::PopDictionary(myLuaState, &valueCloned, dict);
+			LuaHelperFunctions::PopDictionary(myLuaState, valueToClone, dict);
 			data = dict;
 		}
 		else
 		{
-			LuaSetStackValue(myLuaState, 0, &valueCloned);
+			LuaSetStackValue(myLuaState, 0, valueToClone);
 			if (typeId == LUA_TSTRING)
 			{
-				s = lua_tostring(myLuaState, 0);
+				s = lua_tostring(myLuaState, arg);
 				data = &s;
 			}
 			else if (typeId == LUA_TBOOLEAN)
 			{
-				b = lua_toboolean(myLuaState, 0);
+				b = lua_toboolean(myLuaState, arg);
 				data = &b;
 			}
 			else if (typeId == LUA_TNUMBER)
 			{
-				if (LuaGetSubType(&valueCloned) == LUA_VNUMFLT)
+				if (LuaGetSubType(valueToClone) == LUA_VNUMFLT)
 				{
-					f = lua_tonumber(myLuaState, 0);
+					f = lua_tonumber(myLuaState, arg);
 					data = &f;
 				}
 				else
 				{
-					i = (int)lua_tointeger(myLuaState, 0);
+					i = (int)lua_tointeger(myLuaState, arg);
 					data = &i;
 				}
 			}

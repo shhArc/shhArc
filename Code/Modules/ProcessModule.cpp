@@ -304,7 +304,15 @@ namespace shh {
 			{
 				GCPtr<Agent> a;
 				LuaApiTemplate::GetArgument(L, 1, a);
-				o.StaticCast(a);
+				if (a.IsValid())
+					o.StaticCast(a);
+			}
+			else if (Api::LuaGetArgumentType(L, 1) == LuaType<GCPtr<Node>>::GetLuaId())
+			{
+				GCPtr<Node> n;
+				LuaApiTemplate::GetArgument(L, 1, n);
+				if (n.IsValid())
+					o.StaticCast(n);
 			}
 				
 			if (!o.IsValid())

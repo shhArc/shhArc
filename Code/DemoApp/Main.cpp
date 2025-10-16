@@ -52,6 +52,7 @@ public:
 
 	DemoHardProcess(Privileges privileges, const GCPtr<Process> spawnFrom) : Process(privileges)
 	{
+		myState = ExecutionReady;
 	}
 
 	virtual GCPtr<Process> Clone()
@@ -61,6 +62,29 @@ public:
 	}
 
 	virtual bool Busy() const { return false; }
+
+	virtual ExecutionState CallMessage(Message& msg, bool needReturnValues, bool isYieldable = true) 
+	{ 
+		if (msg.myFunctionName == "shhMessageDave")
+		{
+			// do stuff here
+		}
+		msg.DeleteArguments(); 
+		return ExecutionCompleted;
+	}
+
+	virtual const void* GetFunction(const std::string& functionName, int& argsExpected) 
+	{ 
+		if(functionName == "shhMessageDave")
+		{
+			argsExpected = 1;
+			return (void*)1;
+		}
+		return 0;
+
+	};
+
+
 };
 
 
