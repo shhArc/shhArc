@@ -33,6 +33,8 @@ namespace shh {
 
 	template<class BASE> class GCObjectInterface : public virtual BASE
 	{
+		template<typename T, typename B> friend void SetMemoryStart(T*, GCObjectInterface<B>*);
+
 	public:
 
 		GCObjectInterface() {};

@@ -281,7 +281,7 @@ namespace shh {
 		}
 		else
 		{
-			if (MemoryLocator::IsVariableSizeData((char*)this))
+			if (MemoryLocator::IsVariableSizeData((char*)myMemoryStart))
 			{
 				MemoryLocator::VariableHeader& header = MemoryLocator::GetVariableHeader((char*)myMemoryStart);
 				GCInfo* info = new GCInfo(*header.myLocator, header.myLocator->AddressOffset(this), true);

@@ -33,6 +33,7 @@
 
 namespace shh {
 
+	
 
 #define CONFIGURE_SHHARC_MEMORYMANAGEMENT(DICT) ConfigureMemoryManagementSHHARC(DICT)
 #define UPDATE_SHHARC_MEMORYMANAGER(ARG) 

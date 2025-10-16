@@ -78,6 +78,7 @@ namespace shh {
 		
 		typedef std::map<MemorySize, Allocator*> Allocators;
 
+
 		static MemoryManager& GetManager();
 		static void CloseManager();
 
