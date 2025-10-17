@@ -106,9 +106,9 @@ namespace shh {
 	template< typename T >
 	inline void GCObjectInterface<BASE>::DestroyObjectVirtuallyIfPossible(BASE* object, T* exactObject)
 	{
-		object->myGCInfo->DecrementReferenceCount();
+		object->IncReferenceCount();
 		object->Finalize(dynamic_cast<GCObjectInterface<BASE>*>(object));
-		object->myGCInfo->IncrementReferenceCount();
+		object->DecReferenceCount();
 		if (object->IsDeleteable())
 		{
 			delete object;

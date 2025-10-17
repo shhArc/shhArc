@@ -94,6 +94,8 @@ namespace shh {
 		
 		void NullInfo();
 		void SetGCMemoryStart(void* mem);
+		inline void DecReferenceCount() const;
+		inline void IncReferenceCount() const;
 
 	private:
 
@@ -262,6 +264,22 @@ namespace shh {
 	inline int GCObjectBase::GetReferenceCount() const { return myGCInfo->GetReferenceCount(); }
 
 
+	// --------------------------------------------------------------------------						
+	// Function:	IncReferenceCount
+	// Description:	increments reference count in info object
+	// Arguments:	none
+	// Returns:		none
+	// --------------------------------------------------------------------------
+	inline void GCObjectBase::IncReferenceCount() const { myGCInfo->IncrementReferenceCount(); }
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	DecReferenceCount
+	// Description:	decrements reference count in info object
+	// Arguments:	none
+	// Returns:		none
+	// --------------------------------------------------------------------------
+	inline void GCObjectBase::DecReferenceCount() const { myGCInfo->DecrementReferenceCount(); }
 
 	// GCPtrBase ////////////////////////////////////////////////////////////////
 
