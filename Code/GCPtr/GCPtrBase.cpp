@@ -157,7 +157,7 @@ namespace shh {
 	// Arguments:	none
 	// Returns:		none
 	// --------------------------------------------------------------------------
-	GCObjectBase::GCObjectBase() : myCollectable(1), myGCInfo(0), myMemoryStart(this)
+	GCObjectBase::GCObjectBase() : myCollectable(1), myGCInfo(0), myMemoryStart(NULL)
 	{
 	}
 

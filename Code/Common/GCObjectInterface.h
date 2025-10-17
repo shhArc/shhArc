@@ -25,7 +25,7 @@
 #define GCOBJECTINTERFACE_H
 
 
-#include "SecureStl.h"
+#include "Debug.h"
 #include <type_traits>
 
 namespace shh {
@@ -39,7 +39,7 @@ namespace shh {
 
 	public:
 
-		GCObjectInterface() {};
+		GCObjectInterface() { }//SetGCMemoryStart(NULL, true);
 		virtual ~GCObjectInterface() {};
 		virtual bool Finalize(GCObjectInterface<BASE>* gc);
 		inline bool IsDying() const;
@@ -51,7 +51,7 @@ namespace shh {
 	protected:
 
 		inline void SetGCMemoryStart(void* mem);
-		template<typename T> static void PreSetMemoryStart(T* type);
+		//template<typename T> static void SetGCMemoryStart(T* type, bool set);
 
 	};
 
@@ -106,7 +106,9 @@ namespace shh {
 	template< typename T >
 	inline void GCObjectInterface<BASE>::DestroyObjectVirtuallyIfPossible(BASE* object, T* exactObject)
 	{
+		object->myGCInfo->DecrementReferenceCount();
 		object->Finalize(dynamic_cast<GCObjectInterface<BASE>*>(object));
+		object->myGCInfo->IncrementReferenceCount();
 		if (object->IsDeleteable())
 		{
 			delete object;
@@ -132,17 +134,28 @@ namespace shh {
 
 
 	// --------------------------------------------------------------------------						
-	// Function:	PreSetGCMemoryStart
+	// Function:	SetGCMemoryStart
 	// Description:	sets memory start of object (needed for multiple inheritance
-	// Arguments:	mem start of object
+	// Arguments:	mem start of object, whther to set (if false just logs)
 	// Returns:		none
 	// --------------------------------------------------------------------------
-	template<class BASE>
+	/*template<class BASE>
 	template<typename T>
-	static void GCObjectInterface<BASE>::PreSetMemoryStart(T* type)
+	static void GCObjectInterface<BASE>::SetGCMemoryStart(T* type, bool set)
 	{
-		type->BASE::myMemoryStart = type;
-	}
+		static thread_local T* loggedType = NULL;
+		if (!set)
+		{
+			RELEASE_ASSERT(loggedType == NULL);
+			loggedType = type;
+		}		
+		else if (loggedType)
+		{
+			// only called by if loggedType set by memory managed object
+			loggedType->BASE::myMemoryStart = loggedType;
+			loggedType = NULL;
+		}
+	}*/
 }
 
 #endif

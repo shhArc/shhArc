@@ -68,6 +68,7 @@ namespace shh {
 	Object::~Object()
 	{
 		myClass->RemoveObject(GCPtr<Object>(this));
+		myProcess.Destroy();
 	}
 
 

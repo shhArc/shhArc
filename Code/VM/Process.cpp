@@ -80,7 +80,7 @@ namespace shh {
 
 
 	// --------------------------------------------------------------------------						
-	// Function:	Process
+	// Function:	~Process
 	// Description:	destructor
 	// Arguments:	none
 	// Returns:		none
@@ -89,6 +89,7 @@ namespace shh {
 	{
 		if (myVM.IsValid())
 			myVM->RemoveProcess(GCPtr<Process>(this));
+		myObject.Destroy();
 	}
 
 

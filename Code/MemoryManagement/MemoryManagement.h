@@ -42,7 +42,7 @@ namespace shh {
 	inline typename std::enable_if<std::is_convertible<T*, GCObject*>::value, void>::type
 	SetMemoryStart(T* type)
 	{
-		//GCObject::PreSetMemoryStart(type);
+		//GCObject::SetGCMemoryStart(type, false);
 	}
 
 	template<typename T>
