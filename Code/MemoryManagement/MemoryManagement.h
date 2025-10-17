@@ -29,11 +29,31 @@
 #include "MemoryManager.h"
 #include "MemoryStack.h"
 #include "MemoryFrame.h"
-
+#include "../Config/GCPtr.h"
+#include <type_traits>
 
 namespace shh {
 
-	
+	inline void SetMemoryStart(void* type)
+	{
+
+	}
+	template<typename T>
+	inline typename std::enable_if<std::is_convertible<T*, GCObject*>::value, void>::type
+	SetMemoryStart(T* type)
+	{
+		//GCObject::PreSetMemoryStart(type);
+	}
+
+	template<typename T>
+	inline typename std::enable_if<!std::is_convertible<T*, GCObject*>::value, void>::type
+	SetMemoryStart(T* type)
+	{
+		
+	}
+
+
+
 
 #define CONFIGURE_SHHARC_MEMORYMANAGEMENT(DICT) ConfigureMemoryManagementSHHARC(DICT)
 #define UPDATE_SHHARC_MEMORYMANAGER(ARG) 
@@ -41,10 +61,10 @@ namespace shh {
 
 #define DECLARE_SHHARC_MEMORY_MANAGED(CLASS) \
 	public: \
-	inline void* operator new(const size_t bytes){ GCPtr<CLASS>::ourMemoryManaged = true; void *p = ourAllocator->Allocate(); MemoryLocator::MemoryDestructor<CLASS>::Add(p); return p; } \
-	inline void* operator new(const size_t bytes, shh::MemoryStack* m) { GCPtr<CLASS>::ourMemoryManaged = true; void* p = m->Malloc((unsigned int)bytes); MemoryLocator::MemoryDestructor<CLASS>::Add(p); return p; } \
-	inline void* operator new(const size_t bytes, shh::MemoryFrame* m) { GCPtr<CLASS>::ourMemoryManaged = true; void* p = m->Malloc((unsigned int)bytes); MemoryLocator::MemoryDestructor<CLASS>::Add(p); return p; } \
-	inline void* operator new(const size_t bytes, void *place ){ return place; } \
+	inline void* operator new(const size_t bytes){ GCPtr<CLASS>::ourMemoryManaged = true; CLASS *p = (CLASS*)ourAllocator->Allocate(); MemoryLocator::MemoryDestructor<CLASS>::Add(p); SetMemoryStart(p); return p; } \
+	inline void* operator new(const size_t bytes, shh::MemoryStack* m) { GCPtr<CLASS>::ourMemoryManaged = true; CLASS* p = (CLASS*)m->Malloc((unsigned int)bytes); MemoryLocator::MemoryDestructor<CLASS>::Add(p); SetMemoryStart(p); return p; } \
+	inline void* operator new(const size_t bytes, shh::MemoryFrame* m) { GCPtr<CLASS>::ourMemoryManaged = true; CLASS* p = (CLASS*)m->Malloc((unsigned int)bytes); MemoryLocator::MemoryDestructor<CLASS>::Add(p); SetMemoryStart(p); return p; } \
+	inline void* operator new(const size_t bytes, void* place) { SetMemoryStart((CLASS*)place); return place; } \
 	inline void operator delete(void* mem, shh::MemoryFrame *m){ } \
 	inline void operator delete(void* mem) { \
 	MemoryLocator::Header& head = MemoryLocator::GetHeader(mem); \
@@ -53,7 +73,7 @@ namespace shh {
 	static shh::Allocator* ourAllocator;
 
 #define IMPLEMENT_SHHARC_MEMORY_MANAGED(CLASS) \
-	shh::Allocator *CLASS::ourAllocator = shh::MemoryManager::GetManager().GetAllocator(sizeof(CLASS)); 
+	shh::Allocator *CLASS::ourAllocator = shh::MemoryManager::GetManager().GetAllocator(sizeof(CLASS)); \
 
 	template<class T> class Dictionary;
 	void ConfigureMemoryManagementSHHARC(const  Dictionary<std::string>& memory);

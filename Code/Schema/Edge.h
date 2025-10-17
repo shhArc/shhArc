@@ -38,6 +38,15 @@ namespace shh
 	class Edge : public GCObject
 	{
 		DECLARE_MEMORY_MANAGED(Edge);
+/*
+	public: 
+		inline void* operator new(const size_t bytes) { GCPtr<Edge>::ourMemoryManaged = true; Edge* p = (Edge*)ourAllocator->Allocate(); MemoryLocator::MemoryDestructor<Edge>::Add(p); 
+		  SetMemoryStart<Edge>(p); 
+		  return p; } 
+		
+	private: 
+		static shh::Allocator* ourAllocator;
+*/
 
 		friend class Node;
 

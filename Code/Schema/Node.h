@@ -28,7 +28,6 @@
 #include "../Common/SecureStl.h"
 #include "../Config/MemoryDefines.h"
 #include "../VM/Object.h"
-#include "../VM/Message.h"
 #include "Edge.h"
 #include "Schema.h"
 #include <vector>

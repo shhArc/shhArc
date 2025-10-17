@@ -26,14 +26,16 @@
 
 
 #include "SecureStl.h"
-
+#include <type_traits>
 
 namespace shh {
 
 
-	template<class BASE> class GCObjectInterface : public virtual BASE
+	template<class BASE> class GCObjectInterface : public  BASE
 	{
-		template<typename T, typename B> friend void SetMemoryStart(T*, GCObjectInterface<B>*);
+		template<typename T>
+		friend typename std::enable_if<std::is_convertible<T*, GCObjectInterface<BASE>*>::value, void>::type
+		SetMemoryStart(T*);
 
 	public:
 
@@ -49,6 +51,7 @@ namespace shh {
 	protected:
 
 		inline void SetGCMemoryStart(void* mem);
+		template<typename T> static void PreSetMemoryStart(T* type);
 
 	};
 
@@ -125,6 +128,20 @@ namespace shh {
 	inline void GCObjectInterface<BASE>::SetGCMemoryStart(void* mem)
 	{
 		BASE::SetGCMemoryStart(mem);
+	}
+
+
+	// --------------------------------------------------------------------------						
+	// Function:	PreSetGCMemoryStart
+	// Description:	sets memory start of object (needed for multiple inheritance
+	// Arguments:	mem start of object
+	// Returns:		none
+	// --------------------------------------------------------------------------
+	template<class BASE>
+	template<typename T>
+	static void GCObjectInterface<BASE>::PreSetMemoryStart(T* type)
+	{
+		type->BASE::myMemoryStart = type;
 	}
 }
 

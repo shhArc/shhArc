@@ -159,7 +159,6 @@ namespace shh {
 	// --------------------------------------------------------------------------
 	GCObjectBase::GCObjectBase() : myCollectable(1), myGCInfo(0), myMemoryStart(this)
 	{
-
 	}
 
 

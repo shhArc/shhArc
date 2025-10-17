@@ -91,22 +91,25 @@ namespace shh {
 		void MovePointers(GCObjectBase* object);
 
 	protected:
-
-		void SetGCMemoryStart(void* mem);
+		
 		void NullInfo();
-	
+		void SetGCMemoryStart(void* mem);
+
 	private:
 
 		template<class T> friend GCInfo* GetGCInfoFromObject(T* object, bool memoryManaged);
 		friend GCInfo* GetGCInfoFromObject(GCObjectBase* object, bool memoryManaged);
 		GCInfo* GetGCInfo(bool memoryManaged);
 		GCInfo* myGCInfo;
-		void* myMemoryStart; // need to set this when there is multiople inheritance
-
-
+		
 		// Declared but not defined
 		GCObjectBase(GCObjectBase const&);
 		GCObjectBase& operator=(GCObjectBase const&);
+
+	private:
+
+		void* myMemoryStart; // need to set this when there is multiople inheritance
+
 	};
 
 
