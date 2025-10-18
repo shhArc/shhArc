@@ -130,6 +130,7 @@ int TestAgent()
 			Api::UpdateGod(time);
 
 		Api::CloseDown();
+		MemoryManager::CloseManager();
 		
 	}
 	catch (shh::Exception& e)
