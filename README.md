@@ -27,7 +27,7 @@ Clone this shhArc repo and the shhThirdParty repo found <a href="https://github.
 Set the following environment variable:<br><br>
 SHH_THIRDPARY = YOURPATH\shhThirdParty\<br>
 <br><br>
-Load the demo Visual Studion project: YOURPATH\shhArc\Code\DemoApp\Win64\DemoApp.sln<br><br>
+Load the demo Visual Studio solution: YOURPATH\shhArc\Code\DemoApp\Win64\DemoApp.sln<br><br>
 Set the runtime directory to: YOURPATH\shhArc\Code\DemoApp\Runtime<br><br>
 Build, run & enjoy.
 <br><br><br>
