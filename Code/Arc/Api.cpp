@@ -32,7 +32,7 @@ namespace shh {
 	// Function:	CloseDown
 	// Description:	closes down the engine
 	// Arguments:	none
-	// Returns:		none
+	// Returns:	none
 	// --------------------------------------------------------------------------
 	void Api::CloseDown()
 	{
