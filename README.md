@@ -12,14 +12,19 @@ It also has a virtual machine used for booting the engine, creating agents and w
 Each world has its own agent system and virtual machine. Agents in different worlds do not know about each other unless informed by God vm/agents.
 An agent can have sub processes and these can either be used to execute scripts or as Nodes belonging to the agent.
 Agents can communicate with each other via a sandboxed messageing system. Agents also contain Parts which are simply smart pointers to any in engine object you wish an agent to have.
-The engine is written is C++ and is designed to be extensible so you can easily add your own data types to be used in scripts and also
-your own C functions that can be called from script. So you can implement functions that can be called from agent scripts to create and manipluate Parts within an agent. 
 <br><br>
 Nodes are processes within an agent and like agents have their own script. They can also comunicate with each other via the sandboxed messaging system but only with other nodes within the same agent and to their owning agent. Nodes also have input and output interfaces which can be connected to those in other nodes via edges to facilitate fast transfer of information The engine uses schema files which are in the JSON format and
 are used to specify and quickly construct networks of different types of nodes with an agent.<br><br>
 The scripting refererence and be found  <a href="https://github.com/shhArc/shhArc/blob/main/Docs/ScriptingReference/">here</a>.
+<br><br><br><center><img src="images/intro.jpg"/></center>
+<br><br>
+The engine is written is C++ and is designed to be extensible so you can easily add your own data types to be used in scripts and also
+your own C functions that can be called from script. So you can implement functions that can be called from agent scripts to create and manipluate Parts within an agent. 
+These types and functions are places in user defined C++ modules which can be registered for use with God and Worlds. Modules also have an update interface allowing for
+specific C++ code to be run for the module when God or the World they are reguistered with updates.<br><br>
 The API refererence and be found  <a href="https://github.com/shhArc/shhArc/blob/main/Docs/ApiReference/">here</a>.
 <br><br><br><center><img src="images/intro.jpg"/></center>
+<br><br>
 
 <br><br>
 <h2>Installation Notes</h2>
