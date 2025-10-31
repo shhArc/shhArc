@@ -24,7 +24,7 @@ These types and functions are placed in user defined C++ modules which can be re
 specific C++ code to be run for the module when God or the World they are registered with updates.
 To see an example of how to implement a module look at the demonstration VectorModule in the Code/DemoApp/ directory.<br><br>
 The C++ API refererence and be found  <a href="https://github.com/shhArc/shhArc/blob/main/Docs/ApiReference/">here</a>.
-To use the shhArc API include the header file shhArc/Code/Arc/Api.h
+To use the shhArc API include the header file Code/Arc/Api.h
 <br><br><br><center><img src="images/modules.jpg"/></center>
 
 
