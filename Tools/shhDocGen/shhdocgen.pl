@@ -231,12 +231,12 @@ sub process_file
 		}
 		elsif ($just_got_module == 1)
 		{
-			#@functions = sort { $a->{name} cmp $b->{name} } @functions;
-			#foreach $func (@functions) 
-			#{
-			#	$text = $func->{body};
-			#	$body .= $text;
-			#}
+			@functions = sort { $a->{name} cmp $b->{name} } @functions;
+			foreach $func (@functions) 
+			{
+				$text = $func->{body};
+				$body .= $text;
+			}
 
 			#push @chunks, $body;
 			push @chunks, $body;
@@ -286,7 +286,7 @@ sub process_file
 
 
 			# warn "Syntax error at $file line $line: Warning thing $module$item $params $return $itemdisplay";
-			$body .= <<END;
+			$definition .= <<END;
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
 <tr><td class="command"><a name="$module$item">
 <span class="vartype">$return</span>
@@ -299,11 +299,11 @@ END
 				$membertext .= " (replace token ";
 				$membertext .= $member;
 				$membertext .= " with variable name)";
-				$body .= <<END;
+				$definition .= <<END;
 </td></tr><tr><td class="description">$membertext</td></tr>
 END
 			}
-			$body .= <<END;
+			$definition .= <<END;
 </td></tr><tr><td class="description">$privileges</td></tr>
 </td></tr><tr><td class="description">$description</td></tr></table>
 END
@@ -328,6 +328,10 @@ END
 				}
 			}
 
+
+			$body .= $definition;
+			$definition = "";
+			push @functions,  { name => "$item",  body => "$definition" };		
 
 			$api = "";
 			$namespace = "";

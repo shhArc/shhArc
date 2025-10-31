@@ -128,14 +128,15 @@ The privileges are:
 <br>
 Any thing that does not specify a privledge is accessable by all.
 <br><br>
-<hr width="30%" align="center"><p><a href="#Agent--type">Agent (type)</a> - Members functions of Agent type.
-<br><a href="#Classifier--type">Classifier (type)</a> - Collection of labels.
+<hr width="30%" align="center"><p><a href="#Agent--type">Agent (type)</a> - 
+<br><a href="#Classifier--type">Classifier (type)</a> - 
 <br><a href="#Config-vars">Config Variables</a> - Engine parameters you can alter.
 
-<br><a href="#Environment--library">Environment (library)</a> - Controls manipulation of worlds and related variables.
+<br><a href="#Environment--library">Environment (library)</a> - 
 <br><a href="#Node--type">Node (type)</a> - 
-<br><a href="#Object--type">Object (type)</a> - Generic object functions.
-<br><a href="#System--library">System (library)</a> - Operating system level functions.
+<br><a href="#Object--type">Object (type)</a> - 
+<br><a href="#System--library">System (library)</a> - 
+<br><a href="#shh--library">shh (library)</a> - 
 <br><a href="#shh--library">shh (library)</a> - Messaging and process functions aswell as variable copying, testing, debug tracing.
 <br><p><hr width="90%" align="center"><div align="center"><h2><a name="Config-vars">Global variables</h2>
 <p><center>Read these with shh.GetGlobal and alter them with shh.SetGlobal</center>
@@ -149,8 +150,7 @@ Any thing that does not specify a privledge is accessable by all.
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%"><tr><td>Variable name</td><td>Default value</td><td>Description</tr></tr><tr><td>max_update_time</td><td>0.02</td><td>Chunk size of Realm updates, for example neurons are updated this often in simulation time.</td></tr>
 </table><br><p>
 <p><hr width="90%" align="center"><div align="center"><h2><a name="Agent--type">Agent type</a></h2></div>
-<p><center>Members functions of Agent type.
-</center>
+<p><center></center>
 
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
 <tr><td class="command"><a name="shhInitializeModule">
@@ -266,8 +266,7 @@ Returns whether variable is a Vector
 </td></tr><tr><td class="description">Description: Tests if two vectors are within tollerance of each other
 </td></tr></table>
  <p><hr width="90%" align="center"><div align="center"><h2><a name="Classifier--type">Classifier type</a></h2></div>
-<p><center>Collection of labels.
-</center>
+<p><center></center>
 
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
 <tr><td class="command"><a name="ClassifierClassifier">
@@ -356,8 +355,7 @@ Returns whether variable is a Vector
 </td></tr><tr><td class="description">Description: Returns a classifier that is arg1 with any labels in arg2 removed from it.
 </td></tr></table>
  <p><hr width="90%" align="center"><div align="center"><h2><a name="Environment--library">Environment library</a></h2></div>
-<p><center>Controls manipulation of worlds and related variables.
-</center>
+<p><center></center>
 
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
 <tr><td class="command"><a name="EnvironmentCreateWorld">
@@ -444,8 +442,7 @@ Returns whether variable is a Vector
 </td></tr><tr><td class="description">Description: Gets from the environment all agent whose properties matches that given 
 </td></tr></table>
  <p><hr width="90%" align="center"><div align="center"><h2><a name="Node--type">Node type</a></h2></div>
-<p><center>Schema Node functions 
-</center>
+<p><center></center>
 
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
 <tr><td class="command"><a name="shhDeepCopy">
@@ -493,8 +490,7 @@ You may have any number of arguments following the format string. Each argument 
 </td></tr><tr><td class="description">Description: Allows only traces with any of the given classifier labels to be output.
 </td></tr></table>
  <p><hr width="90%" align="center"><div align="center"><h2><a name="Object--type">Object type</a></h2></div>
-<p><center>Generic object functions. Token "Object" should be repkaced with Agent or Node variable names 
-</center>
+<p><center></center>
 
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
 <tr><td class="command"><a name="NodeDestroy">
@@ -572,8 +568,7 @@ Return bool if successful.
 </td></tr><tr><td class="description">Description: Writes the variable value to a given index in the output interface of the given name.
 </td></tr></table>
  <p><hr width="90%" align="center"><div align="center"><h2><a name="System--library">System library</a></h2></div>
-<p><center>Operating system level functions.
-</center>
+<p><center></center>
 
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
 <tr><td class="command"><a name="ObjectObject">
@@ -651,8 +646,7 @@ Agent or Node instead of tolen token Object, e.g: TypeCheck.Node(variable_name)
 </td></tr><tr><td class="description">Description: Expresses a schema file, returns if successfull.
 </td></tr></table>
  <p><hr width="90%" align="center"><div align="center"><h2><a name="shh--library">shh library</a></h2></div>
-<p><center>Messaging and process functions aswell as variable copying, testing, debug tracing. 
-</center>
+<p><center></center>
 
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
 <tr><td class="command"><a name="shhExecuteFile">
