@@ -21,10 +21,11 @@ The scripting refererence and be found  <a href="https://github.com/shhArc/shhAr
 The engine is written is C++ and is designed to be extensible so you can easily add your own data types to be used in scripts and also
 your own C functions that can be called from script. So you can implement functions that can be called from agent scripts to create and manipluate Parts within an agent. 
 These types and functions are placed in user defined C++ modules which can be registered for use with God and Worlds. Modules also have an update interface allowing for
-specific C++ code to be run for the module when God or the World they are registered with updates.To see an example of how to implement a module look at the demonataration VectotModule in the Code/DemoApp/ filder.<br><br>
-The API refererence and be found  <a href="https://github.com/shhArc/shhArc/blob/main/Docs/ApiReference/">here</a>.
+specific C++ code to be run for the module when God or the World they are registered with updates.
+To see an example of how to implement a module look at the demonataration VectotModule in the Code/DemoApp/ directory.<br><br>
+The C++ API refererence and be found  <a href="https://github.com/shhArc/shhArc/blob/main/Docs/ApiReference/">here</a>.
 <br><br><br><center><img src="images/modules.jpg"/></center>
-<br><br>
+<br><br>directory
 
 <br><br>
 <h2>Installation Notes</h2>
