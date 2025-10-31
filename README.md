@@ -7,7 +7,7 @@ The shhArc agent system is based upon the Lua scripting language. The Lua refere
 <a href="http://www.lua.org/manual/5.4/">here</a>.<br><br>
 The shhArc engine supports multiple simulated worlds. 
 In order to do this it has a God object that manages the worlds. 
-The God object has its own agent system that can be used for world managing agents or even user interface agents within a game. 
+The God object has its own agent system that can be used for world managing agents or for example as user interface agents within a game. 
 It also has a virtual machine used for booting the engine, creating agents and worlds and manipulating them. 
 Each world has its own agent system and virtual machine. Agents in different worlds do not know about each other unless informed by God vm/agents.
 An agent can have sub processes and these can either be used to execute scripts or as Nodes belonging to the agent.
@@ -23,7 +23,7 @@ your own C functions that can be called from script. So you can implement functi
 These types and functions are places in user defined C++ modules which can be registered for use with God and Worlds. Modules also have an update interface allowing for
 specific C++ code to be run for the module when God or the World they are reguistered with updates.<br><br>
 The API refererence and be found  <a href="https://github.com/shhArc/shhArc/blob/main/Docs/ApiReference/">here</a>.
-<br><br><br><center><img src="images/intro.jpg"/></center>
+<br><br><br><center><img src="images/modules.jpg"/></center>
 <br><br>
 
 <br><br>
