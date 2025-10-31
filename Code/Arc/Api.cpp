@@ -30,9 +30,9 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	CloseDown
-	// Description:	closes down the engine
+	// Description:	Closes down the engine.
 	// Arguments:	none
-	// Returns:	none
+	// Returns:		none
 	// --------------------------------------------------------------------------
 	void Api::CloseDown()
 	{
@@ -44,7 +44,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	FinalizeGodObjects
-	// Description:	finalizes all god objects
+	// Description:	Finalizes all god objects.
 	// Arguments:	none
 	// Returns:		none
 	// --------------------------------------------------------------------------
@@ -56,7 +56,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	FinalizeWorldObjects
-	// Description:	finalizes all objects belonging to a world
+	// Description:	Finalizes all objects belonging to a World.
 	// Arguments:	world name
 	// Returns:		none
 	// --------------------------------------------------------------------------
@@ -70,7 +70,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	CreateWorld
-	// Description:	creates a world
+	// Description:	Creates a world.
 	// Arguments:	world name, config dict, name of realm to use as template
 	// Returns:		if successful
 	// --------------------------------------------------------------------------
@@ -86,7 +86,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	DestroyWorlds
-	// Description:	destroys a world
+	// Description:	Destroys a World.
 	// Arguments:	world name
 	// Returns:		none
 	// --------------------------------------------------------------------------
@@ -98,7 +98,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	DestroyWorlds
-	// Description:	destorys all worlds
+	// Description:	Destorys all Worlds.
 	// Arguments:	none
 	// Returns:		none
 	// --------------------------------------------------------------------------
@@ -110,8 +110,8 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	CreateGod
-	// Description:	create god
-	// Arguments:	name of god, realm to use as template
+	// Description:	Creates God object.
+	// Arguments:	name of God, realm to use as template
 	// Returns:		none
 	// --------------------------------------------------------------------------
 	void Api::CreateGod(const std::string& name, const std::string& realmTemplate)
@@ -128,7 +128,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	DestroyGod
-	// Description:	destroys god
+	// Description:	Destroys God.
 	// Arguments:	none
 	// Returns:		none
 	// --------------------------------------------------------------------------
@@ -140,11 +140,11 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	CreateClass
-	// Description:	creatre a new class 
+	// Description:	Creates a new class. 
 	// Arguments:	name of class, type of class (Agent/Mode), process to assign
 	//				as this classes process, function to create new 
 	//				class process, constructor function to create new class objects
-	// Returns:		class
+	// Returns:		Class
 	// --------------------------------------------------------------------------
 	GCPtr<Class> Api::CreateClass(const std::string& name, const std::string& typeName, const GCPtr<Process>& process, Registry::ProcessConstructor pc, Registry::ObjectConstructor oc)
 	{
@@ -171,7 +171,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	LuaThrowScriptError
-	// Description:	throws a lua error
+	// Description:	Throws a lua error.
 	// Arguments:	format, data to print
 	// Returns:		none
 	// --------------------------------------------------------------------------

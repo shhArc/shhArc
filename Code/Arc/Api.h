@@ -119,9 +119,9 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	GetGod
-	// Description:	gets god
+	// Description:	Gets god.
 	// Arguments:	none
-	// Returns:		god
+	// Returns:		God
 	// --------------------------------------------------------------------------
 	inline const GCPtr<God> &Api::GetGod()
 	{ 
@@ -131,7 +131,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	UpdateGod
-	// Description:	updates god
+	// Description:	Updates God and all Worlds.
 	// Arguments:	time to update until
 	// Returns:		none
 	// --------------------------------------------------------------------------
@@ -144,7 +144,7 @@ namespace shh {
 	// --------------------------------------------------------------------------						
 	// Function:	CreateCollection
 	// Description:	Creates a new collection to store parts in.
-	// Arguments:	whole (e.g Agent) , collection_name
+	// Arguments:	whole (e.g Agent) , collection name
 	// Returns:		id
 	// --------------------------------------------------------------------------
 	unsigned int Api::CreateCollection(const GCPtr<Whole>& w, std::string& collectionName)
@@ -157,7 +157,7 @@ namespace shh {
 	// --------------------------------------------------------------------------						
 	// Function:	DestroyCollection
 	// Description:	Destroys a collection and all its parts.
-	// Arguments:	whole (e.g Agent) , collection_name
+	// Arguments:	whole (e.g Agent) , collection name
 	// Returns:		none
 	// --------------------------------------------------------------------------
 	void Api::DestroyCollection(const GCPtr<Whole>& w, std::string& collectionName)
@@ -169,7 +169,7 @@ namespace shh {
 	// --------------------------------------------------------------------------						
 	// Function:	DestroyCollection
 	// Description:	Destroys a collection and all its parts.
-	// Arguments:	whole (e.g Agent) , collection_id
+	// Arguments:	whole (e.g Agent) , collection id
 	// Returns:		none
 	// --------------------------------------------------------------------------
 	void Api::DestroyCollection(const GCPtr<Whole>& w, unsigned int& collectionId)
@@ -178,8 +178,8 @@ namespace shh {
 	}
 	// --------------------------------------------------------------------------						
 	// Function:	AddPart
-	// Description:	add part
-	// Arguments:	whole (e.g Agent) ,collection name, part name, part
+	// Description:	Add part to a collection.
+	// Arguments:	whole (e.g Agent), collection name, part name, part
 	// Returns:		id or -1 if collection doesnt exist
 	// --------------------------------------------------------------------------
 	unsigned int Api::AddPart(const GCPtr<Whole>& w, std::string& collectionName, std::string name, GCPtr<GCObject> object)
@@ -190,8 +190,8 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	AddPart
-	// Description:	add part
-	// Arguments:	whole (e.g Agent) ,collection id, part name, part
+	// Description:	Add part to a collection.
+	// Arguments:	whole (e.g Agent), collection id, part name, part
 	// Returns:		id or -1 if collection doesnt exist
 	// --------------------------------------------------------------------------
 	unsigned int Api::AddPart(const GCPtr<Whole>& w, unsigned int collectionId, std::string name, GCPtr<GCObject> object)
@@ -203,8 +203,8 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	GetPart
-	// Description:	get part
-	// Arguments:	whole (e.g Agent) ,collection name, part id, part
+	// Description:	Gets part.
+	// Arguments:	whole (e.g Agent) ,collection name, part id, part returned
 	// Returns:		if got
 	// --------------------------------------------------------------------------
 	bool Api::GetPart(const GCPtr<Whole>& w, std::string& collectionName, unsigned int id, GCPtr<GCObject>& obj)
@@ -216,8 +216,8 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	GetPart
-	// Description:	get part
-	// Arguments:	whole (e.g Agent) ,collection name, part name, part
+	// Description:	Get part.
+	// Arguments:	whole (e.g Agent), collection name, part name, part returned
 	// Returns:		if got
 	// --------------------------------------------------------------------------
 	bool Api::GetPart(const GCPtr<Whole>& w, std::string& collectionName, std::string name, GCPtr<GCObject>& obj)
@@ -228,8 +228,8 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	GetPart
-	// Description:	get part
-	// Arguments:	whole (e.g Agent) ,collection id, part id, part
+	// Description:	Get part.
+	// Arguments:	whole (e.g Agent), collection id, part id, part returned
 	// Returns:		if got
 	// --------------------------------------------------------------------------
 	bool Api::GetPart(const GCPtr<Whole>& w, unsigned int collectionId, unsigned int id, GCPtr<GCObject>& obj)
@@ -240,8 +240,8 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	GetPart
-	// Description:	get part
-	// Arguments:	collection id, part name, part
+	// Description:	Get part.
+	// Arguments:	collection id, part name, part returned
 	// Returns:		if got
 	// --------------------------------------------------------------------------
 	bool Api::GetPart(const GCPtr<Whole>& w, unsigned int collectionId, std::string name, GCPtr<GCObject>& obj)
@@ -253,7 +253,7 @@ namespace shh {
 	// --------------------------------------------------------------------------						
 	// Function:	DestoryPart
 	// Description:	Destroys a part.
-	// Arguments:	whole (e.g Agent) , collection name, part name
+	// Arguments:	whole (e.g Agent), collection name, part name
 	// Returns:		none
 	// --------------------------------------------------------------------------
 	inline void Api::DestroyPart(const GCPtr<Whole>& w, std::string& collectionName, std::string& partName)
@@ -300,9 +300,9 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	GetAgent
-	// Description:	Gets the currently active Agent 
+	// Description:	Gets the currently active Agent.
 	// Arguments:	none
-	// Returns:		agent
+	// Returns:		Agent
 	// --------------------------------------------------------------------------
 	inline const GCPtr<Agent> Api::GetAgent()
 	{
@@ -314,9 +314,9 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	GetNode
-	// Description:	Gets the currently active node 
+	// Description:	Gets the currently active Node. 
 	// Arguments:	none
-	// Returns:		node
+	// Returns:		Node
 	// --------------------------------------------------------------------------
 	inline const GCPtr<Node> Api::GetNode()
 	{
@@ -328,7 +328,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	GetCurrentProcess
-	// Description:	Gets the currently active Process 
+	// Description:	Gets the currently active Process.
 	// Arguments:	none
 	// Returns:		LuaProcess
 	// --------------------------------------------------------------------------
@@ -340,7 +340,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	GetImplementation
-	// Description:	get the language implementation of the active process
+	// Description:	Get the language implementation of the active Process.
 	// Arguments:	none
 	// Returns:		implementation
 	// --------------------------------------------------------------------------
@@ -352,7 +352,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	GetPrivileges
-	// Description:	get the privileges of the active process
+	// Description:	Get the privileges of the active Process.
 	// Arguments:	none
 	// Returns:		privileges
 	// --------------------------------------------------------------------------
@@ -364,7 +364,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	GetHomeEnvironment
-	// Description:	get the home Environment of the active process
+	// Description:	Get the home Environment of the active Process.
 	// Arguments:	none
 	// Returns:		Environment
 	// --------------------------------------------------------------------------
@@ -376,7 +376,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	GetCurrentEnvironment
-	// Description:	get the home Environment of the active process
+	// Description:	get the home Environment of the active Process.
 	// Arguments:	none
 	// Returns:		Environment
 	// --------------------------------------------------------------------------
@@ -388,7 +388,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	AddMsgArg
-	// Description:	adds an argument to the message
+	// Description:	Adds an argument to the message.
 	// Arguments:	message, arg
 	// Returns:		none
 	// --------------------------------------------------------------------------
@@ -400,7 +400,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	GetMsgReturnVal
-	// Description:	adds an argument to the message
+	// Description:	Adds an argument to the message.
 	// Arguments:	message, return value arg number
 	// Returns:		value
 	// --------------------------------------------------------------------------
@@ -412,7 +412,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	SendMsg
-	// Description:	adds an argument to the message
+	// Description:	Adds an argument to the message.
 	// Arguments:	message, delay before receiving
 	// Returns:		if sent
 	// --------------------------------------------------------------------------
@@ -425,8 +425,8 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	OpenNamespace
-	// Description:	opens and if  creates a name space in the current process
-	// Arguments:	name space
+	// Description:	Opens and if creates a name space in the current Process.
+	// Arguments:	namespace
 	// Returns:		none
 	// --------------------------------------------------------------------------
 	inline void Api::OpenNamespace(const std::string& name)
@@ -441,7 +441,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	CloseNamespace
-	// Description:	closes the currently open namespace in the current process
+	// Description:	Closes the currently open namespace in the current Process,
 	// Arguments:	none
 	// Returns:		none
 	// --------------------------------------------------------------------------
@@ -454,13 +454,13 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	LuaRegisterType
-	// Description:	Registers a user data type with the process
-	// Arguments:	example of user data type
-	//				name as appears in lua script
-	//				function to be used to convert value to string
-	//				function to be used to convert string to value
+	// Description:	Registers a user data type with the Process.
+	// Arguments:	example of user data type,
+	//				name as appears in lua script,
+	//				function to be used to convert value to string,
+	//				function to be used to convert string to value,
 	//				whether to allow this type to be passed between
-	//				VMs when messaging
+	//				VMs when messaging,
 	//				whether to add default constructors
 	// Returns:		type id on register type
 	// --------------------------------------------------------------------------
@@ -472,7 +472,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	RegisterFunction
-	// Description:	registers a C function that takes not arguments
+	// Description:	Registers a C function to be used in script.
 	// Arguments:	lua state,  function name, C function to register, user data 
 	//				attached to function, type of user data attached
 	// Returns:		if successful
@@ -488,7 +488,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	RegisterMemberFunction
-	// Description:	Registers a member function in the current process
+	// Description:	Registers a member function in the to be used in script.
 	// Arguments:	example of owner type of the member function
 	//				name of function, function, upvalue data
 	//				for closure, type of the upvalue data
@@ -504,9 +504,9 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	RegisterHardClass
-	// Description:	Registers a C++ class so Objects of that class can be created
+	// Description:	Registers a C++ class so Objects of that class can be created.
 	//				in script
-	// Arguments:	class
+	// Arguments:	Class
 	// Returns:		none
 	// --------------------------------------------------------------------------
 	inline void Api::RegisterHardClass(const GCPtr<Class>& cls)
@@ -516,7 +516,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	LuaRegisterFunction
-	// Description:	Registers a function in the current process
+	// Description:	Registers a Lua format function to be used in script.
 	// Arguments:	name of function, function, upvalue data
 	//				for closure, type of the upvalue data
 	// Returns:		none
@@ -529,7 +529,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	LuaGetCurrentProcess
-	// Description:	Gets the currently active LuaProcess 
+	// Description:	Gets the currently active LuaProcess.
 	// Arguments:	none
 	// Returns:		LuaProcess
 	// --------------------------------------------------------------------------
@@ -541,7 +541,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	LuaGetCurrentLuaState
-	// Description:	returns the lua state of the current process 
+	// Description:	Returns the lua state of the current Process.
 	// Arguments:	none
 	// Returns:		lua state
 	// --------------------------------------------------------------------------						
@@ -553,7 +553,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	LuaGetNumArgs
-	// Description:	Returns the number of arguments in the lua state stack 
+	// Description:	Returns the number of arguments in the lua state stack. 
 	// Arguments:	lua state
 	// Returns:		num args
 	// --------------------------------------------------------------------------
@@ -566,7 +566,7 @@ namespace shh {
 	// --------------------------------------------------------------------------						
 	// Function:	LuaCheckNumArguments
 	// Description:	Throws error if the number of arguments in the lua state 
-	//				stack is not the same as that given
+	//				stack is not the same as that given.
 	// Arguments:	lua state, num args required
 	// Returns:		none
 	// --------------------------------------------------------------------------
@@ -578,7 +578,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	LuaCheckNumArgumentsGreaterOrEqual
-	// Description:	Throws error if the number of arguments is lass than given
+	// Description:	Throws error if the number of arguments is lass than given.
 	// Arguments:	lua state, num args 
 	// Returns:		none
 	// --------------------------------------------------------------------------
@@ -591,7 +591,7 @@ namespace shh {
 	// --------------------------------------------------------------------------						
 	// Function:	LuaCheckNumArgumentRange
 	// Description:	Checks if no args on stack is equal to one of the given 
-	//				arg sizes, thows error if not
+	//				arg sizes, thows error if not.
 	// Arguments:	lua state, args sizes, number of arg sizes to to check
 	// Returns:		num args
 	// --------------------------------------------------------------------------
@@ -603,7 +603,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	LuaGetArgumentType
-	// Description:	Gets the data type of the argument number asked for
+	// Description:	Gets the data type of the argument number asked for.
 	// Arguments:	lua state, args number 
 	// Returns:		type id
 	// --------------------------------------------------------------------------
@@ -628,8 +628,8 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	LuaGetArg
-	// Description:	gets the script argument of given number from stack
-	// Arguments:	Lua state, num of arg required
+	// Description:	Gets the script argument of given number from stack.
+	// Arguments:	lua state, num of arg required
 	// Returns:		argument as lua object
 	// --------------------------------------------------------------------------
 	inline const TValue* Api::LuaGetArg(lua_State* L, int arg) 
@@ -640,7 +640,7 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	LuaRenameTableValue
-	// Description:	renames a variable in lua table, expects table on stack
+	// Description:	Renames a variable in lua table, expects table on stack.
 	// Arguments:	variable value, new name
 	// Returns:		if successful
 	// --------------------------------------------------------------------------
@@ -652,8 +652,8 @@ namespace shh {
 
 	// --------------------------------------------------------------------------						
 	// Function:	LuaGetErrorMessageDetails
-	// Description:	create a full line numbered error message, but without
-	//				the problem detail
+	// Description:	Create a full line numbered error message, but without
+	//				the problem detail.
 	// Arguments:	full line numbered etc error message to be added to
 	// Returns:		none
 	// --------------------------------------------------------------------------
