@@ -1,0 +1,84 @@
+shh.InitializeModule(module_id, config_dictionary)Used by updater scripts to make a initialize a module.
+shh.FinalizeModule(module_id)Used by updater scripts finalize a module.
+shh.UpdateModule(module_id, time_to_update_until, phase_of_update)Used by updater scripts update a module.
+shh.UpdateScheduler(time_to_update_until, phase_of_update)Used by updater scripts update a scheduler.
+shh.Vector(variable)Position or offest in a 3D world.
+shh.Vector()Returns a newly created vector.
+shh.Vector(copy)Returns a newly created vector.
+shh.Vector(x, y, z)Returns a newly created vector.
+shh.GetLength()Returns a newly created vector.
+shh.GetLengthSquared()Returns a newly created vector.
+shh.Normalise()normalises vector.
+shh.Inverse()inverts vector.
+shh.Dot(other)calculated dot product.
+shh.Cross(other)calculated cross product.
+shh.Interpolate(a, b, range)Set this vector between vectors a & b, t: range: 0.
+shh.Tolerates(a, b, tollerance)Tests if two vectors are within tollerance of each other.
+TypeCheck.Classifier(variable)Returns whether variable is a Classifier.
+shhCONSTRUCTOR:Classifier()Returns a newly created classiffier.
+Classifier:Clear()Clears the classifier.
+Classifier:Add(label_to_add)Adds a string label to the Classifier.
+Classifier:Remove(label_to_remove)Removes a string label from the Classifier.
+Classifier:Intersect(other)Returns whether the Classifier labels intersect with given others labels.
+Classifier:Superset(other)Returns whether classifier matches exactly or is a superset of other classifier.
+Classifier:Subset(other)Returns whether the Classifier matches exactly or is a subset of other.
+Classifier:DumpString()Returns the list of labels in classifier as a space separated string.
+Classifier:+(arg1, arg2)Returns a classifiers that is the combination of arg1 and arg2.
+Classifier:-(arg1, arg2)Returns a classifier that is arg1 with any labels in arg2 removed from it.
+Environment.CreateWorld(world_name, name_of_template_realm)Creates a new world from a template Realm to create from, returns bool if successfull.
+Environment.DestroyWorld(world_name)Destorys a world.
+Environment.EnterWorld(world_name)Enters the world for God agents and scripts to operate in.
+Environment.ExitWorld()Exists the currently entered world the God agent or script is currently in.
+Environment.GetLocal(variable_name, default)Returns a local (Realm) variable of a given name.
+Environment.GetGlobal(variable_name, default)Returns a global variable of a given name.
+Environment.SetLocal(variable_name, value_to_set)Sets a local (Realm) variable of a given name.
+Environment.SetGlobal(variable_name, value_to_set)Sets a global variable of a given name.
+Environment.GetAgents()Gets all agent from the environment.
+Environment.GetAgentsOfClass(class_name)Gets all agent of a particular class from the environment.
+Environment.GetAgentsClassified(classifier)Gets from the environment all agent whose classifer matches that given .
+Environment.GetAgentsPropertied(properties)Gets from the environment all agent whose properties matches that given .
+shh.DeepCopy(data_to_clone)Used to make a clone copy my value of data_to_clone argument and returns it.
+shh.DeepCompare(value1, value2)Used to compare by value two paramaters.
+shh.LogError(message)Function that tells Process when an error occurs.
+shh.ErrorBox(format, optional_variable)Used to print data to an error box.
+shh.Trace(format, optional_variable)Used to print data to the output stream.
+shh.FilterTrace(filter_attribute_lables)Allows only traces with any of the given classifier labels to be output.
+Node:Destroy()Destroys a Node and all its child nodes and returns true if successful.
+Node:DestroyChildNodes()Destroys all child nodes and returns true if successful.
+Node:GetChildNodes()Returns a table of all child nodes.
+shh.GetNodes()Gets all nodes of of agent.
+Node:CreateInputInterface(interface_id, size_of_iterface)Creates an input interface of the given name with the given size, returns if successful.
+Node:CreateOutputInterface(interface_id, size_of_iterface)Creates an output interface of the given name with the given size, returns if successful.
+Node:CreateEdge(id_index_of_source_node, source_node_interface_id, destination_node_interface_id)Creates an edge from the interface of the given name in the source node to the interface of the given name in this node.
+Node:ReadInput(input_interface_id, variable_within_interface)Returns the variable value of a given index in the input interface of the given name.
+Node:WriteOutput(output_interface_id, variable_within_interface, value_of_variable)Writes the variable value to a given index in the output interface of the given name.
+TypeCheck.Object(object)Returns whether variable is an Object.
+shhCONSTRUCTOR:Object(class_name, optional_variable)Creates an object of the given class.
+Object:Destroy(object)Destorys an object, returns if successfull.
+Object:IsValid(object)Returns true if an object is valid.
+shh.This()Returns object that this process belongs to.
+shh.AddProperty(property)Adds a property to the object .
+shh.RemoveProperty(property)Removes a property from the object .
+Object:GetProperties()Get properties from the object .
+Object:GetClassifiers()Get classifiers from the object .
+shh.ExpressSchema(schema_filename, meta_schema_filename)Expresses a schema file, returns if successfull.
+shh.ExecuteFile(filename, optional_variables)Executes a script file of the name given in a new temporarily spawned new Process.
+shh.ExecuteString(code, optional_variables)The file must be in the scripts directory.
+shh.SendMsg(receiver, delay, callback_function_name, function_name_to_call)Sends a message to an Agent/Schema.
+shh.SetTimer(receiver, message_delay_intervals, )Sends a timer message to a process.
+shh.StopTimer()Stops a timer message running on an Agent/Schema.
+shh.YieldProcess()Yields the currently active Process.
+shh.GetMsgScheduledTime()Returns the time the current message was scheduled for.
+shh.GetMsgRecievedTime()Returns the time the current message was received.
+shh.GetMsgDelta()Returns the time delta of current message (used for timers and update messages).
+System.AbsoluteTime()Returns the system time.
+System.DateTimeString()Returns data and time as a string.
+System.GMDateTimeString()Returns Greenwich Mean Time and Date as a string.
+System.USADateTimeString()Returns USA date and time as a string.
+System.IsValidPath(path)Checks if path exists.
+System.GetDirectoryContents(directory+path, wildcard, flags)Returns table of the contents of the directory path.
+System.GetLabeledPath(label)Returns the path that of given label.
+System.SetLabeledPath(label, path)Sets the path that of given label.
+Agent:CreateCollection()Creates a new collection to store parts in.
+Agent:DestroyCollection(collection_name_or_id)Destroys a collection and all its parts.
+Agent:DestoryPart(, part_name_or_id)Destroys a part.

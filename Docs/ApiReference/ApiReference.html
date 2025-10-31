@@ -5,7 +5,7 @@ Edit the comments in the source code, not this file. -->
 
 <link rel="StyleSheet" href="shhArc.css">
 <center><img src="shhArc_logo_light.jpg"/></center>
-<title>API Reference - shhArc Engine (0.001)</title></head><body><h1><center>API Reference - shhArc Engine (0.001)</center></h1>
+<title>API Reference - shhArc Engine (unknown version)</title></head><body><h1><center>API Reference - shhArc Engine (unknown version)</center></h1>
 
 <hr width="90%" align="center">
 <hr width="90%" align="center"><p>
@@ -17,327 +17,327 @@ The shhArc API is found in the header file shhArc/Code/Arc/Api.h
 <br> 
 <hr width="30%" align="center"><p><p>
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":CloseDown">
+<tr><td class="command"><a name="AddMsgArg">
+<span class="command">template&lt;typename T&gt; inline void Api::AddMsgArg(Message* msg, T* arg)</span>
+</td></tr><tr><td class="description">Description: adds an argument to the message</td></tr>
+</td></tr><tr><td class="description">Arguments: message, arg</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="AddPart">
+<span class="command">unsigned int Api::AddPart(const GCPtr&lt;Whole&gt;& w, std::string& collectionName, std::string name, GCPtr&lt;GCObject&gt; object)</span>
+</td></tr><tr><td class="description">Description: add part</td></tr>
+</td></tr><tr><td class="description">Arguments: whole (e.g Agent) ,collection name, part name, part</td></tr>
+</td></tr><tr><td class="description">Returns: id or -1 if collection doesnt exist</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="AddPart">
+<span class="command">unsigned int Api::AddPart(const GCPtr&lt;Whole&gt;& w, unsigned int collectionId, std::string name, GCPtr&lt;GCObject&gt; object)</span>
+</td></tr><tr><td class="description">Description: add part</td></tr>
+</td></tr><tr><td class="description">Arguments: whole (e.g Agent) ,collection id, part name, part</td></tr>
+</td></tr><tr><td class="description">Returns: id or -1 if collection doesnt exist</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="CloseDown">
 <span class="command">void Api::CloseDown()</span>
-</td></tr><tr><td class="description">Description: :closes down the engine</td></tr>
-</td></tr><tr><td class="description">Arguments: :none</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":FinalizeGodObjects">
-<span class="command">void Api::FinalizeGodObjects()</span>
-</td></tr><tr><td class="description">Description: :finalizes all god objects</td></tr>
-</td></tr><tr><td class="description">Arguments: :none</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":FinalizeWorldObjects">
-<span class="command">void Api::FinalizeWorldObjects(const std::string &name)</span>
-</td></tr><tr><td class="description">Description: :finalizes all objects belonging to a world</td></tr>
-</td></tr><tr><td class="description">Arguments: :world name</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":CreateWorld">
-<span class="command">bool Api::CreateWorld(const ::std::string& name, const StringKeyDictionary& config, const std::string &templateRealm)</span>
-</td></tr><tr><td class="description">Description: :creates a world</td></tr>
-</td></tr><tr><td class="description">Arguments: :world name, config dict, name of realm to use as template</td></tr>
-</td></tr><tr><td class="description">Returns: :if successful</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":DestroyWorlds">
-<span class="command">void Api::DestroyWorld(const std::string& name)</span>
-</td></tr><tr><td class="description">Description: :destroys a world</td></tr>
-</td></tr><tr><td class="description">Arguments: :world name</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":DestroyWorlds">
-<span class="command">void Api::DestroyWorlds()</span>
-</td></tr><tr><td class="description">Description: :destorys all worlds</td></tr>
-</td></tr><tr><td class="description">Arguments: :none</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":CreateGod">
-<span class="command">void Api::CreateGod(const std::string& name, const std::string& realmTemplate)</span>
-</td></tr><tr><td class="description">Description: :create god</td></tr>
-</td></tr><tr><td class="description">Arguments: :name of god, realm to use as template</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":DestroyGod">
-<span class="command">void Api::DestroyGod()</span>
-</td></tr><tr><td class="description">Description: :destroys god</td></tr>
-</td></tr><tr><td class="description">Arguments: :none</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":CreateClass">
-<span class="command">GCPtr<Class> Api::CreateClass(const std::string& name, const std::string& typeName, const GCPtr<Process>& process, Registry::ProcessConstructor pc, Registry::ObjectConstructor oc)</span>
-</td></tr><tr><td class="description">Description: :creatre a new class </td></tr>
-</td></tr><tr><td class="description">Arguments: :name of class, type of class (Agent/Mode), process to assign as this classes process, function to create new class process, constructor function to create new class objects</td></tr>
-</td></tr><tr><td class="description">Returns: :class</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":NewMessage">
-<span class="command">Message* Api::NewMessage(const std::string& name, const GCPtr<Messenger>& to, bool deletable)</span>
-</td></tr><tr><td class="description">Description: :creates a new message package</td></tr>
-</td></tr><tr><td class="description">Arguments: :message name, reciever, whether the message package can be deleted</td></tr>
-</td></tr><tr><td class="description">Returns: :message</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":LuaThrowScriptError">
-<span class="command">void Api::LuaThrowScriptError(const char* format, ...)</span>
-</td></tr><tr><td class="description">Description: :throws a lua error</td></tr>
-</td></tr><tr><td class="description">Arguments: :format, data to print</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":GetGod">
-<span class="command">inline const GCPtr<God> &Api::GetGod()</span>
-</td></tr><tr><td class="description">Description: :gets god</td></tr>
-</td></tr><tr><td class="description">Arguments: :none</td></tr>
-</td></tr><tr><td class="description">Returns: :god</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":UpdateGod">
-<span class="command">inline void Api::UpdateGod(double until)</span>
-</td></tr><tr><td class="description">Description: :updates god</td></tr>
-</td></tr><tr><td class="description">Arguments: :time to update until</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":CreateCollection">
-<span class="command">unsigned int Api::CreateCollection(const GCPtr<Whole>& w, std::string& collectionName)</span>
-</td></tr><tr><td class="description">Description: :Creates a new collection to store parts in.</td></tr>
-</td></tr><tr><td class="description">Arguments: :whole (e.g Agent) , collection_name</td></tr>
-</td></tr><tr><td class="description">Returns: :id</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":DestroyCollection">
-<span class="command">void Api::DestroyCollection(const GCPtr<Whole>& w, std::string& collectionName)</span>
-</td></tr><tr><td class="description">Description: :Destroys a collection and all its parts.</td></tr>
-</td></tr><tr><td class="description">Arguments: :whole (e.g Agent) , collection_name</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":DestroyCollection">
-<span class="command">void Api::DestroyCollection(const GCPtr<Whole>& w, unsigned int& collectionId)</span>
-</td></tr><tr><td class="description">Description: :Destroys a collection and all its parts.</td></tr>
-</td></tr><tr><td class="description">Arguments: :whole (e.g Agent) , collection_id</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":AddPart">
-<span class="command">unsigned int Api::AddPart(const GCPtr<Whole>& w, std::string& collectionName, std::string name, GCPtr<GCObject> object)</span>
-</td></tr><tr><td class="description">Description: :add part</td></tr>
-</td></tr><tr><td class="description">Arguments: :whole (e.g Agent) ,collection name, part name, part</td></tr>
-</td></tr><tr><td class="description">Returns: :id or -1 if collection doesnt exist</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":AddPart">
-<span class="command">unsigned int Api::AddPart(const GCPtr<Whole>& w, unsigned int collectionId, std::string name, GCPtr<GCObject> object)</span>
-</td></tr><tr><td class="description">Description: :add part</td></tr>
-</td></tr><tr><td class="description">Arguments: :whole (e.g Agent) ,collection id, part name, part</td></tr>
-</td></tr><tr><td class="description">Returns: :id or -1 if collection doesnt exist</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":GetPart">
-<span class="command">bool Api::GetPart(const GCPtr<Whole>& w, std::string& collectionName, unsigned int id, GCPtr<GCObject>& obj)</span>
-</td></tr><tr><td class="description">Description: :get part</td></tr>
-</td></tr><tr><td class="description">Arguments: :whole (e.g Agent) ,collection name, part id, part</td></tr>
-</td></tr><tr><td class="description">Returns: :if got</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":GetPart">
-<span class="command">bool Api::GetPart(const GCPtr<Whole>& w, std::string& collectionName, std::string name, GCPtr<GCObject>& obj)</span>
-</td></tr><tr><td class="description">Description: :get part</td></tr>
-</td></tr><tr><td class="description">Arguments: :whole (e.g Agent) ,collection name, part name, part</td></tr>
-</td></tr><tr><td class="description">Returns: :if got</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":GetPart">
-<span class="command">bool Api::GetPart(const GCPtr<Whole>& w, unsigned int collectionId, unsigned int id, GCPtr<GCObject>& obj)</span>
-</td></tr><tr><td class="description">Description: :get part</td></tr>
-</td></tr><tr><td class="description">Arguments: :whole (e.g Agent) ,collection id, part id, part</td></tr>
-</td></tr><tr><td class="description">Returns: :if got</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":GetPart">
-<span class="command">bool Api::GetPart(const GCPtr<Whole>& w, unsigned int collectionId, std::string name, GCPtr<GCObject>& obj)</span>
-</td></tr><tr><td class="description">Description: :get part</td></tr>
-</td></tr><tr><td class="description">Arguments: :collection id, part name, part</td></tr>
-</td></tr><tr><td class="description">Returns: :if got</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":DestoryPart">
-<span class="command">inline void Api::DestroyPart(const GCPtr<Whole>& w, std::string& collectionName, std::string& partName)</span>
-</td></tr><tr><td class="description">Description: :Destroys a part.</td></tr>
-</td></tr><tr><td class="description">Arguments: :whole (e.g Agent) , collection name, part name</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":DestoryPart">
-<span class="command">inline void Api::DestroyPart(const GCPtr<Whole>& w, std::string& collectionName, unsigned int& partId)</span>
-</td></tr><tr><td class="description">Description: :Destroys a part.</td></tr>
-</td></tr><tr><td class="description">Arguments: :whole (e.g Agent) , collection name, part Id</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":DestoryPart">
-<span class="command">inline void Api::DestroyPart(const GCPtr<Whole>& w, unsigned int& collectionId, std::string& partName)</span>
-</td></tr><tr><td class="description">Description: :Destroys a part.</td></tr>
-</td></tr><tr><td class="description">Arguments: :whole (e.g Agent) , collection id, part name</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":DestoryPart">
-<span class="command">inline void Api::DestroyPart(const GCPtr<Whole>& w, unsigned int& collectionId, unsigned int& partId)</span>
-</td></tr><tr><td class="description">Description: :Destroys a part.</td></tr>
-</td></tr><tr><td class="description">Arguments: :whole (e.g Agent) , collection name, part id</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":GetAgent">
-<span class="command">inline const GCPtr<Agent> Api::GetAgent()</span>
-</td></tr><tr><td class="description">Description: :Gets the currently active Agent </td></tr>
-</td></tr><tr><td class="description">Arguments: :none</td></tr>
-</td></tr><tr><td class="description">Returns: :agent</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":GetNode">
-<span class="command">inline const GCPtr<Node> Api::GetNode()</span>
-</td></tr><tr><td class="description">Description: :Gets the currently active node </td></tr>
-</td></tr><tr><td class="description">Arguments: :none</td></tr>
-</td></tr><tr><td class="description">Returns: :node</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":GetCurrentProcess">
-<span class="command">inline const GCPtr<Process> Api::GetCurrentProcess()</span>
-</td></tr><tr><td class="description">Description: :Gets the currently active Process </td></tr>
-</td></tr><tr><td class="description">Arguments: :none</td></tr>
-</td></tr><tr><td class="description">Returns: :LuaProcess</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":GetImplementation">
-<span class="command">inline Implementation Api::GetImplementation()</span>
-</td></tr><tr><td class="description">Description: :get the language implementation of the active process</td></tr>
-</td></tr><tr><td class="description">Arguments: :none</td></tr>
-</td></tr><tr><td class="description">Returns: :implementation</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":GetPrivileges">
-<span class="command">inline Privileges Api::GetPrivileges()</span>
-</td></tr><tr><td class="description">Description: :get the privileges of the active process</td></tr>
-</td></tr><tr><td class="description">Arguments: :none</td></tr>
-</td></tr><tr><td class="description">Returns: :privileges</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":GetHomeEnvironment">
-<span class="command">inline const GCPtr<Environment> &Api::GetHomeEnvironment()</span>
-</td></tr><tr><td class="description">Description: :get the home Environment of the active process</td></tr>
-</td></tr><tr><td class="description">Arguments: :none</td></tr>
-</td></tr><tr><td class="description">Returns: :Environment</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":GetCurrentEnvironment">
-<span class="command">inline const GCPtr<Environment>& Api::GetCurrentEnvironment()</span>
-</td></tr><tr><td class="description">Description: :get the home Environment of the active process</td></tr>
-</td></tr><tr><td class="description">Arguments: :none</td></tr>
-</td></tr><tr><td class="description">Returns: :Environment</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":AddMsgArg">
-<span class="command">template<typename T> inline void Api::AddMsgArg(Message* msg, T* arg)</span>
-</td></tr><tr><td class="description">Description: :adds an argument to the message</td></tr>
-</td></tr><tr><td class="description">Arguments: :message, arg</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":GetMsgReturnVal">
-<span class="command">template<typename T> inline T* Api::GetMsgReturnVal(Message* msg, unsigned int retrunValNum, T* dummy)</span>
-</td></tr><tr><td class="description">Description: :adds an argument to the message</td></tr>
-</td></tr><tr><td class="description">Arguments: :message, return value arg number</td></tr>
-</td></tr><tr><td class="description">Returns: :value</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":SendMsg">
-<span class="command">inline bool Api::SendMsg(Message* msg, double delay)</span>
-</td></tr><tr><td class="description">Description: :adds an argument to the message</td></tr>
-</td></tr><tr><td class="description">Arguments: :message, delay before receiving</td></tr>
-</td></tr><tr><td class="description">Returns: :if sent</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":OpenNamespace">
-<span class="command">inline void Api::OpenNamespace(const std::string& name)</span>
-</td></tr><tr><td class="description">Description: :opens and if  creates a name space in the current process</td></tr>
-</td></tr><tr><td class="description">Arguments: :name space</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":CloseNamespace">
+</td></tr><tr><td class="description">Description: closes down the engine</td></tr>
+</td></tr><tr><td class="description">Arguments: none</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="CloseNamespace">
 <span class="command">inline void Api::CloseNamespace()</span>
-</td></tr><tr><td class="description">Description: :closes the currently open namespace in the current process</td></tr>
-</td></tr><tr><td class="description">Arguments: :none</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":LuaRegisterType">
-<span class="command">template<class T> inline unsigned int Api::LuaRegisterType(const T* example, const std::string& alias, StringFunction stringer, ValueFunction valuer, bool allowInterVM, bool regsiterConstructors)</span>
-</td></tr><tr><td class="description">Description: :Registers a user data type with the process</td></tr>
-</td></tr><tr><td class="description">Arguments: :example of user data type name as appears in lua script function to be used to convert value to string function to be used to convert string to value whether to allow this type to be passed between VMs when messaging whether to add default constructors</td></tr>
-</td></tr><tr><td class="description">Returns: :type id on register type</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":RegisterFunction">
-<span class="command">template< typename F >inline void Api::RegisterFunction(const ::std::string& functionName, F *f, unsigned int firstReturnArg, const GCPtr<Module>& module)</span>
-</td></tr><tr><td class="description">Description: :registers a C function that takes not arguments</td></tr>
-</td></tr><tr><td class="description">Arguments: :lua state,  function name, C function to register, user data  attached to function, type of user data attached</td></tr>
-</td></tr><tr><td class="description">Returns: :if successful</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":RegisterMemberFunction">
-<span class="command">template< typename C, typename F >inline void Api::RegisterMemberFunction(const C* ownerExampe, const ::std::string& functionName, F *f, unsigned int firstReturnArg, const GCPtr<Module>& module)</span>
-</td></tr><tr><td class="description">Description: :Registers a member function in the current process</td></tr>
-</td></tr><tr><td class="description">Arguments: :example of owner type of the member function name of function, function, upvalue data for closure, type of the upvalue data</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":RegisterHardClass">
-<span class="command">inline void Api::RegisterHardClass(const GCPtr<Class>& cls)</span>
-</td></tr><tr><td class="description">Description: :Registers a C++ class so Objects of that class can be created in script</td></tr>
-</td></tr><tr><td class="description">Arguments: :class</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":LuaRegisterFunction">
-<span class="command">inline void Api::LuaRegisterFunction(const std::string& name, LuaCFunction fn, void* data, LuaTypeId dataType)</span>
-</td></tr><tr><td class="description">Description: :Registers a function in the current process</td></tr>
-</td></tr><tr><td class="description">Arguments: :name of function, function, upvalue data for closure, type of the upvalue data</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":LuaGetCurrentProcess">
-<span class="command">inline const GCPtr<LuaProcess> Api::LuaGetCurrentProcess()</span>
-</td></tr><tr><td class="description">Description: :Gets the currently active LuaProcess </td></tr>
-</td></tr><tr><td class="description">Arguments: :none</td></tr>
-</td></tr><tr><td class="description">Returns: :LuaProcess</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":LuaGetCurrentLuaState">
-<span class="command">inline lua_State* Api::LuaGetCurrentLuaState()</span>
-</td></tr><tr><td class="description">Description: :returns the lua state of the current process </td></tr>
-</td></tr><tr><td class="description">Arguments: :none</td></tr>
-</td></tr><tr><td class="description">Returns: :lua state</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":LuaGetNumArgs">
-<span class="command">inline unsigned int Api::LuaGetNumArgs(lua_State* L)</span>
-</td></tr><tr><td class="description">Description: :Returns the number of arguments in the lua state stack </td></tr>
-</td></tr><tr><td class="description">Arguments: :lua state</td></tr>
-</td></tr><tr><td class="description">Returns: :num args</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":LuaCheckNumArguments">
-<span class="command">inline void Api::LuaCheckNumArguments(lua_State* L, unsigned int n)</span>
-</td></tr><tr><td class="description">Description: :Throws error if the number of arguments in the lua state  stack is not the same as that given</td></tr>
-</td></tr><tr><td class="description">Arguments: :lua state, num args required</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":LuaCheckNumArgumentsGreaterOrEqual">
-<span class="command">inline void Api::LuaCheckNumArgumentsGreaterOrEqual(lua_State* L, unsigned int n)</span>
-</td></tr><tr><td class="description">Description: :Throws error if the number of arguments is lass than given</td></tr>
-</td></tr><tr><td class="description">Arguments: :lua state, num args </td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":LuaCheckNumArgumentRange">
+</td></tr><tr><td class="description">Description: closes the currently open namespace in the current process</td></tr>
+</td></tr><tr><td class="description">Arguments: none</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="CreateClass">
+<span class="command">GCPtr&lt;Class&gt; Api::CreateClass(const std::string& name, const std::string& typeName, const GCPtr&lt;Process&gt;& process, Registry::ProcessConstructor pc, Registry::ObjectConstructor oc)</span>
+</td></tr><tr><td class="description">Description: creatre a new class </td></tr>
+</td></tr><tr><td class="description">Arguments: name of class, type of class (Agent/Mode), process to assign as this classes process, function to create new class process, constructor function to create new class objects</td></tr>
+</td></tr><tr><td class="description">Returns: class</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="CreateCollection">
+<span class="command">unsigned int Api::CreateCollection(const GCPtr&lt;Whole&gt;& w, std::string& collectionName)</span>
+</td></tr><tr><td class="description">Description: Creates a new collection to store parts in.</td></tr>
+</td></tr><tr><td class="description">Arguments: whole (e.g Agent) , collection_name</td></tr>
+</td></tr><tr><td class="description">Returns: id</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="CreateGod">
+<span class="command">void Api::CreateGod(const std::string& name, const std::string& realmTemplate)</span>
+</td></tr><tr><td class="description">Description: create god</td></tr>
+</td></tr><tr><td class="description">Arguments: name of god, realm to use as template</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="CreateWorld">
+<span class="command">bool Api::CreateWorld(const ::std::string& name, const StringKeyDictionary& config, const std::string &templateRealm)</span>
+</td></tr><tr><td class="description">Description: creates a world</td></tr>
+</td></tr><tr><td class="description">Arguments: world name, config dict, name of realm to use as template</td></tr>
+</td></tr><tr><td class="description">Returns: if successful</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="DestoryPart">
+<span class="command">inline void Api::DestroyPart(const GCPtr&lt;Whole&gt;& w, std::string& collectionName, std::string& partName)</span>
+</td></tr><tr><td class="description">Description: Destroys a part.</td></tr>
+</td></tr><tr><td class="description">Arguments: whole (e.g Agent) , collection name, part name</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="DestoryPart">
+<span class="command">inline void Api::DestroyPart(const GCPtr&lt;Whole&gt;& w, std::string& collectionName, unsigned int& partId)</span>
+</td></tr><tr><td class="description">Description: Destroys a part.</td></tr>
+</td></tr><tr><td class="description">Arguments: whole (e.g Agent) , collection name, part Id</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="DestoryPart">
+<span class="command">inline void Api::DestroyPart(const GCPtr&lt;Whole&gt;& w, unsigned int& collectionId, std::string& partName)</span>
+</td></tr><tr><td class="description">Description: Destroys a part.</td></tr>
+</td></tr><tr><td class="description">Arguments: whole (e.g Agent) , collection id, part name</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="DestoryPart">
+<span class="command">inline void Api::DestroyPart(const GCPtr&lt;Whole&gt;& w, unsigned int& collectionId, unsigned int& partId)</span>
+</td></tr><tr><td class="description">Description: Destroys a part.</td></tr>
+</td></tr><tr><td class="description">Arguments: whole (e.g Agent) , collection name, part id</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="DestroyCollection">
+<span class="command">void Api::DestroyCollection(const GCPtr&lt;Whole&gt;& w, std::string& collectionName)</span>
+</td></tr><tr><td class="description">Description: Destroys a collection and all its parts.</td></tr>
+</td></tr><tr><td class="description">Arguments: whole (e.g Agent) , collection_name</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="DestroyCollection">
+<span class="command">void Api::DestroyCollection(const GCPtr&lt;Whole&gt;& w, unsigned int& collectionId)</span>
+</td></tr><tr><td class="description">Description: Destroys a collection and all its parts.</td></tr>
+</td></tr><tr><td class="description">Arguments: whole (e.g Agent) , collection_id</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="DestroyGod">
+<span class="command">void Api::DestroyGod()</span>
+</td></tr><tr><td class="description">Description: destroys god</td></tr>
+</td></tr><tr><td class="description">Arguments: none</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="DestroyWorlds">
+<span class="command">void Api::DestroyWorld(const std::string& name)</span>
+</td></tr><tr><td class="description">Description: destroys a world</td></tr>
+</td></tr><tr><td class="description">Arguments: world name</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="DestroyWorlds">
+<span class="command">void Api::DestroyWorlds()</span>
+</td></tr><tr><td class="description">Description: destorys all worlds</td></tr>
+</td></tr><tr><td class="description">Arguments: none</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="FinalizeGodObjects">
+<span class="command">void Api::FinalizeGodObjects()</span>
+</td></tr><tr><td class="description">Description: finalizes all god objects</td></tr>
+</td></tr><tr><td class="description">Arguments: none</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="FinalizeWorldObjects">
+<span class="command">void Api::FinalizeWorldObjects(const std::string &name)</span>
+</td></tr><tr><td class="description">Description: finalizes all objects belonging to a world</td></tr>
+</td></tr><tr><td class="description">Arguments: world name</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="GetAgent">
+<span class="command">inline const GCPtr&lt;Agent&gt; Api::GetAgent()</span>
+</td></tr><tr><td class="description">Description: Gets the currently active Agent </td></tr>
+</td></tr><tr><td class="description">Arguments: none</td></tr>
+</td></tr><tr><td class="description">Returns: agent</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="GetCurrentEnvironment">
+<span class="command">inline const GCPtr&lt;Environment&gt;& Api::GetCurrentEnvironment()</span>
+</td></tr><tr><td class="description">Description: get the home Environment of the active process</td></tr>
+</td></tr><tr><td class="description">Arguments: none</td></tr>
+</td></tr><tr><td class="description">Returns: Environment</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="GetCurrentProcess">
+<span class="command">inline const GCPtr&lt;Process&gt; Api::GetCurrentProcess()</span>
+</td></tr><tr><td class="description">Description: Gets the currently active Process </td></tr>
+</td></tr><tr><td class="description">Arguments: none</td></tr>
+</td></tr><tr><td class="description">Returns: LuaProcess</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="GetGod">
+<span class="command">inline const GCPtr&lt;God&gt; &Api::GetGod()</span>
+</td></tr><tr><td class="description">Description: gets god</td></tr>
+</td></tr><tr><td class="description">Arguments: none</td></tr>
+</td></tr><tr><td class="description">Returns: god</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="GetHomeEnvironment">
+<span class="command">inline const GCPtr&lt;Environment&gt; &Api::GetHomeEnvironment()</span>
+</td></tr><tr><td class="description">Description: get the home Environment of the active process</td></tr>
+</td></tr><tr><td class="description">Arguments: none</td></tr>
+</td></tr><tr><td class="description">Returns: Environment</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="GetImplementation">
+<span class="command">inline Implementation Api::GetImplementation()</span>
+</td></tr><tr><td class="description">Description: get the language implementation of the active process</td></tr>
+</td></tr><tr><td class="description">Arguments: none</td></tr>
+</td></tr><tr><td class="description">Returns: implementation</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="GetMsgReturnVal">
+<span class="command">template&lt;typename T&gt; inline T* Api::GetMsgReturnVal(Message* msg, unsigned int retrunValNum, T* dummy)</span>
+</td></tr><tr><td class="description">Description: adds an argument to the message</td></tr>
+</td></tr><tr><td class="description">Arguments: message, return value arg number</td></tr>
+</td></tr><tr><td class="description">Returns: value</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="GetNode">
+<span class="command">inline const GCPtr&lt;Node&gt; Api::GetNode()</span>
+</td></tr><tr><td class="description">Description: Gets the currently active node </td></tr>
+</td></tr><tr><td class="description">Arguments: none</td></tr>
+</td></tr><tr><td class="description">Returns: node</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="GetPart">
+<span class="command">bool Api::GetPart(const GCPtr&lt;Whole&gt;& w, std::string& collectionName, unsigned int id, GCPtr&lt;GCObject&gt;& obj)</span>
+</td></tr><tr><td class="description">Description: get part</td></tr>
+</td></tr><tr><td class="description">Arguments: whole (e.g Agent) ,collection name, part id, part</td></tr>
+</td></tr><tr><td class="description">Returns: if got</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="GetPart">
+<span class="command">bool Api::GetPart(const GCPtr&lt;Whole&gt;& w, std::string& collectionName, std::string name, GCPtr&lt;GCObject&gt;& obj)</span>
+</td></tr><tr><td class="description">Description: get part</td></tr>
+</td></tr><tr><td class="description">Arguments: whole (e.g Agent) ,collection name, part name, part</td></tr>
+</td></tr><tr><td class="description">Returns: if got</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="GetPart">
+<span class="command">bool Api::GetPart(const GCPtr&lt;Whole&gt;& w, unsigned int collectionId, unsigned int id, GCPtr&lt;GCObject&gt;& obj)</span>
+</td></tr><tr><td class="description">Description: get part</td></tr>
+</td></tr><tr><td class="description">Arguments: whole (e.g Agent) ,collection id, part id, part</td></tr>
+</td></tr><tr><td class="description">Returns: if got</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="GetPart">
+<span class="command">bool Api::GetPart(const GCPtr&lt;Whole&gt;& w, unsigned int collectionId, std::string name, GCPtr&lt;GCObject&gt;& obj)</span>
+</td></tr><tr><td class="description">Description: get part</td></tr>
+</td></tr><tr><td class="description">Arguments: collection id, part name, part</td></tr>
+</td></tr><tr><td class="description">Returns: if got</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="GetPrivileges">
+<span class="command">inline Privileges Api::GetPrivileges()</span>
+</td></tr><tr><td class="description">Description: get the privileges of the active process</td></tr>
+</td></tr><tr><td class="description">Arguments: none</td></tr>
+</td></tr><tr><td class="description">Returns: privileges</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="LuaCheckNumArgumentRange">
 <span class="command">inline int Api::LuaCheckNumArgumentRange(lua_State* L, unsigned int args[], unsigned int numSizes)</span>
-</td></tr><tr><td class="description">Description: :Checks if no args on stack is equal to one of the given  arg sizes, thows error if not</td></tr>
-</td></tr><tr><td class="description">Arguments: :lua state, args sizes, number of arg sizes to to check</td></tr>
-</td></tr><tr><td class="description">Returns: :num args</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":LuaGetArgumentType">
-<span class="command">inline const int Api::LuaGetArgumentType(lua_State* L, int arg)</span>
-</td></tr><tr><td class="description">Description: :Gets the data type of the argument number asked for</td></tr>
-</td></tr><tr><td class="description">Arguments: :lua state, args number </td></tr>
-</td></tr><tr><td class="description">Returns: :type id</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":LuaGetArgument">
-<span class="command">template<typename T> inline void Api::LuaGetArgument(lua_State* L, int arg, T& t)</span>
-</td></tr><tr><td class="description">Description: :Gets the argument number asked for of type requested.</td></tr>
-</td></tr><tr><td class="description">Arguments: :lua state, args numbeer, value of type to return throws error if fails</td></tr>
-</td></tr><tr><td class="description">Returns: :none but referenced argument is set</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":LuaGetArg">
+</td></tr><tr><td class="description">Description: Checks if no args on stack is equal to one of the given  arg sizes, thows error if not</td></tr>
+</td></tr><tr><td class="description">Arguments: lua state, args sizes, number of arg sizes to to check</td></tr>
+</td></tr><tr><td class="description">Returns: num args</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="LuaCheckNumArguments">
+<span class="command">inline void Api::LuaCheckNumArguments(lua_State* L, unsigned int n)</span>
+</td></tr><tr><td class="description">Description: Throws error if the number of arguments in the lua state  stack is not the same as that given</td></tr>
+</td></tr><tr><td class="description">Arguments: lua state, num args required</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="LuaCheckNumArgumentsGreaterOrEqual">
+<span class="command">inline void Api::LuaCheckNumArgumentsGreaterOrEqual(lua_State* L, unsigned int n)</span>
+</td></tr><tr><td class="description">Description: Throws error if the number of arguments is lass than given</td></tr>
+</td></tr><tr><td class="description">Arguments: lua state, num args </td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="LuaGetArg">
 <span class="command">inline const TValue* Api::LuaGetArg(lua_State* L, int arg)</span>
-</td></tr><tr><td class="description">Description: :gets the script argument of given number from stack</td></tr>
-</td></tr><tr><td class="description">Arguments: :Lua state, num of arg required</td></tr>
-</td></tr><tr><td class="description">Returns: :argument as lua object</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":LuaRenameTableValue">
-<span class="command">inline bool Api::LuaRenameTableValue(const std::string& oldName, const std::string& newName)</span>
-</td></tr><tr><td class="description">Description: :renames a variable in lua table, expects table on stack</td></tr>
-</td></tr><tr><td class="description">Arguments: :variable value, new name</td></tr>
-</td></tr><tr><td class="description">Returns: :if successful</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name=":LuaGetErrorMessageDetails">
+</td></tr><tr><td class="description">Description: gets the script argument of given number from stack</td></tr>
+</td></tr><tr><td class="description">Arguments: Lua state, num of arg required</td></tr>
+</td></tr><tr><td class="description">Returns: argument as lua object</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="LuaGetArgument">
+<span class="command">template&lt;typename T&gt; inline void Api::LuaGetArgument(lua_State* L, int arg, T& t)</span>
+</td></tr><tr><td class="description">Description: Gets the argument number asked for of type requested.</td></tr>
+</td></tr><tr><td class="description">Arguments: lua state, args numbeer, value of type to return throws error if fails</td></tr>
+</td></tr><tr><td class="description">Returns: none but referenced argument is set</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="LuaGetArgumentType">
+<span class="command">inline const int Api::LuaGetArgumentType(lua_State* L, int arg)</span>
+</td></tr><tr><td class="description">Description: Gets the data type of the argument number asked for</td></tr>
+</td></tr><tr><td class="description">Arguments: lua state, args number </td></tr>
+</td></tr><tr><td class="description">Returns: type id</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="LuaGetCurrentLuaState">
+<span class="command">inline lua_State* Api::LuaGetCurrentLuaState()</span>
+</td></tr><tr><td class="description">Description: returns the lua state of the current process </td></tr>
+</td></tr><tr><td class="description">Arguments: none</td></tr>
+</td></tr><tr><td class="description">Returns: lua state</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="LuaGetCurrentProcess">
+<span class="command">inline const GCPtr&lt;LuaProcess&gt; Api::LuaGetCurrentProcess()</span>
+</td></tr><tr><td class="description">Description: Gets the currently active LuaProcess </td></tr>
+</td></tr><tr><td class="description">Arguments: none</td></tr>
+</td></tr><tr><td class="description">Returns: LuaProcess</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="LuaGetErrorMessageDetails">
 <span class="command">inline void Api::LuaGetErrorMessageDetails(std::string& errorMessage)</span>
-</td></tr><tr><td class="description">Description: :create a full line numbered error message, but without the problem detail</td></tr>
-</td></tr><tr><td class="description">Arguments: :full line numbered etc error message to be added to</td></tr>
-</td></tr><tr><td class="description">Returns: :none</td></tr></table>
-</body></html>
+</td></tr><tr><td class="description">Description: create a full line numbered error message, but without the problem detail</td></tr>
+</td></tr><tr><td class="description">Arguments: full line numbered etc error message to be added to</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="LuaGetNumArgs">
+<span class="command">inline unsigned int Api::LuaGetNumArgs(lua_State* L)</span>
+</td></tr><tr><td class="description">Description: Returns the number of arguments in the lua state stack </td></tr>
+</td></tr><tr><td class="description">Arguments: lua state</td></tr>
+</td></tr><tr><td class="description">Returns: num args</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="LuaRegisterFunction">
+<span class="command">inline void Api::LuaRegisterFunction(const std::string& name, LuaCFunction fn, void* data, LuaTypeId dataType)</span>
+</td></tr><tr><td class="description">Description: Registers a function in the current process</td></tr>
+</td></tr><tr><td class="description">Arguments: name of function, function, upvalue data for closure, type of the upvalue data</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="LuaRegisterType">
+<span class="command">template&lt;class T&gt; inline unsigned int Api::LuaRegisterType(const T* example, const std::string& alias, StringFunction stringer, ValueFunction valuer, bool allowInterVM, bool regsiterConstructors)</span>
+</td></tr><tr><td class="description">Description: Registers a user data type with the process</td></tr>
+</td></tr><tr><td class="description">Arguments: example of user data type name as appears in lua script function to be used to convert value to string function to be used to convert string to value whether to allow this type to be passed between VMs when messaging whether to add default constructors</td></tr>
+</td></tr><tr><td class="description">Returns: type id on register type</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="LuaRenameTableValue">
+<span class="command">inline bool Api::LuaRenameTableValue(const std::string& oldName, const std::string& newName)</span>
+</td></tr><tr><td class="description">Description: renames a variable in lua table, expects table on stack</td></tr>
+</td></tr><tr><td class="description">Arguments: variable value, new name</td></tr>
+</td></tr><tr><td class="description">Returns: if successful</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="LuaThrowScriptError">
+<span class="command">void Api::LuaThrowScriptError(const char* format, ...)</span>
+</td></tr><tr><td class="description">Description: throws a lua error</td></tr>
+</td></tr><tr><td class="description">Arguments: format, data to print</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="NewMessage">
+<span class="command">Message* Api::NewMessage(const std::string& name, const GCPtr&lt;Messenger&gt;& to, bool deletable)</span>
+</td></tr><tr><td class="description">Description: creates a new message package</td></tr>
+</td></tr><tr><td class="description">Arguments: message name, reciever, whether the message package can be deleted</td></tr>
+</td></tr><tr><td class="description">Returns: message</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="OpenNamespace">
+<span class="command">inline void Api::OpenNamespace(const std::string& name)</span>
+</td></tr><tr><td class="description">Description: opens and if  creates a name space in the current process</td></tr>
+</td></tr><tr><td class="description">Arguments: name space</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="RegisterFunction">
+<span class="command">template&lt; typename F &gt;inline void Api::RegisterFunction(const ::std::string& functionName, F *f, unsigned int firstReturnArg, const GCPtr&lt;Module&gt;& module)</span>
+</td></tr><tr><td class="description">Description: registers a C function that takes not arguments</td></tr>
+</td></tr><tr><td class="description">Arguments: lua state,  function name, C function to register, user data  attached to function, type of user data attached</td></tr>
+</td></tr><tr><td class="description">Returns: if successful</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="RegisterHardClass">
+<span class="command">inline void Api::RegisterHardClass(const GCPtr&lt;Class&gt;& cls)</span>
+</td></tr><tr><td class="description">Description: Registers a C++ class so Objects of that class can be created in script</td></tr>
+</td></tr><tr><td class="description">Arguments: class</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="RegisterMemberFunction">
+<span class="command">template&lt; typename C, typename F &gt;inline void Api::RegisterMemberFunction(const C* ownerExampe, const ::std::string& functionName, F *f, unsigned int firstReturnArg, const GCPtr&lt;Module&gt;& module)</span>
+</td></tr><tr><td class="description">Description: Registers a member function in the current process</td></tr>
+</td></tr><tr><td class="description">Arguments: example of owner type of the member function name of function, function, upvalue data for closure, type of the upvalue data</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="SendMsg">
+<span class="command">inline bool Api::SendMsg(Message* msg, double delay)</span>
+</td></tr><tr><td class="description">Description: adds an argument to the message</td></tr>
+</td></tr><tr><td class="description">Arguments: message, delay before receiving</td></tr>
+</td></tr><tr><td class="description">Returns: if sent</td></tr></table>
+ <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="UpdateGod">
+<span class="command">inline void Api::UpdateGod(double until)</span>
+</td></tr><tr><td class="description">Description: updates god</td></tr>
+</td></tr><tr><td class="description">Arguments: time to update until</td></tr>
+</td></tr><tr><td class="description">Returns: none</td></tr></table>
+ </body></html>

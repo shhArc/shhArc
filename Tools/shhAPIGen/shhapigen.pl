@@ -63,7 +63,6 @@ print $contents;
 
 @head = ();
 @chunks = ();
-$body = "";
 $module = "API";
 $item = "";
 $itemdisplay = "";
@@ -112,7 +111,7 @@ sub process_file
 				if ($1 eq "Function")
 				{
 					$2 =~ s/^[ \t]+//;
-					$item = $2;
+					$item = substr($2, 1);
 					$return = "none";
 					$params = "none";
 					$text = "";
@@ -122,7 +121,7 @@ sub process_file
 				elsif ($item ne "" && $1 eq "Return" or $1 eq "Returns")
 				{
 					$2 =~ s/^[ \t]+//;
-					$return = $2;
+					$return = substr($2, 1);
 					$just_got_desc = 0;
 					$just_got_param = 0;
 					$just_got_return = 1;
@@ -130,7 +129,7 @@ sub process_file
 				elsif ($item ne "" && $1 eq "Arguments")
 				{
 					$2 =~ s/^[ \t]+//;
-					$params = $2;
+					$params = substr($2, 1);
 					$just_got_desc = 0;
 					$just_got_param = 1;
 					$just_got_return = 0;
@@ -138,7 +137,7 @@ sub process_file
 				elsif ($item ne "" && $1 eq "Description")
 				{	
 					$2 =~ s/^[ \t]+//;
-					$text = $2;
+					$text = substr($2, 1);
 					$just_got_desc = 1;
 					$just_got_param = 0;
 					$just_got_return = 0;
@@ -172,28 +171,35 @@ sub process_file
 			}
 			else
 			{
-				print LOG $func;
+				
 				$arguments =   "Arguments: ";
 				$arguments .= $params;
 				$retval =      "Returns: ";
 				$retval .= $return;
 				$description = "Description: ";
 				$description .= $text;
-			
 
+
+				$func =~ s/</&lt;/g;
+				$func =~ s/>/&gt;/g;
+				
+
+				$html = "";
 				# warn "Syntax error at $file line $line: Warning thing $module$item $params $return $itemdisplay";
-				$body .= <<END;
+				$html .= <<END;
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
 <tr><td class="command"><a name="$item">
 <span class="command">${func}</span>
 END
-				$body .= <<END;
+				$html .= <<END;
 </td></tr><tr><td class="description">$description</td></tr>
 </td></tr><tr><td class="description">$arguments</td></tr>
 </td></tr><tr><td class="description">$retval</td></tr></table>
 END
+				
 
-
+				push @chunks,  { name => "$item",  code => "$html" };		
+				
 				$item = "";
 				$params = "";
 				$return = "";
@@ -208,15 +214,17 @@ END
 
 find(\&process_file, $source_code);
 
-@chunks = sort @chunks;
-@done = {};
+@ordered = sort { $a->{name} cmp $b->{name} } @chunks;
 
-for ($i = 0; $i <= $#chunks; ++$i)
+$body = "";
+foreach $definition (@ordered) 
 {
-	$text = substr($chunks[$i+1], 50);
-	$body .= $text;
-	$body .= " ";
+    print LOG $definition->{name};
+    $body .= $definition->{code};
+    $body .= " ";
+
 }
+
 
 
 print $head . "<p>\n";

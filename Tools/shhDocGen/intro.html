@@ -1,0 +1,122 @@
+<hr width="90%" align="center">
+<center>
+<a href="#overview">[Overview]</a>
+<a href="#scripts">[Scripts]</a>
+<a href="#agents">[Agents]</a>
+<a href="#libs">[Library and Component Reference]</a>
+</center>
+<hr width="90%" align="center"><p>
+<hr width="90%" align="center"><p><hr width="90%" align="center"><p>
+<h2><br><a name="overview">Overview</h2>
+
+The shhArc agent system is based upon the Lua scripting language. The Lua reference manual is available 
+<a href="http://www.lua.org/manual/5.4/">here</a>.
+<br>
+<br> 
+The shhArc engine supports multiple simulated worlds. 
+In order to do this it has a God object that manages the worlds. 
+The God object has its own agent system that can be used for world managing agents or even user interface agents within a game. 
+It also has a virtual machine used for booting the engine, creating agents and worlds and manipulating them. 
+Each world has its own agent system and virtual machine. Agents in different worlds do not know about each other unless informed by God vm/agents.
+An agent can have sub processes and these can either be used to execute scripts or as Nodes belonging to the agent.
+Agents can communicate with each other via a sandboxed messageing system. Agents also contain Parts which are simply smart pointers to any in engine object you wish an agent to have.
+The engine is written is C++ and is designed to be extensible so you can easily add your own data types to be used in scripts and also
+your own C functions that can be called from script. So you can implement functions that can be called from agent scripts to create and manipluate Parts within an agent. 
+<br><br>
+Nodes are processes within an agent and like agents have their own script. They can also comunicate with each other via the sandboxed messaging system but only with other nodes within the same agent and to their owning agent. Nodes also have input and output interfaces which can be connected to those in other nodes via edges to facilitate fast transfer of information The engine uses schema files which are in the JSON format and
+are used to specify and quickly construct networks of different types of nodes with an agent.<br><br>
+<br><br><br><center><img src="intro.jpg"/></center>
+
+
+<h2><br><hr width="90%" align="center"><p><a name="scripts">Scripts</h2>
+
+Boot scripts are placed in the runtime sub directory defined with the path label BOOT defined in the path config file. 
+The engine may be run with <br><br> -boot script_file_name <br><br>to boot from a particular script, otherwise 'default.lua' is used.<br><br>
+<br>
+
+
+<hr width="90%" align="center"><p>
+<h2><a name="agents">Agents</h2>
+
+Agents scripts are placed in a directory along with all of their assets.
+Agent directories are placed in the runtime sub directory with path label AGENT defined in the path config file.  God agents are placed in the further sub directory God. 
+World agents are placed in the sub directory World. Further sub directories exist for each language implementation (currently only Lua is implemented). It is in the latter that the specific agent directories are placed.
+<br><br>
+Agent scripts start with the agent class definition on the first line:
+<br><br>
+--< agent_name > specializes (< base_class_agent_name > |  Agent) [abstract | final] 
+<br><br>
+<li><b>agent_name</b> - must be the same as the agent script file name (obviously excluding the suffix)</li><br> 
+<li><b>base_class_agent_name</b> - the name of the agent inherited from. If it does not inherit from anything use the token Agent</li><br> 
+<li><b>abstract</b> - specifies that the agent can not be instantiated and therefore is only used for specialization</li><br>
+<li><b>final</b>  -specifies that the agent can not be specialized and therefore is only instantiated</li>
+<br><br>
+The agent public interface imposes sandboxed messaging. This means that variables passed either way are copied so that the agent own internal variable values can not be tampered with outside of itself. 
+Agents can optionally have a function called <b>shhInitialize</b> which will be called when the agent is created. Agents can also optionally have a function called <b>shhFinalize</b> which will be called when the agent is destroyed. Finalize functions can take no arguments.
+Functions that start with the <b>shhMessage</b> prefix are public. Functions that start with the <b>shhTimer</b> prefix are called regularly at a given interval. All other functions are protected:
+<br><br>
+<li><b>shhMessage</b> - messages are accessable by other agents and virtual machines using shh.SendMsg. Agents can send messages to each other and their child nodes and these can return values. 
+</li><br>
+<li><b>shhTimer</b> - messages which are regularlty called at a time interval. This is set using shh.SetTimer</li><br><br>
+The functions with the following engine prefixes can only be called by the engine:
+<br><br> 
+<li><b>shhUpdate</b> - messages which are regularlty called by the engine.</li><br>
+<li><b>shhSystem</b> - messages are called by the engine for special purposes. For example, collision callbacks.</li><br>
+<li><b>shhStatic</b> - messages are for the entire agent/node class not each agent/node instanciation. For example, the shhStaticInject function is used by the engine debugger for agent/node injection.</li>
+<br>
+
+<hr width="90%" align="center"><p>
+<h2><a name="nodes">Nodes</h2>
+
+
+Nodes scripts are placed in a directory along with all of their assets.
+Nodes are placed in the runtime sub directory with path label NODE defined in the path config file.  God nodes are placed in the further sub directory God. 
+World nodes are placed in the sub directory World. Further sub sirectories exist for each language implementation (currently only Lua is implemented). It is in the latter that the specific node directories are placed.
+<br><br>
+Node scripts start with the node class definition on the first line:
+<br><br>
+--< node_name > specializes (< base_class_node_name > |  Node) [abstract | final] 
+<br><br>
+<li><b>node_name</b> - must be the same as the node script file name (obviously excluding the suffix)</li><br> 
+<li><b>base_class_node_name</b> - the name of the node inherited from. If it does not inherit from anything use the token Node</li><br> 
+<li><b>abstract</b> - specifies that the node can not be instantiated and therefore is only used for specialization</li><br>
+<li><b>final</b> - specifies that the node can not be specialized and therefore is only instantiated</li>
+
+<br><br>
+The node public interface imposes sandboxed messaging. This means that variables passed either way are copied so that the node own internal variable values can not be tampered with outside of itself. 
+Nodes have a function called <b>shhInitialize</b> which will be called when the node is created. This function takes one argumet which is a table of configuration parameters. Nodes can also optionally have a function called <b>shhFinalize</b> which will be called when the node is destroyed. Finalize functions can take no arguments.
+Functions that start with the <b>shhMessage</b> prefix are public. Functions that start with the <b>shhTimer</b> prefix are called regularly at a given interval. All other functions are protected:
+<br><br>
+
+<li><b>shhMessage</b> - messages are accessable by other nodes and virtual machines using shh.SendMsg. Nodes can only send messages to each other and thier owning agent and these can return values. Messages can not be sent to nodes from outside of thier agent.
+</li><br>
+<li><b>shhTimer</b> - messages which are regularlty called at a time interval. This is set using shh.SetTimer</li><br><br>
+The functions with the following engine prefixes can only be called by the engine:
+<br><br> 
+<li><b>shhUpdate</b> - messages which are regularlty called by the engine.</li><br>
+<li><b>shhSystem</b> - messages are called by the engine for special purposes. For example, collision callbacks.</li><br>
+<li><b>shhStatic</b> - messages are for the entire agent/node class not each agent/node instanciation. For example, the shhStaticInject function is used by the engine debugger for agent/node injection.</li>
+<br>
+<h3>Agent/Node Specialization</h3>
+Agent and Node specializations implements protected inheritance and virtual functions. All base agent class functions that are overridden by 
+derived agent/node classes are prefixed with the base agent/node class name followed by a tripple underscore and then the function name.
+For example, if the base class BasePlant function RecieveLight is overridden in a derived class it will be called BasePlant__RecieveLight. 
+
+
+<h2><br><hr width="90%" align="center"><p>
+<a name="libs">
+Module Reference</h2>
+
+shhArc modules are available to processes, agents, and nodes with the correct privileges as defined in the config file.
+The privileges are:
+<br><br>
+<li><b>God</b> - not available to agents in a world</li>
+<li><b>World</b> - only available to agents in a world </li>
+<li><b>Agent</b> - only available to agents</li>
+<li><b>Node</b> - only available to nodes</li>
+<li><b>Updater</b> - only available to update scripts</li>
+<br>
+<br>
+Any thing that does not specify a privledge is accessable by all.
+<br><br>
+<hr width="30%" align="center"><p>

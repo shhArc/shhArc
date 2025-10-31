@@ -153,28 +153,117 @@ Any thing that does not specify a privledge is accessable by all.
 </center>
 
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="AgentCreateCollection">
-<span class="vartype">integer</span>
-<span class="command">Agent:CreateCollection</span>(<span class="vartype">string collection_name</span> <span class="varname"></span>)
-</td></tr><tr><td class="description">Member: Agent (replace token Agent with variable name)</td></tr>
-</td></tr><tr><td class="description">Privilege: Agent</td></tr>
-</td></tr><tr><td class="description">Description: Creates a new collection to store parts in.
+<tr><td class="command"><a name="shhInitializeModule">
+<span class="vartype">bool</span>
+<span class="command">shh.InitializeModule</span>(<span class="vartype">string</span> <span class="varname">module_id</span>, <span class="vartype">table</span> <span class="varname">config_dictionary</span>)
+</td></tr><tr><td class="description">Privilege: Updater</td></tr>
+</td></tr><tr><td class="description">Description: Used by updater scripts to make a initialize a module.
 </td></tr></table>
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="AgentDestroyCollection">
-<span class="vartype"></span>
-<span class="command">Agent:DestroyCollection</span>(<span class="vartype">string_or_integer</span> <span class="varname">collection_name_or_id</span>)
-</td></tr><tr><td class="description">Member: Agent (replace token Agent with variable name)</td></tr>
-</td></tr><tr><td class="description">Privilege: Agent</td></tr>
-</td></tr><tr><td class="description">Description: Destroys a collection and all its parts.
+<tr><td class="command"><a name="shhFinalizeModule">
+<span class="vartype">bool </span>
+<span class="command">shh.FinalizeModule</span>(<span class="vartype">string</span> <span class="varname">module_id</span>)
+</td></tr><tr><td class="description">Privilege: Updater</td></tr>
+</td></tr><tr><td class="description">Description: Used by updater scripts finalize a module.
 </td></tr></table>
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="AgentDestoryPart">
-<span class="vartype"></span>
-<span class="command">Agent:DestoryPart</span>(<span class="vartype">string_or_integer collection_name_or_id</span> <span class="varname"></span>, <span class="vartype">string_or_integer</span> <span class="varname">part_name_or_id</span>)
-</td></tr><tr><td class="description">Member: Agent (replace token Agent with variable name)</td></tr>
-</td></tr><tr><td class="description">Privilege: Agent</td></tr>
-</td></tr><tr><td class="description">Description: Destroys a part.
+<tr><td class="command"><a name="shhUpdateModule">
+<span class="vartype">bool </span>
+<span class="command">shh.UpdateModule</span>(<span class="vartype">string</span> <span class="varname">module_id</span>, <span class="vartype">double</span> <span class="varname">time_to_update_until</span>, <span class="vartype">integer</span> <span class="varname">phase_of_update</span>)
+</td></tr><tr><td class="description">Privilege: Updater</td></tr>
+</td></tr><tr><td class="description">Description: Used by updater scripts update a module.
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="shhUpdateScheduler">
+<span class="vartype">bool</span>
+<span class="command">shh.UpdateScheduler</span>(<span class="vartype">double</span> <span class="varname">time_to_update_until</span>, <span class="vartype">integer</span> <span class="varname">phase_of_update</span>)
+</td></tr><tr><td class="description">Privilege: Updater</td></tr>
+</td></tr><tr><td class="description">Description: Used by updater scripts update a scheduler.
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="shhVector">
+<span class="vartype">boolean</span>
+<span class="command">shh.Vector</span>(<span class="vartype">param</span> <span class="varname">variable</span>)
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: Position or offest in a 3D world.
+Returns whether variable is a Vector
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="shhVector">
+<span class="vartype">Vector</span>
+<span class="command">shh.Vector</span>()
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: Returns a newly created vector
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="shhVector">
+<span class="vartype">Vector</span>
+<span class="command">shh.Vector</span>(<span class="vartype">vector to</span> <span class="varname">copy</span>)
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: Returns a newly created vector
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="shhVector">
+<span class="vartype">Vector</span>
+<span class="command">shh.Vector</span>(<span class="vartype">param</span> <span class="varname">x</span>, <span class="vartype">param</span> <span class="varname">y</span>, <span class="vartype">param</span> <span class="varname">z</span>)
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: Returns a newly created vector
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="shhGetLength">
+<span class="vartype">length</span>
+<span class="command">shh.GetLength</span>()
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: Returns a newly created vector
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="shhGetLengthSquared">
+<span class="vartype">length</span>
+<span class="command">shh.GetLengthSquared</span>()
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: Returns a newly created vector
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="shhNormalise">
+<span class="vartype">this</span>
+<span class="command">shh.Normalise</span>()
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: normalises vector
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="shhInverse">
+<span class="vartype">this</span>
+<span class="command">shh.Inverse</span>()
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: inverts vector
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="shhDot">
+<span class="vartype">dot product</span>
+<span class="command">shh.Dot</span>(<span class="vartype">param</span> <span class="varname">other</span>)
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: calculated dot product
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="shhCross">
+<span class="vartype">cross product</span>
+<span class="command">shh.Cross</span>(<span class="vartype">param</span> <span class="varname">other</span>)
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: calculated cross product
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="shhInterpolate">
+<span class="vartype">this</span>
+<span class="command">shh.Interpolate</span>(<span class="vartype">vector</span> <span class="varname">a</span>, <span class="vartype">vector</span> <span class="varname">b</span>, <span class="vartype">param</span> <span class="varname">range</span>)
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: Set this vector between vectors a & b, t: range: 0.0..1.0, 0.0 -> this = a, 1.0 -> this = b.
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="shhTolerates">
+<span class="vartype">boolean</span>
+<span class="command">shh.Tolerates</span>(<span class="vartype">vector</span> <span class="varname">a</span>, <span class="vartype">vector</span> <span class="varname">b</span>, <span class="vartype">param</span> <span class="varname">tollerance</span>)
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: Tests if two vectors are within tollerance of each other
 </td></tr></table>
  <p><hr width="90%" align="center"><div align="center"><h2><a name="Classifier--type">Classifier type</a></h2></div>
 <p><center>Collection of labels.
@@ -359,6 +448,55 @@ Any thing that does not specify a privledge is accessable by all.
 </center>
 
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="shhDeepCopy">
+<span class="vartype">cloned_type</span>
+<span class="command">shh.DeepCopy</span>(<span class="vartype">any_type</span> <span class="varname">data_to_clone</span>)
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: Used to make a clone copy my value of data_to_clone argument and returns it.
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="shhDeepCompare">
+<span class="vartype">boolean</span>
+<span class="command">shh.DeepCompare</span>(<span class="vartype">any_type</span> <span class="varname">value1</span>, <span class="vartype">any_type</span> <span class="varname">value2</span>)
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: Used to compare by value two paramaters. Returns true if equal false if not.
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="shhLogError">
+<span class="vartype"></span>
+<span class="command">shh.LogError</span>(<span class="vartype">string</span> <span class="varname">message</span>)
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: Function that tells Process when an error occurs.
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="shhErrorBox">
+<span class="vartype"></span>
+<span class="command">shh.ErrorBox</span>(<span class="vartype">string</span> <span class="varname">format</span>, <span class="vartype">variable_arg</span> <span class="varname">optional_variable</span>)
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: Used to print data to an error box. Use a % sign in the format string to designate where an argument is to be printed. 
+You may have any number of arguments following the format string. Each argument may be a number, string or system code.
+An standard engine error box is displayed.
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="shhTrace">
+<span class="vartype"></span>
+<span class="command">shh.Trace</span>(<span class="vartype">string</span> <span class="varname">format</span>, <span class="vartype">variable_arg</span> <span class="varname">optional_variable</span>)
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: Used to print data to the output stream. Use a % sign in the format string to designate where an argument is to be printed. 
+You may have any number of arguments following the format string. Each argument may be a number, string or system code.
+</td></tr></table>
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
+<tr><td class="command"><a name="shhFilterTrace">
+<span class="vartype"></span>
+<span class="command">shh.FilterTrace</span>(<span class="vartype">classifier</span> <span class="varname">filter_attribute_lables</span>)
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: Allows only traces with any of the given classifier labels to be output.
+</td></tr></table>
+ <p><hr width="90%" align="center"><div align="center"><h2><a name="Object--type">Object type</a></h2></div>
+<p><center>Generic object functions. Token "Object" should be repkaced with Agent or Node variable names 
+</center>
+
+<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
 <tr><td class="command"><a name="NodeDestroy">
 <span class="vartype">boolean</span>
 <span class="command">Node:Destroy</span>()
@@ -433,8 +571,8 @@ Return bool if successful.
 </td></tr><tr><td class="description">Privilege: All</td></tr>
 </td></tr><tr><td class="description">Description: Writes the variable value to a given index in the output interface of the given name.
 </td></tr></table>
- <p><hr width="90%" align="center"><div align="center"><h2><a name="Object--type">Object type</a></h2></div>
-<p><center>Generic object functions. Token "Object" should be repkaced with Agent or Node variable names 
+ <p><hr width="90%" align="center"><div align="center"><h2><a name="System--library">System library</a></h2></div>
+<p><center>Operating system level functions.
 </center>
 
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
@@ -512,117 +650,11 @@ Agent or Node instead of tolen token Object, e.g: TypeCheck.Node(variable_name)
 </td></tr><tr><td class="description">Privilege: Agent, Node</td></tr>
 </td></tr><tr><td class="description">Description: Expresses a schema file, returns if successfull.
 </td></tr></table>
- <p><hr width="90%" align="center"><div align="center"><h2><a name="System--library">System library</a></h2></div>
-<p><center>Operating system level functions.
-</center>
-
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="SystemAbsoluteTime">
-<span class="vartype">double</span>
-<span class="command">System.AbsoluteTime</span>()
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: Returns the system time.
-</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="SystemDateTimeString">
-<span class="vartype">string</span>
-<span class="command">System.DateTimeString</span>()
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: Returns data and time as a string.
-</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="SystemGMDateTimeString">
-<span class="vartype">string</span>
-<span class="command">System.GMDateTimeString</span>()
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: Returns Greenwich Mean Time and Date as a string.
-</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="SystemUSADateTimeString">
-<span class="vartype">string</span>
-<span class="command">System.USADateTimeString</span>()
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: Returns USA date and time as a string.
-</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="SystemIsValidPath">
-<span class="vartype">boolean</span>
-<span class="command">System.IsValidPath</span>(<span class="vartype">string</span> <span class="varname">path</span>)
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: Checks if path exists.
-</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="SystemGetDirectoryContents">
-<span class="vartype">table_of_strings</span>
-<span class="command">System.GetDirectoryContents</span>(<span class="vartype">string</span> <span class="varname">directory+path</span>, <span class="vartype">string</span> <span class="varname">wildcard</span>, <span class="vartype">int</span> <span class="varname">flags</span>)
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: Returns table of the contents of the directory path.
-flags: GetFiles = 1, GetDirectories = 2, GetEverything = 3
-</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="SystemGetLabeledPath">
-<span class="vartype">string</span>
-<span class="command">System.GetLabeledPath</span>(<span class="vartype">string</span> <span class="varname">label</span>)
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: Returns the path that of given label.
-</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="SystemSetLabeledPath">
-<span class="vartype"></span>
-<span class="command">System.SetLabeledPath</span>(<span class="vartype">string</span> <span class="varname">label</span>, <span class="vartype">string</span> <span class="varname">path</span>)
-</td></tr><tr><td class="description">Privilege: God</td></tr>
-</td></tr><tr><td class="description">Description: Sets the path that of given label.
-</td></tr></table>
  <p><hr width="90%" align="center"><div align="center"><h2><a name="shh--library">shh library</a></h2></div>
 <p><center>Messaging and process functions aswell as variable copying, testing, debug tracing. 
 </center>
 
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="shhDeepCopy">
-<span class="vartype">cloned_type</span>
-<span class="command">shh.DeepCopy</span>(<span class="vartype">any_type</span> <span class="varname">data_to_clone</span>)
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: Used to make a clone copy my value of data_to_clone argument and returns it.
-</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="shhDeepCompare">
-<span class="vartype">boolean</span>
-<span class="command">shh.DeepCompare</span>(<span class="vartype">any_type</span> <span class="varname">value1</span>, <span class="vartype">any_type</span> <span class="varname">value2</span>)
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: Used to compare by value two paramaters. Returns true if equal false if not.
-</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="shhLogError">
-<span class="vartype"></span>
-<span class="command">shh.LogError</span>(<span class="vartype">string</span> <span class="varname">message</span>)
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: Function that tells Process when an error occurs.
-</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="shhErrorBox">
-<span class="vartype"></span>
-<span class="command">shh.ErrorBox</span>(<span class="vartype">string</span> <span class="varname">format</span>, <span class="vartype">variable_arg</span> <span class="varname">optional_variable</span>)
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: Used to print data to an error box. Use a % sign in the format string to designate where an argument is to be printed. 
-You may have any number of arguments following the format string. Each argument may be a number, string or system code.
-An standard engine error box is displayed.
-</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="shhTrace">
-<span class="vartype"></span>
-<span class="command">shh.Trace</span>(<span class="vartype">string</span> <span class="varname">format</span>, <span class="vartype">variable_arg</span> <span class="varname">optional_variable</span>)
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: Used to print data to the output stream. Use a % sign in the format string to designate where an argument is to be printed. 
-You may have any number of arguments following the format string. Each argument may be a number, string or system code.
-</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="shhFilterTrace">
-<span class="vartype"></span>
-<span class="command">shh.FilterTrace</span>(<span class="vartype">classifier</span> <span class="varname">filter_attribute_lables</span>)
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: Allows only traces with any of the given classifier labels to be output.
-</td></tr></table>
- <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
 <tr><td class="command"><a name="shhExecuteFile">
 <span class="vartype"></span>
 <span class="command">shh.ExecuteFile</span>(<span class="vartype">string</span> <span class="varname">filename</span>, <span class="vartype">variable_args</span> <span class="varname">optional_variables</span>)
@@ -689,116 +721,60 @@ script which may accept and returns args if it exists. Number of arguments accep
 </td></tr><tr><td class="description">Description: Returns the time delta of current message (used for timers and update messages).
 </td></tr></table>
  <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="shhInitializeModule">
-<span class="vartype">bool</span>
-<span class="command">shh.InitializeModule</span>(<span class="vartype">string</span> <span class="varname">module_id</span>, <span class="vartype">table</span> <span class="varname">config_dictionary</span>)
-</td></tr><tr><td class="description">Privilege: Updater</td></tr>
-</td></tr><tr><td class="description">Description: Used by updater scripts to make a initialize a module.
+<tr><td class="command"><a name="SystemAbsoluteTime">
+<span class="vartype">double</span>
+<span class="command">System.AbsoluteTime</span>()
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: Returns the system time.
 </td></tr></table>
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="shhFinalizeModule">
-<span class="vartype">bool </span>
-<span class="command">shh.FinalizeModule</span>(<span class="vartype">string</span> <span class="varname">module_id</span>)
-</td></tr><tr><td class="description">Privilege: Updater</td></tr>
-</td></tr><tr><td class="description">Description: Used by updater scripts finalize a module.
+<tr><td class="command"><a name="SystemDateTimeString">
+<span class="vartype">string</span>
+<span class="command">System.DateTimeString</span>()
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: Returns data and time as a string.
 </td></tr></table>
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="shhUpdateModule">
-<span class="vartype">bool </span>
-<span class="command">shh.UpdateModule</span>(<span class="vartype">string</span> <span class="varname">module_id</span>, <span class="vartype">double</span> <span class="varname">time_to_update_until</span>, <span class="vartype">integer</span> <span class="varname">phase_of_update</span>)
-</td></tr><tr><td class="description">Privilege: Updater</td></tr>
-</td></tr><tr><td class="description">Description: Used by updater scripts update a module.
+<tr><td class="command"><a name="SystemGMDateTimeString">
+<span class="vartype">string</span>
+<span class="command">System.GMDateTimeString</span>()
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: Returns Greenwich Mean Time and Date as a string.
 </td></tr></table>
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="shhUpdateScheduler">
-<span class="vartype">bool</span>
-<span class="command">shh.UpdateScheduler</span>(<span class="vartype">double</span> <span class="varname">time_to_update_until</span>, <span class="vartype">integer</span> <span class="varname">phase_of_update</span>)
-</td></tr><tr><td class="description">Privilege: Updater</td></tr>
-</td></tr><tr><td class="description">Description: Used by updater scripts update a scheduler.
+<tr><td class="command"><a name="SystemUSADateTimeString">
+<span class="vartype">string</span>
+<span class="command">System.USADateTimeString</span>()
+</td></tr><tr><td class="description">Privilege: All</td></tr>
+</td></tr><tr><td class="description">Description: Returns USA date and time as a string.
 </td></tr></table>
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="shhVector">
+<tr><td class="command"><a name="SystemIsValidPath">
 <span class="vartype">boolean</span>
-<span class="command">shh.Vector</span>(<span class="vartype">param</span> <span class="varname">variable</span>)
+<span class="command">System.IsValidPath</span>(<span class="vartype">string</span> <span class="varname">path</span>)
 </td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: Position or offest in a 3D world.
-Returns whether variable is a Vector
+</td></tr><tr><td class="description">Description: Checks if path exists.
 </td></tr></table>
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="shhVector">
-<span class="vartype">Vector</span>
-<span class="command">shh.Vector</span>()
+<tr><td class="command"><a name="SystemGetDirectoryContents">
+<span class="vartype">table_of_strings</span>
+<span class="command">System.GetDirectoryContents</span>(<span class="vartype">string</span> <span class="varname">directory+path</span>, <span class="vartype">string</span> <span class="varname">wildcard</span>, <span class="vartype">int</span> <span class="varname">flags</span>)
 </td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: Returns a newly created vector
+</td></tr><tr><td class="description">Description: Returns table of the contents of the directory path.
+flags: GetFiles = 1, GetDirectories = 2, GetEverything = 3
 </td></tr></table>
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="shhVector">
-<span class="vartype">Vector</span>
-<span class="command">shh.Vector</span>(<span class="vartype">vector to</span> <span class="varname">copy</span>)
+<tr><td class="command"><a name="SystemGetLabeledPath">
+<span class="vartype">string</span>
+<span class="command">System.GetLabeledPath</span>(<span class="vartype">string</span> <span class="varname">label</span>)
 </td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: Returns a newly created vector
+</td></tr><tr><td class="description">Description: Returns the path that of given label.
 </td></tr></table>
 <p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="shhVector">
-<span class="vartype">Vector</span>
-<span class="command">shh.Vector</span>(<span class="vartype">param</span> <span class="varname">x</span>, <span class="vartype">param</span> <span class="varname">y</span>, <span class="vartype">param</span> <span class="varname">z</span>)
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: Returns a newly created vector
-</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="shhGetLength">
-<span class="vartype">length</span>
-<span class="command">shh.GetLength</span>()
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: Returns a newly created vector
-</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="shhGetLengthSquared">
-<span class="vartype">length</span>
-<span class="command">shh.GetLengthSquared</span>()
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: Returns a newly created vector
-</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="shhNormalise">
-<span class="vartype">this</span>
-<span class="command">shh.Normalise</span>()
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: normalises vector
-</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="shhInverse">
-<span class="vartype">this</span>
-<span class="command">shh.Inverse</span>()
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: inverts vector
-</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="shhDot">
-<span class="vartype">dot product</span>
-<span class="command">shh.Dot</span>(<span class="vartype">param</span> <span class="varname">other</span>)
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: calculated dot product
-</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="shhCross">
-<span class="vartype">cross product</span>
-<span class="command">shh.Cross</span>(<span class="vartype">param</span> <span class="varname">other</span>)
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: calculated cross product
-</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="shhInterpolate">
-<span class="vartype">this</span>
-<span class="command">shh.Interpolate</span>(<span class="vartype">vector</span> <span class="varname">a</span>, <span class="vartype">vector</span> <span class="varname">b</span>, <span class="vartype">param</span> <span class="varname">range</span>)
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: Set this vector between vectors a & b, t: range: 0.0..1.0, 0.0 -> this = a, 1.0 -> this = b.
-</td></tr></table>
-<p><table align=center border=1 cellpadding=3 cellspacing=0 width="99%">
-<tr><td class="command"><a name="shhTolerates">
-<span class="vartype">boolean</span>
-<span class="command">shh.Tolerates</span>(<span class="vartype">vector</span> <span class="varname">a</span>, <span class="vartype">vector</span> <span class="varname">b</span>, <span class="vartype">param</span> <span class="varname">tollerance</span>)
-</td></tr><tr><td class="description">Privilege: All</td></tr>
-</td></tr><tr><td class="description">Description: Tests if two vectors are within tollerance of each other
+<tr><td class="command"><a name="SystemSetLabeledPath">
+<span class="vartype"></span>
+<span class="command">System.SetLabeledPath</span>(<span class="vartype">string</span> <span class="varname">label</span>, <span class="vartype">string</span> <span class="varname">path</span>)
+</td></tr><tr><td class="description">Privilege: God</td></tr>
+</td></tr><tr><td class="description">Description: Sets the path that of given label.
 </td></tr></table>
   </body></html>
