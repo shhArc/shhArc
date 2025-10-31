@@ -30,7 +30,7 @@
 #include "NodeAuxilaryModule.h"	
 
 //! /type Node
-//! Schema Node functions 
+//! Schema Node functions.
 
 namespace shh {
 
@@ -73,7 +73,7 @@ namespace shh {
 	//! /privilege Agent
 	//! /privilege Node
 	//! /returns boolean
-	//! Destroys a Node and all its child nodes and returns true if successful.
+	//! Destroys a Node and all its child Nodes and returns true if successful.
 	ExecutionState NodeAuxilaryModule::Destroy(GCPtr<Node>& node, bool& result)
 	{
 		result = false;
@@ -96,7 +96,7 @@ namespace shh {
 	//! /function DestroyChildNodes
 	//! /privilege Agent
 	//! /privilege Node
-	//! Destroys all child nodes and returns true if successful.
+	//! Destroys all child Nodes and returns true if successful.
 	ExecutionState NodeAuxilaryModule::DestroyChildNodes(GCPtr<Node>& node)
 	{
 		GCPtr<Object> object = Scheduler::GetCurrentProcess()->GetObject();
@@ -125,7 +125,7 @@ namespace shh {
 	//! /privilege Agent
 	//! /privilege Node
 	//! /return table_of_nodes
-	//! Returns a table of all child nodes.
+	//! Returns a table of all child Nodes.
 	ExecutionState NodeAuxilaryModule::GetChildNodes(GCPtr<Node>& node, VariantKeyDictionary& result)
 	{
 		GCPtr<Object> object = Scheduler::GetCurrentProcess()->GetObject();
@@ -160,8 +160,8 @@ namespace shh {
 	//! /function GetNodes
 	//! /privilege Agent
 	//! /privilege Node
-	//! /returns table nodes
-	//! Gets all nodes of of agent
+	//! /returns table_of_nodes
+	//! Gets all Ndes of of Agent
 	ExecutionState NodeAuxilaryModule::GetNodes(VariantKeyDictionary& dict)
 	{
 		unsigned int uid = Schema::GetTypeCode("Node");
@@ -250,10 +250,10 @@ namespace shh {
 	//! /param string source_node_interface_id
 	//! /param string destination_node_interface_id
 	//! /returns boolean
-	//! Creates an edge from the interface of the given name in the source node to
-	//! the interface of the given name in this node.
-	//! A negative source index selects a node from my siblings, and positive index
-	//! selects a node from my children.
+	//! Creates an edge from the interface of the given name in the source Node to
+	//! the interface of the given name in this Node.
+	//! A source id prefixed with CHILD__ selects a node from Nodes children, no prefix
+	//! selects a node from Nodes siblings.
 	//! Return bool if successful.
 	ExecutionState NodeAuxilaryModule::CreateEdge(GCPtr<Node>& node, std::string &sourceId, std::string& inputId, std::string& outputId, bool& result)
 	{

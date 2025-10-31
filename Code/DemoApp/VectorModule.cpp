@@ -1,5 +1,5 @@
- //! /namespace Vector
-//! Position or offest in a 3D world.
+//! /type Vector
+//! Demo type for position or offset in a 3D world.
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4786 4503 )

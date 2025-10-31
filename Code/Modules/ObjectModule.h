@@ -201,7 +201,7 @@ namespace shh {
 	//! /function Object
 	//! /param Object object
 	//! /returns boolean
-	//! Returns whether variable is an Object. Call using class name token.
+	//! Returns whether variable is an object. Call using class name token.
 	//! Agent or Node instead of tolen token Object, e.g: TypeCheck.Node(variable_name)
 	template<class O, class OM> int ObjectModule<O, OM>::TypeCheck(lua_State* L)
 	{
@@ -217,7 +217,7 @@ namespace shh {
 	//! /param string class_name
 	//! /param variable_arg optional_variable
 	//! /returns object
-	//! Creates an object of the given class. Call using class name token Agent or Node instead of token Object.
+	//! Creates an object of the given Class. Call using Class name token Agent or Node instead of token Object.
 	template<class O, class OM> int ObjectModule<O, OM>::Create(lua_State* L)
 	{
 
@@ -578,5 +578,5 @@ namespace shh {
 		return ExecutionOk;
 	}
 }
-#endif // AGENTMODULE_H
+#endif 
 

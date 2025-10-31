@@ -127,7 +127,7 @@ namespace shh {
 	//! /function Classifier
 	//! /param Classifier variable
 	//! /returns boolean
-	//! Returns whether variable is a Classifier.
+	//! Returns whether variable is a classifier.
 	int ClassifierModule::TypeCheck(lua_State * L)
 	{
 		Api::LuaCheckNumArguments(L, 1);
@@ -161,7 +161,7 @@ namespace shh {
 	//! /member Classifier
 	//! /function Add
 	//! /param string label_to_add
-	//! Adds a string label to the Classifier.
+	//! Adds a string label to the classifier.
 	ExecutionState ClassifierModule::Add(Classifier& c, std::string &label)
 	{
 		c.Add(label);
@@ -172,7 +172,7 @@ namespace shh {
 	//! /member Classifier
 	//! /function Remove
 	//! /param string label_to_remove
-	//! Removes a string label from the Classifier.
+	//! Removes a string label from the classifier.
 	ExecutionState ClassifierModule::Remove(Classifier & c, std::string & label)
 	{
 		c.Remove(label);
@@ -184,7 +184,7 @@ namespace shh {
 	//! /function Intersect
 	//! /param classifier other
 	//! /returns boolean
-	//! Returns whether the Classifier labels intersect with given others labels.
+	//! Returns whether the classifier labels intersect with given others labels.
 	ExecutionState ClassifierModule::Intersect(Classifier& c1, Classifier& c2, bool &result)
 	{
 		result = c1.Match(c2, Classifier::MATCH_ANY);
@@ -207,7 +207,7 @@ namespace shh {
 	//! /function Subset
 	//! /param classifier other
 	//! /returns boolean
-	//! Returns whether the Classifier matches exactly or is a subset of other.
+	//! Returns whether the classifier matches exactly or is a subset of other.
 	ExecutionState ClassifierModule::Subset(Classifier& c1, Classifier& c2, bool& result)
 	{
 		result = c2.Match(c1, Classifier::MATCH_ALL);

@@ -86,13 +86,11 @@ $waserror = 0;
 
 sub process_file
 {
-	if (! m/\.cpp$/)
+	if (! m/\.cpp$/ && ! m/\.h$/)
 	{
-		if (! m/\.h$/)
-		{
-			return;
-		}
+		return;
 	}
+
 	$file = $_;
 
 	open(SOURCE, "< $file");
@@ -143,6 +141,7 @@ sub process_file
 					$module_type = $1;
 					$priv = "";
 					$just_got_module = 1;
+					$text = "";
 				}
 				elsif ($1 eq "global")
 				{
@@ -150,6 +149,8 @@ sub process_file
 					$module_type = "";
 					$priv = "";
 					$just_got_module = 1;
+					$text = "";
+
 				}
 				elsif ($1 eq "namespace")
 				{	
@@ -234,8 +235,8 @@ sub process_file
 			@functions = sort { $a->{name} cmp $b->{name} } @functions;
 			foreach $func (@functions) 
 			{
-				$text = $func->{body};
-				$body .= $text;
+				$code = $func->{body};
+				$body .= $code;
 			}
 
 			#push @chunks, $body;
@@ -251,6 +252,7 @@ sub process_file
 
 			$just_got_module = 0;
                             
+			print LOG $text;
 
 			$moduleheader = "";
 			$privbrack = " ($priv ${module_type})";
@@ -261,7 +263,7 @@ sub process_file
 			push @head, "<a href=\"#$module-$priv-$module_type\">$module$privbrack</a> - $1\n";
 			$privtitle = "";
 			$privtitle = " ($priv privilege)" if $priv ne "";
-			$moduleheader .= $sorter;
+			$moduleheader = $sorter;
 			$moduleheader .= "<p><hr width=\"90%\" align=\"center\"><div align=\"center\"><h2><a name=\"$module-$priv-$module_type\">$module ${module_type}$privtitle</a></h2></div>\n<p><center>$text</center>\n\n";
 			
 			push @sections, $moduleheader;
@@ -378,22 +380,18 @@ for ($i = 0; $i <= $#sortedhead; ++$i)
 }
 
 
-#push @chunks, $body; # adds last read module as it wont have been added yet
-push @chunks,  { name => $sorter,  body => $body };	
-shift @chunks;
+push @chunks, $body; # adds last read module as it wont have been added yet
 
 $body = "";
 @sections = sort @sections;
 @sectionNames = sort @sectionNames;
-#@chunks = sort @chunks;
-@chunks = sort { $a->{name} cmp $b->{name} } @chunks;
+@chunks = sort @chunks;
+
 
 @done = {};
 #$body = join(" ", sort @chunks);
 
-#for ($i = 0; $i <= $#chunks; ++$i)
-$i = 0;
-foreach $chunk (@chunks) 
+for ($i = 0; $i <= $#chunks; ++$i)
 {
 	
 	$length = length $sectionNames[$i];
@@ -404,10 +402,9 @@ foreach $chunk (@chunks)
 		push @done, $sectionNames[$i];
 	}
 	
-	$text = substr($chunk, 50);
+	$text = substr($chunks[$i+1], 50);
 	$body .= $text;
 	$body .= " ";
-	++$i;
 }
 
 # Add hyperlinks to body text

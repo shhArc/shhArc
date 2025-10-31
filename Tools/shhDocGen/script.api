@@ -2,26 +2,26 @@ shh.InitializeModule(module_id, config_dictionary)Used by updater scripts to mak
 shh.FinalizeModule(module_id)Used by updater scripts finalize a module.
 shh.UpdateModule(module_id, time_to_update_until, phase_of_update)Used by updater scripts update a module.
 shh.UpdateScheduler(time_to_update_until, phase_of_update)Used by updater scripts update a scheduler.
-shh.Vector(variable)Position or offest in a 3D world.
-shh.Vector()Returns a newly created vector.
-shh.Vector(copy)Returns a newly created vector.
-shh.Vector(x, y, z)Returns a newly created vector.
-shh.GetLength()Returns a newly created vector.
-shh.GetLengthSquared()Returns a newly created vector.
-shh.Normalise()normalises vector.
-shh.Inverse()inverts vector.
-shh.Dot(other)calculated dot product.
-shh.Cross(other)calculated cross product.
-shh.Interpolate(a, b, range)Set this vector between vectors a & b, t: range: 0.
-shh.Tolerates(a, b, tollerance)Tests if two vectors are within tollerance of each other.
-TypeCheck.Classifier(variable)Returns whether variable is a Classifier.
+Vector.Vector(variable)Returns whether variable is a Vector.
+Vector.Vector()Returns a newly created vector.
+Vector.Vector(copy)Returns a newly created vector.
+Vector.Vector(x, y, z)Returns a newly created vector.
+Vector.GetLength()Returns a newly created vector.
+Vector.GetLengthSquared()Returns a newly created vector.
+Vector.Normalise()normalises vector.
+Vector.Inverse()inverts vector.
+Vector.Dot(other)calculated dot product.
+Vector.Cross(other)calculated cross product.
+Vector.Interpolate(a, b, range)Set this vector between vectors a & b, t: range: 0.
+Vector.Tolerates(a, b, tollerance)Tests if two vectors are within tollerance of each other.
+TypeCheck.Classifier(variable)Returns whether variable is a classifier.
 shhCONSTRUCTOR:Classifier()Returns a newly created classiffier.
 Classifier:Clear()Clears the classifier.
-Classifier:Add(label_to_add)Adds a string label to the Classifier.
-Classifier:Remove(label_to_remove)Removes a string label from the Classifier.
-Classifier:Intersect(other)Returns whether the Classifier labels intersect with given others labels.
+Classifier:Add(label_to_add)Adds a string label to the classifier.
+Classifier:Remove(label_to_remove)Removes a string label from the classifier.
+Classifier:Intersect(other)Returns whether the classifier labels intersect with given others labels.
 Classifier:Superset(other)Returns whether classifier matches exactly or is a superset of other classifier.
-Classifier:Subset(other)Returns whether the Classifier matches exactly or is a subset of other.
+Classifier:Subset(other)Returns whether the classifier matches exactly or is a subset of other.
 Classifier:DumpString()Returns the list of labels in classifier as a space separated string.
 Classifier:+(arg1, arg2)Returns a classifiers that is the combination of arg1 and arg2.
 Classifier:-(arg1, arg2)Returns a classifier that is arg1 with any labels in arg2 removed from it.
@@ -43,17 +43,17 @@ shh.LogError(message)Function that tells Process when an error occurs.
 shh.ErrorBox(format, optional_variable)Used to print data to an error box.
 shh.Trace(format, optional_variable)Used to print data to the output stream.
 shh.FilterTrace(filter_attribute_lables)Allows only traces with any of the given classifier labels to be output.
-Node:Destroy()Destroys a Node and all its child nodes and returns true if successful.
-Node:DestroyChildNodes()Destroys all child nodes and returns true if successful.
-Node:GetChildNodes()Returns a table of all child nodes.
-shh.GetNodes()Gets all nodes of of agent.
+Node:Destroy()Destroys a Node and all its child Nodes and returns true if successful.
+Node:DestroyChildNodes()Destroys all child Nodes and returns true if successful.
+Node:GetChildNodes()Returns a table of all child Nodes.
+shh.GetNodes()Gets all Ndes of of Agent.
 Node:CreateInputInterface(interface_id, size_of_iterface)Creates an input interface of the given name with the given size, returns if successful.
 Node:CreateOutputInterface(interface_id, size_of_iterface)Creates an output interface of the given name with the given size, returns if successful.
-Node:CreateEdge(id_index_of_source_node, source_node_interface_id, destination_node_interface_id)Creates an edge from the interface of the given name in the source node to the interface of the given name in this node.
+Node:CreateEdge(id_index_of_source_node, source_node_interface_id, destination_node_interface_id)Creates an edge from the interface of the given name in the source Node to the interface of the given name in this Node.
 Node:ReadInput(input_interface_id, variable_within_interface)Returns the variable value of a given index in the input interface of the given name.
 Node:WriteOutput(output_interface_id, variable_within_interface, value_of_variable)Writes the variable value to a given index in the output interface of the given name.
-TypeCheck.Object(object)Returns whether variable is an Object.
-shhCONSTRUCTOR:Object(class_name, optional_variable)Creates an object of the given class.
+TypeCheck.Object(object)Returns whether variable is an object.
+shhCONSTRUCTOR:Object(class_name, optional_variable)Creates an object of the given Class.
 Object:Destroy(object)Destorys an object, returns if successfull.
 Object:IsValid(object)Returns true if an object is valid.
 shh.This()Returns object that this process belongs to.
