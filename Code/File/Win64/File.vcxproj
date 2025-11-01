@@ -13,7 +13,6 @@
   <ItemGroup>
     <ClInclude Include="..\Archive.h" />
     <ClInclude Include="..\BinaryFile.h" />
-    <ClInclude Include="..\ConfigurationFile.h" />
     <ClInclude Include="..\FileSystem.h" />
     <ClInclude Include="..\IODictionary.h" />
     <ClInclude Include="..\IOInterface.h" />
@@ -24,7 +23,6 @@
   <ItemGroup>
     <ClCompile Include="..\Archive.cpp" />
     <ClCompile Include="..\BinaryFile.cpp" />
-    <ClCompile Include="..\ConfigurationFile.cpp" />
     <ClCompile Include="..\FileSystem.cpp" />
     <ClCompile Include="..\IODictionary.cpp" />
     <ClCompile Include="..\IOInterface.cpp" />
